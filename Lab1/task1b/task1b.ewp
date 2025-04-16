@@ -2033,6 +2033,6 @@
         <name>$PROJ_DIR$\..\..\..\Lab1\lab1.h</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\..\..\..\Lab1\mainb.c</name>
+        <name>$PROJ_DIR$\mainb.c</name>
     </file>
 </project>
