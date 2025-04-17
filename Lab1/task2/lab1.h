@@ -16,5 +16,9 @@
 #define GPIOPUR_J (*((volatile uint32_t *)0x40060510))
 #define GPIODATA_J (*((volatile uint32_t *)0x400603FC))
 
-
+#define GPIOAMSEL_E (*((volatile uint32_t *)0x4005C528))
+#define GPIODIR_E (*((volatile uint32_t *)0x4005C400))
+#define GPIODEN_E (*((volatile uint32_t *)0x4005C51C))
+#define GPIOAFSEL_E (*((volatile uint32_t *)0x4005C420))
+#define GPIODATA_E (*((volatile uint32_t *)0x4005C3FC))
 #endif //__HEADER1_H__

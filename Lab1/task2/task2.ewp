@@ -2039,6 +2039,9 @@
         <name>$PROJ_DIR$\main.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\switch.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\TickFct_TrafficLight.c</name>
     </file>
 </project>
