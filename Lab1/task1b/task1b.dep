@@ -27,6 +27,7 @@
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
             <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
+            <file>$PROJ_DIR$\Debug\Obj\task1b.pbd</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>

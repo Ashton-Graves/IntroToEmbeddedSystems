@@ -6,19 +6,30 @@
 * has an on/off button called PWR, and a "pedestrian wants to cross" button called PED. 
 */
 
+# include <stdint.h>
 # include "lab1.h"
-# include "switch.h"
+# include "led.h"
 
-enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_go, TL_Warn } TL_State;
+enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State;
 
 void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 {
+  
+  static enum TL_States lastState = TL_SMStart;
+  static unsigned int stateTimer = 0;
+  
+  if(TL_State != lastState) {
+    stateTimer = 0;
+  }
+  
+  lastState = TL_State;
+  
   switch(TL_State) {   // Transitions
      case TL_SMStart:  // Initial transition
         TL_State = TL_Off;
         break;
-
-     case TL_Off:
+     // Case transitions
+     case TL_Off: 
         if (!PWR) {
            TL_State = TL_Off;
         }
@@ -29,24 +40,21 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 
      case TL_Stop:
         if (PWR) {
-           TL_State = TL_Off;
+          TL_State = TL_Off;
         }
-        else if (PED) {
-           TL_State = TL_Stop;
-        }
-        else if (!PWR && !PED) {
-            TL_State = TL_Go;
+        else if (!PWR && !PED && stateTimer >= 100) {
+          TL_State = TL_Go;
         }
         break;
     
     case TL_Go:
-        if (PWR) {
+        if (PWR && stateTimer <= 100) {
            TL_State = TL_Off;
         }
         else if (PED) {
            TL_State = TL_Warn;
         }
-        else if (!PWR && !PED) {
+        else if (!PWR && !PED && stateTimer >= 100) {
             TL_State = TL_Stop;
         }
         break;
@@ -55,8 +63,8 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
         if (PWR) {
            TL_State = TL_Off;
         }
-        else {
-            TL_State = TL_Stop;
+        else if(stateTimer >= 100) {
+           TL_State = TL_Stop;
         }
         break;
 
@@ -67,18 +75,23 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 
   switch(TL_State) {   // State actions
      case TL_Stop:
-        // turn on red LED
+        LED_on(1);
         break;
 
      case TL_Go:
-        // turn on green LED
+        LED_on(3);
         break;
 
-    case TL_Warn:
-        // turn on yellow LED
+     case TL_Warn:
+        LED_on(2);
         break;
-
+        
+     case TL_Off: 
+        LED_off();
+        break;
+        
      default:
         break;
-   } // State actions
+   }
+   stateTimer++;
 }

@@ -5,6 +5,6 @@ void LED_init(void);
 
 void LED_on(int color);
 
-void LED_off(int color);
+void LED_off();
 
 #endif //LED_H_
