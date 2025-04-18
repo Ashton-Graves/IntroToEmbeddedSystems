@@ -2320,12 +2320,21 @@
         <name>$PROJ_DIR$\led.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\led.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\switch.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\switch.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\TickFct_TrafficLight.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\TickFct_TrafficLight.h</name>
     </file>
 </project>

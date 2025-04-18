@@ -7,10 +7,10 @@ void LED_init(void) {
   delay++;
   delay++;
   
-  GPIOAMSEL_C &= ~0x10; // disable analog function of PC4
-  GPIODIR_C |= 0x10; // set PC4 to output
-  GPIOAFSEL_C &= ~0x10; // set PC4 regular port function
-  GPIODEN_C |= 0x10; // enable digital output on PC4
+  GPIOAMSEL_E &= ~0x2C; // disable analog function of PC4
+  GPIODIR_E |= 0x2C; // set PC4 to output
+  GPIOAFSEL_E &= ~0x2C; // set PC4 regular port function
+  GPIODEN_E |= 0x2C; // enable digital output on PC4
 
 }
 

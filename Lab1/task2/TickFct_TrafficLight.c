@@ -7,10 +7,11 @@
 */
 
 # include "lab1.h"
+# include "switch.h"
 
 enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_go, TL_Warn } TL_State;
 
-void TickFct_TrafficLight()
+void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 {
   switch(TL_State) {   // Transitions
      case TL_SMStart:  // Initial transition
