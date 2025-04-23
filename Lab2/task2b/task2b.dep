@@ -5,22 +5,24 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\main2b.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\main2b.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\task2b.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Exe\task2b.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$PROJ_DIR$\..\task1a\main1a.c</file>
-            <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\main2b.c</file>
+            <file>$PROJ_DIR$\Debug\Exe\task2b.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2b.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\main.c</file>
         </outputs>
         <file>
-            <name>[ROOT_NODE]</name>
+            <name>$PROJ_DIR$\main2b.c</name>
             <outputs>
                 <tool>
-                    <name>ILINK</name>
-                    <file> 4</file>
+                    <name>ICCARM</name>
+                    <file> 0</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 3</file>
                 </tool>
             </outputs>
         </file>
@@ -29,7 +31,7 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 3</file>
+                    <file> 4</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -38,15 +40,11 @@
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\main2b.c</name>
+            <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 1</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 0</file>
+                    <name>ILINK</name>
+                    <file> 2</file>
                 </tool>
             </outputs>
         </file>

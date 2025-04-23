@@ -5,22 +5,31 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\..\task1a\main1a.c</file>
             <file>$PROJ_DIR$\Debug\Obj\task2c.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$PROJ_DIR$\Debug\Exe\task2c.out</file>
-            <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main2c.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\main2c.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\..\task1a\main1a.c</file>
+            <file>$PROJ_DIR$\Debug\Exe\task2c.out</file>
+            <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\main2c.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
         </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+        </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 2</file>
+                    <file> 8</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -29,24 +38,15 @@
             </outputs>
         </file>
         <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 4</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
             <name>$PROJ_DIR$\main2c.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 7</file>
+                    <file> 2</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 6</file>
+                    <file> 1</file>
                 </tool>
             </outputs>
         </file>
