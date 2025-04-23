@@ -1,0 +1,33 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 04/13/25
+
+* This file is a header file the defines the registers on the TIVA LaunchPad for Lab1 task 2.
+*/
+
+#ifndef __HEADER1_H__
+#define __HEADER1_H__
+
+#define RCGCGPIO (*((volatile uint32_t *)0x400FE608))
+
+#define GPIODIR_F (*((volatile uint32_t *)0x4005D400))
+#define GPIODEN_F (*((volatile uint32_t *)0x4005D51C))
+#define GPIODATA_F (*((volatile uint32_t *)0x4005D3FC))
+
+#define GPIODIR_N (*((volatile uint32_t *)0x40064400))
+#define GPIODEN_N (*((volatile uint32_t *)0x4006451C))
+#define GPIODATA_N (*((volatile uint32_t *)0x400643FC))
+
+#define GPIODIR_J (*((volatile uint32_t *)0x40060400))
+#define GPIODEN_J (*((volatile uint32_t *)0x4006051C))
+#define GPIOPUR_J (*((volatile uint32_t *)0x40060510))
+#define GPIODATA_J (*((volatile uint32_t *)0x400603FC))
+
+#define GPIOAMSEL_E (*((volatile uint32_t *)0x4005C528))
+#define GPIODIR_E (*((volatile uint32_t *)0x4005C400))
+#define GPIODEN_E (*((volatile uint32_t *)0x4005C51C))
+#define GPIOAFSEL_E (*((volatile uint32_t *)0x4005C420))
+#define GPIODATA_E (*((volatile uint32_t *)0x4005C3FC))
+
+#endif //__HEADER1_H__

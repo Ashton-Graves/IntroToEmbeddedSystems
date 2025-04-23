@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 04/8/25
+
+* This file builds the system specified in lab 1 task1b. Two onboard LEDs are turned on by pressing two of the onboard pushbuttons.
+*/
+
 #include <stdint.h>
 #include "lab1.h"
 int main(void)

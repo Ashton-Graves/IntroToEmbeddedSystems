@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 04/8/25
+
+* This file builds the system specified in lab 1 task1a. The 4 onboard LEDs are turned on one at a time in sequence.
+*/
+
 #include <stdint.h>
 #include "lab1.h"
 int main(void)
@@ -9,7 +17,7 @@ int main(void)
    
    GPIODIR_F = 0x11; // Set PF0 and PF4 to output
    GPIODEN_F = 0x11; // Set PF0 and PF4 to digital port
-   GPIODATA_F = 0x0; // initi
+   GPIODATA_F = 0x0; 
    
    GPIODIR_N = 0x3; // Set PN0 and PN1 to output
    GPIODEN_N = 0x3; // Set PN0 and PN1 to digital port

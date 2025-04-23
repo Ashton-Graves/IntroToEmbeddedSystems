@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 04/8/25
+
+* This file is a header file the defines the registers on the TIVA LaunchPad for Lab1 task 1.
+*/
+
 #ifndef __HEADER1_H__
 #define __HEADER1_H__
 

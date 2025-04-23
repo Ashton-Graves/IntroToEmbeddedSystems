@@ -1,3 +1,12 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 04/14/25
+
+* The purpose of this files is to define functions to properly initialize certain registers on the TIVA board to enable system integration
+  with external LEDs, to turn on one of the three LEDs used in lab 1, and to turn off all the LEDs.
+*/
+
 # include <stdint.h>
 # include "lab1.h"
 
@@ -9,13 +18,12 @@ void LED_init(void) {
   delay++;
   
   GPIOAMSEL_E &= ~0x2C; // disable analog function of PE2, PE3, PE5
-  GPIOAFSEL_E &= ~0x2C; // set PC4 regular port function
+  GPIOAFSEL_E &= ~0x2C; // set PE2, PE3, PE5 regular port function
   GPIODIR_E |= 0x2C; // set PE2, PE3, PE5 to output
   GPIODEN_E |= 0x2C; // enable digital output on PE2, PE3, PE5
-
 }
 
-// turn on LED connected to Port E
+// turn on an LED connected to Port E
 void LED_on(int color) {
   GPIODATA_E &= ~(0x04 | 0x08 | 0x20);
   
@@ -26,11 +34,9 @@ void LED_on(int color) {
   } else if (color == 3) { // if color is 3, turn on green LED (PE5)
     GPIODATA_E |= 0x20;
   }
-  
 }
 
 // turn off all LEDs connected to Port E
 void LED_off() {
   GPIODATA_E &= ~(0x04 | 0x08 | 0x20);
-
 }

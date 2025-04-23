@@ -1,7 +1,7 @@
 /*
 * Ashton Graves, Quan Hoang
-* Student ID
-* Date
+* graveash, qhoang05
+* 4/16/25
 * This file defines an FSM for the traffic light described in the Lab 1 specifications. The system
 * has an on/off button called PWR, and a "pedestrian wants to cross" button called PED. 
 */

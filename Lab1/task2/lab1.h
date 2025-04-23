@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 04/13/25
+
+* This file is a header file the defines the registers on the TIVA LaunchPad for Lab1.
+*/
+
 #ifndef __HEADER1_H__
 #define __HEADER1_H__
 
@@ -21,4 +29,5 @@
 #define GPIODEN_E (*((volatile uint32_t *)0x4005C51C))
 #define GPIOAFSEL_E (*((volatile uint32_t *)0x4005C420))
 #define GPIODATA_E (*((volatile uint32_t *)0x4005C3FC))
+
 #endif //__HEADER1_H__
