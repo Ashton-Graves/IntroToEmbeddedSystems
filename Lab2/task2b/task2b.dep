@@ -5,24 +5,25 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\main2b.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2b.pbi</file>
             <file>$PROJ_DIR$\main2b.c</file>
             <file>$PROJ_DIR$\Debug\Exe\task2b.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2b.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2b.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\task2b.pbd</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\main2b.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 0</file>
+                    <file> 5</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 3</file>
+                    <file> 0</file>
                 </tool>
             </outputs>
         </file>
@@ -31,11 +32,11 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 4</file>
+                    <file> 3</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 5</file>
+                    <file> 6</file>
                 </tool>
             </outputs>
         </file>

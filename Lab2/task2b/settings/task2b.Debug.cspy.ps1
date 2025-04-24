@@ -23,9 +23,9 @@ param([String]$debugfile = "");
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "\\udrive.uw.edu\graveash\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.general.xcl" --backend -f "\\udrive.uw.edu\graveash\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\Quan\Desktop\CSE474\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.general.xcl" --backend -f "C:\Users\Quan\Desktop\CSE474\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "\\udrive.uw.edu\graveash\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.general.xcl" --debug_file=$debugfile --backend -f "\\udrive.uw.edu\graveash\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Users\Quan\Desktop\CSE474\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\Quan\Desktop\CSE474\AshtonGraves474\Lab2\task2b\settings\task2b.Debug.driver.xcl" 
 }

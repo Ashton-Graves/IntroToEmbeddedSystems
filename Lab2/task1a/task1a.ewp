@@ -2030,6 +2030,12 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\lab2t1.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main1a.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\timer.c</name>
     </file>
 </project>
