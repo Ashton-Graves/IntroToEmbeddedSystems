@@ -13,4 +13,10 @@ void timer_off(void);
 // Activates the timer for a specified n seconds
 void timer_n_secs(int n);
 
+// Activates the timer for a specified n seconds
+void timer_sec_repeat(int n);
+
+// reads if the timer has expired
+int timer_expired(void);
+
 #endif //TIMER_H_

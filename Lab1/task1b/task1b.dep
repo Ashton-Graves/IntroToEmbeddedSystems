@@ -5,33 +5,41 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\mainb.c</file>
-            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\..\..\..\Lab1\lab1.h</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
             <file>$PROJ_DIR$\Debug\Obj\mainb.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\Debug\List\task1b.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\mainb.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
             <file>$PROJ_DIR$\Debug\Exe\task1b.out</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$PROJ_DIR$\..\..\..\Lab1\mainb.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$PROJ_DIR$\..\..\..\Lab1\lab1.h</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
             <file>$PROJ_DIR$\Debug\Obj\mainb.pbi</file>
             <file>$PROJ_DIR$\lab1.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\mainb.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\List\task1b.map</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$PROJ_DIR$\..\..\..\Lab1\mainb.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\task1b.pbd</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$PROJ_DIR$\mainb.c</file>
         </outputs>
         <file>
-            <name>$PROJ_DIR$\mainb.c</name>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 7 13</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>BICOMP</name>
@@ -39,35 +47,7 @@
                 </tool>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 6</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 15 13 5 17 23 9 12</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 16</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 14</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 19 8</file>
+                    <file> 4</file>
                 </tool>
             </outputs>
         </file>
@@ -76,13 +56,13 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 19</file>
+                    <file> 7</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 1 6 3 7 10 20</file>
+                    <file> 19 3 1 12 9 2</file>
                 </tool>
             </inputs>
         </file>
@@ -91,25 +71,44 @@
             <outputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 11</file>
+                    <file> 20</file>
                 </tool>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 6</file>
+                    <file> 3</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 18</file>
+                    <file> 8</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 15 13 5 17 23 9 4</file>
+                    <file> 5 16 0 6 17 14 18</file>
                 </tool>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 17 15 5 13 23 9 4</file>
+                    <file> 6 5 0 16 17 14 18</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\mainb.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5 16 0 6 17 14 21</file>
                 </tool>
             </inputs>
         </file>

@@ -31,6 +31,7 @@ void timer_off(void) {
 // activates timer for n seconds, clearing flags and
 // restarting everytime reaching 0.
 void timer_n_secs(int n) {
+  timer_off();
   GPTMTAILR_0 = n * 16000000;
   GPTMICR_0 = 0x1;
   timer_on();
@@ -39,4 +40,18 @@ void timer_n_secs(int n) {
   
   GPTMICR_0 = 0x1;
   
+}
+void timer_sec_repeat(int n) {
+  timer_off();
+  GPTMTAILR_0 = n * 16000000;
+  GPTMICR_0 = 0x1;
+  timer_on();
+}
+
+int timer_expired(void) {
+  if(GPTMRIS_0 & 0x1) {
+    GPTMICR_0 = 0x1;
+    return 1;
+  }
+  return 0;
 }
