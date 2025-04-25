@@ -9,6 +9,7 @@
 # include <stdint.h>
 # include "lab2t1.h"
 # include "led.h"
+# include "timer.h"
 
 enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State;
 
@@ -35,7 +36,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
           TL_State = TL_Off;
           timer_off();
         }
-        else if (timer_expired()) {
+        else if (!PWR && !PED && timer_expired()) {
           TL_State = TL_Go;
         }
         break;
@@ -46,7 +47,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
            timer_off();
         }
         else if (PED) {
-           TL_State = TL_Warn
+           TL_State = TL_Warn;
         }
         else if (timer_expired()) {
             TL_State = TL_Stop;

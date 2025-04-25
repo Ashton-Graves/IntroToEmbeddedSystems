@@ -2314,7 +2314,7 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\..\task1a\lab2t1.h</name>
+        <name>$PROJ_DIR$\..\task1a\lab2t1b.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\led.c</name>

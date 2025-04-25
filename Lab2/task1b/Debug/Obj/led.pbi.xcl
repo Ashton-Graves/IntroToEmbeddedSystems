@@ -1,10 +1,10 @@
-"C:\Users\Quan\Desktop\CSE474\AshtonGraves474\Lab2\task1b\led.c"
+"C:\Users\qhoang05\Desktop\CSE474\AshtonGraves474\Lab2\task1b\led.c"
 -std=c11
 -ferror-limit=0
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_3\arm\inc
+C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc
 -I
-C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_3\arm\inc\c
+C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\inc\c
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -278,8 +278,8 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_3\arm\inc\c
 -D__EDG_CPP11_IL_EXTENSIONS_SUPPORTED=1
 -D__EDG_FLOAT80_ENABLING_POSSIBLE=0
 -D__EDG_FLOAT128_ENABLING_POSSIBLE=0
--D_DLIB_CONFIG_FILE_HEADER_NAME="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.0_3\\arm\\INC\\c\\DLib_Config_Full.h"
--D_DLIB_CONFIG_FILE_STRING="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.0_3\\arm\\INC\\c\\DLib_Config_Full.h"
+-D_DLIB_CONFIG_FILE_HEADER_NAME="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.0\\arm\\INC\\c\\DLib_Config_Full.h"
+-D_DLIB_CONFIG_FILE_STRING="C:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.0\\arm\\INC\\c\\DLib_Config_Full.h"
 -D__VERSION__="IAR ANSI C/C++ Compiler V8.11.3.13950/W32 for ARM"
 -D__ICCARM_OLD_DEFINED_VAARGS__=1
 -D__VA_STACK_ALIGN__=8

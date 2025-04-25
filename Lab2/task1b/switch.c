@@ -31,9 +31,9 @@ unsigned long switch_input(int fnc) {
       timer_n_secs(2);
       if(GPIODATA_E & 0x1) {
         return 1; 
-      } else {
-        return 0; 
       }
+     return 0; 
+    }
   }
   
   // pedestrian button
@@ -43,9 +43,8 @@ unsigned long switch_input(int fnc) {
       timer_n_secs(2);
       if(GPIODATA_E & 0x2) {
         return 1; 
-      } else {
-        return 0; 
       }
+      return 0; 
     }
   }
 }
