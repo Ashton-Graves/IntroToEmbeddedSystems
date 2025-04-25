@@ -20,6 +20,7 @@ int main(void)
   volatile unsigned short delay = 0;
   LED_init();
   extern_switch_init();
+  timer0_init();
   timer1_init();
   delay++;
   delay++;

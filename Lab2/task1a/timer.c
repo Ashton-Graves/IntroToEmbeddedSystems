@@ -39,38 +39,62 @@ void timer1_init(void) {
   GPTMCTL_1 |= 0x1;
 }
 
-void timer_on(void) {
-  GPTMCTL_0 |= 0x1;
+void timer_on(int timerN) {
+  if(timerN == 0) {
+    GPTMCTL_0 |= 0x1;
+  } else if (timerN == 1) {
+    GPTMCTL_1 |= 0x1;
+  }
 }
 
-void timer_off(void) {
-  GPTMCTL_0 &= ~(0x1);
+void timer_off(int timerN) {
+  if(timerN == 0) {
+    GPTMCTL_0 &= ~(0x1);
+  } else if (timerN == 1){
+    GPTMCTL_1 &= ~(0x1);
+  }
 }
 
 // activates timer for n seconds, clearing flags and
 // restarting everytime reaching 0.
 void timer_n_secs(int n) {
-  timer_off();
+  timer_off(0);
   GPTMTAILR_0 = n * 16000000;
   GPTMICR_0 = 0x1;
-  timer_on();
+  timer_on(0);
   
   while((GPTMRIS_0 & 0x1) == 0);
   
   GPTMICR_0 = 0x1;
   
 }
-void timer_sec_repeat(int n) {
-  GPTMCTL_0 &= ~(0x1);
-  GPTMTAILR_1 = n * 16000000;
-  GPTMICR_1 = 0x1;
-  GPTMCTL_1 |= 0x1;
+void timer_sec_repeat(int n, int timerN) {
+  if(timerN == 0) {
+    GPTMCTL_0 &= ~(0x1);
+    GPTMTAILR_0 = n * 16000000;
+    GPTMICR_0 = 0x1;
+    GPTMCTL_0 |= 0x1;
+  } else if (timerN == 1){
+    GPTMCTL_1 &= ~(0x1);
+    GPTMTAILR_1 = n * 16000000;
+    GPTMICR_1 = 0x1;
+    GPTMCTL_1 |= 0x1; 
+  }
 }
 
-int timer_expired(void) {
-  if(GPTMRIS_1 & 0x1) {
-    GPTMICR_1 = 0x1;
-    return 1;
+int timer_expired(int timerN) {
+  if(timerN == 0) {  
+    if(GPTMRIS_0 & 0x1) {
+      GPTMICR_0 = 0x1;
+      return 1;
+    }
+    return 0;
+  } else if (timerN == 1) {
+    if(GPTMRIS_1 & 0x1) {
+      GPTMICR_1 = 0x1;
+      return 1;
+    }
+    return 0;
+    
   }
-  return 0;
 }

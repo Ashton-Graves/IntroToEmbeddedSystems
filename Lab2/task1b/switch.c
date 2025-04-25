@@ -26,10 +26,9 @@ void extern_switch_init(void)
 unsigned long switch_input(int fnc) {
   // power button
   if(fnc == 0) {
-    timer0_init();
     if(GPIODATA_E & 0x1) {
-      timer_n_secs(2);
-      if(GPIODATA_E & 0x1) {
+      timer_sec_repeat(2, 0);
+      if((GPIODATA_E & 0x1) && timer_expired(0)) {
         return 1; 
       }
      return 0; 
@@ -38,10 +37,9 @@ unsigned long switch_input(int fnc) {
   
   // pedestrian button
   if(fnc == 1) {
-    timer0_init();
     if(GPIODATA_E & 0x2) {  // 0x2 (pressed) or 0 (not pressed)
-      timer_n_secs(2);
-      if(GPIODATA_E & 0x2) {
+      timer_sec_repeat(2, 0);
+      if((GPIODATA_E & 0x2) && timer_expired(0)) {
         return 1; 
       }
       return 0; 
