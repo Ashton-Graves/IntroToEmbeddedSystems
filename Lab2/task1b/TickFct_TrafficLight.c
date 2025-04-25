@@ -14,7 +14,8 @@ enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State;
 
 void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 {
-  timer_init();
+  static int timerStarted = 0;
+  
   switch(TL_State) {   // Transitions
      case TL_SMStart:  // Initial transition
         TL_State = TL_Off;
@@ -23,44 +24,62 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
      case TL_Off: 
         if (!PWR) {
            TL_State = TL_Off;
+           timerStarted = 0;
         }
         else if (PWR) {
            TL_State = TL_Stop;
-           timer_n_secs(5);
+           timer_sec_repeat(5);
+           timerStarted = 1;
         }
         break;
 
      case TL_Stop:
         if (PWR) {
           TL_State = TL_Off;
+          timerStarted = 0;
+        } 
+        else if (!timerStarted){
+          timer_sec_repeat(5); 
+          timerStarted = 1;
         }
-        else if (!PWR && !PED) {
+        else if (timer_expired()) {
           TL_State = TL_Go;
-          timer_n_secs(5);
+          timerStarted = 0;
         }
         break;
     
     case TL_Go:
         if (PWR) {
            TL_State = TL_Off;
+           timerStarted = 0;
         }
         else if (PED) {
            TL_State = TL_Warn
-             timer_n_secs(5);
+           timer_sec_repeat(5);
+           timerStarted = 1;
         }
-        else if (!PWR && !PED) {
+        else if (!timerStarted) {
+           timer_sec_repeat(5);
+           timerStarted = 1;
+        }
+        else if (timer_expired()) {
             TL_State = TL_Stop;
-            timer_n_secs(5);
+            timerStarted = 0;
         }
         break;
 
      case TL_Warn:
         if (PWR) {
            TL_State = TL_Off;
+           timerStarted = 0;
         }
-        else {
+        else if(!timerStarted) {
+           timer_sec_repeat(5);
+           timerStarted = 1;
+        }
+        else if(timer_expired()) {
            TL_State = TL_Stop;
-           timer_n_secs(5);
+           timerStarted = 0;
         }
         break;
 
@@ -89,5 +108,4 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
      default:
         break;
    }
-   stateTimer++;
 }
