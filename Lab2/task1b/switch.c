@@ -8,7 +8,8 @@
 */
 
 # include <stdint.h>
-# include "lab1.h"
+# include "lab2t1.h"
+# include "timer.h"
 
 void extern_switch_init(void)
 {
@@ -24,12 +25,25 @@ void extern_switch_init(void)
 }
 unsigned long switch_input(int fnc) {
   // power button
-  if(fnc == 0) {  
-    return (GPIODATA_E & 0x1); // 0x1 (pressed) or 0 (not pressed)
+  if(fnc == 0) {
+    if(GPIODATA_E & 0x1) {
+      timer_n_secs(2);
+      if(GPIODATA_E & 0x1) {
+        return 1; 
+      } else {
+        return 0; 
+      }
   }
   
   // pedestrian button
   if(fnc == 1) {
-    return (GPIODATA_E & 0x2); // 0x2 (pressed) or 0 (not pressed)
+    if(GPIODATA_E & 0x1) {
+      timer_n_secs(2);
+      if(GPIODATA_E & 0x1) {
+        return 1; 
+      } else {
+        return 0; 
+      }
+    }
   }
 }

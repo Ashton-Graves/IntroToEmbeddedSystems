@@ -3,7 +3,7 @@
 
 void timer_init(void) {
   volatile unsigned short delay = 0;
-  RCGCTIMER |= 0x01; // activate clock for Port E
+  RCGCTIMER |= 0x01; // activate timer 0
   
   delay++;
   delay++;

@@ -68,6 +68,12 @@
                     <file> 10</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 4 7 2 17 3 16 25 21</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\switch.c</name>
@@ -135,7 +141,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 4 16 2 3 7 17 24</file>
+                    <file> 16 4 3 2 7 17 24</file>
                 </tool>
             </inputs>
         </file>
