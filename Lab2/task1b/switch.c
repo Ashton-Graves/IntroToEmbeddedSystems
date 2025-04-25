@@ -15,6 +15,7 @@ void extern_switch_init(void)
 {
   volatile unsigned short delay = 0;
   RCGCGPIO |= 0x10; // Enable Port E Gating Clock
+  timer_init();
   delay++;
   delay++;
   
