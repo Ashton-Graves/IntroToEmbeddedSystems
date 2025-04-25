@@ -2314,6 +2314,9 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\..\task1a\lab2t1.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\led.c</name>
     </file>
     <file>
@@ -2333,5 +2336,11 @@
     </file>
     <file>
         <name>$PROJ_DIR$\TickFct_TrafficLight.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\task1a\timer.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\task1a\timer.h</name>
     </file>
 </project>

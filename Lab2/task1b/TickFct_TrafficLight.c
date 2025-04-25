@@ -7,7 +7,7 @@
 */
 
 # include <stdint.h>
-# include "lab1.h"
+# include "lab2t1.h"
 # include "led.h"
 
 enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State;
