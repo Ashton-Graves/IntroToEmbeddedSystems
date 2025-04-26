@@ -49,11 +49,11 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <LMIFTDIDriver>
-        <LMIFTDIserialNo>0F00F0C7</LMIFTDIserialNo>
+        <LMIFTDIserialNo>0F00D9E1</LMIFTDIserialNo>
         <LMIFTDIfoundProbes />
     </LMIFTDIDriver>
     <DebugChecksum>
-        <Checksum>574017319</Checksum>
+        <Checksum>2527512157</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>

@@ -27,6 +27,15 @@
 #define GPTMRIS_0 (*((volatile uint32_t *)0x4003001C))
 #define GPTMICR_0 (*((volatile uint32_t *)0x40030024))
 
+// Timer 1
+#define GPTMCTL_1 (*((volatile uint32_t *)0x4003100C))
+#define GPTMCFG_1 (*((volatile uint32_t *)0x40031000))
+#define GPTMTAMR_1 (*((volatile uint32_t *)0x40031004))
+#define GPTMTAILR_1 (*((volatile uint32_t *)0x40031028))
+// Flag polling
+#define GPTMRIS_1 (*((volatile uint32_t *)0x4003101C))
+#define GPTMICR_1 (*((volatile uint32_t *)0x40031024))
+
 #endif //__HEADER2_H__
 
 

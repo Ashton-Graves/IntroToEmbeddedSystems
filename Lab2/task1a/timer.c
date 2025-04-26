@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "lab2t1.h"
 
-void timer_init(void) {
+void timer0_init(void) {
   volatile unsigned short delay = 0;
   RCGCTIMER |= 0x01; // activate timer 0
   
@@ -18,6 +18,25 @@ void timer_init(void) {
   
   //enables timer
   GPTMCTL_0 |= 0x1;
+}
+
+void timer1_init(void) {
+  volatile unsigned short delay = 0;
+  RCGCTIMER |= 0x02; // activate timer 0
+  
+  delay++;
+  delay++;
+  
+  //disables timer
+  GPTMCTL_1 &= ~(0x1);
+  // configures bit, timer mode, and count down/up
+  GPTMCFG_1 |= 0x0;
+  GPTMTAMR_1 |= 0x2;
+  GPTMTAMR_1 &= ~(0x10);
+  GPTMTAILR_1 = 16000000;
+  
+  //enables timer
+  GPTMCTL_1 |= 0x1;
 }
 
 void timer_on(void) {
@@ -42,15 +61,15 @@ void timer_n_secs(int n) {
   
 }
 void timer_sec_repeat(int n) {
-  timer_off();
-  GPTMTAILR_0 = n * 16000000;
-  GPTMICR_0 = 0x1;
-  timer_on();
+  GPTMCTL_0 &= ~(0x1);
+  GPTMTAILR_1 = n * 16000000;
+  GPTMICR_1 = 0x1;
+  GPTMCTL_1 |= 0x1;
 }
 
 int timer_expired(void) {
-  if(GPTMRIS_0 & 0x1) {
-    GPTMICR_0 = 0x1;
+  if(GPTMRIS_1 & 0x1) {
+    GPTMICR_1 = 0x1;
     return 1;
   }
   return 0;
