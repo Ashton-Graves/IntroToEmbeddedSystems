@@ -70,15 +70,15 @@ void timer_n_secs(int n) {
 }
 void timer_sec_repeat(int n, int timerN) {
   if(timerN == 0) {
-    GPTMCTL_0 &= ~(0x1);
+    timer_off(0);
     GPTMTAILR_0 = n * 16000000;
     GPTMICR_0 = 0x1;
-    GPTMCTL_0 |= 0x1;
+    timer_on(0);
   } else if (timerN == 1){
-    GPTMCTL_1 &= ~(0x1);
+    timer_off(1);
     GPTMTAILR_1 = n * 16000000;
     GPTMICR_1 = 0x1;
-    GPTMCTL_1 |= 0x1; 
+    timer_on(1)
   }
 }
 

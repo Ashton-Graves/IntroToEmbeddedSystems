@@ -5,30 +5,30 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\main1a.__cstat.et</file>
-            <file>$PROJ_DIR$\lab2t1.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main1a.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\main1a.pbi</file>
-            <file>$PROJ_DIR$\Debug\List\task1a.map</file>
-            <file>$PROJ_DIR$\timer.c</file>
-            <file>$PROJ_DIR$\main1a.c</file>
-            <file>$PROJ_DIR$\Debug\Exe\task1a.out</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
             <file>$PROJ_DIR$\Debug\Obj\timer.__cstat.et</file>
+            <file>$PROJ_DIR$\lab2t1.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1a.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\main1a.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1a.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer.o</file>
+            <file>$PROJ_DIR$\Debug\List\task1a.map</file>
+            <file>$PROJ_DIR$\Debug\Exe\task1a.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1a.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$PROJ_DIR$\timer.c</file>
             <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
         </outputs>
         <file>
@@ -36,29 +36,16 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 20 17</file>
+                    <file> 19 18</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\main.c</name>
+            <name>$PROJ_DIR$\main1a.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 11</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 4</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\timer.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 3</file>
+                    <file> 16</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -66,22 +53,22 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 23</file>
+                    <file> 20</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 7 9 22 5 14 8 13</file>
+                    <file> 4 5 11 12 6 2 1</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 8 9 5 22 14 7</file>
+                    <file> 2 5 12 11 6 4 1</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\main1a.c</name>
+            <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
@@ -89,36 +76,49 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 16</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 12</file>
+                    <file> 21</file>
                 </tool>
             </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 7 9 22 5 14 8 13</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 8 9 5 22 14 7 13</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\task1a.out</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 17</file>
+                    <file> 18</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 2 15 3 0 24 6 21</file>
+                    <file> 7 16 17 9 24 8 22</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\timer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 3</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 0</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 4 5 11 12 6 2 1</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 2 5 12 11 6 4</file>
                 </tool>
             </inputs>
         </file>
