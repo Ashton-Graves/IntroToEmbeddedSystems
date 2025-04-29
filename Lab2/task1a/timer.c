@@ -78,7 +78,7 @@ void timer_sec_repeat(int n, int timerN) {
     timer_off(1);
     GPTMTAILR_1 = n * 16000000;
     GPTMICR_1 = 0x1;
-    timer_on(1)
+    timer_on(1);
   }
 }
 
