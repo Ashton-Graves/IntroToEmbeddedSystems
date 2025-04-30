@@ -2317,6 +2317,15 @@
         <name>$PROJ_DIR$\cstartup_M_task2a.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\lab2t2a.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main2a.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\timer_t2a.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\timer_t2a.h</name>
     </file>
 </project>

@@ -35,6 +35,8 @@
 #define GPTMRIS_0 (*((volatile uint32_t *)0x4003001C))
 #define GPTMICR_0 (*((volatile uint32_t *)0x40030024))
 
+#define EN0 (*((volatile uint32_t *)0xE000E100)) // enable interrupt (0-31)
+
 #endif //__HEADER2_H__
 
 
