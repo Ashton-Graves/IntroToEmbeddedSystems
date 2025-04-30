@@ -2030,6 +2030,9 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\cstartup_M_task2a.c</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main2a.c</name>
     </file>
 </project>

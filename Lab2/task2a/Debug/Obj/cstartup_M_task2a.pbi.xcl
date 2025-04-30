@@ -1,4 +1,4 @@
-"C:\AshtonGraves474\Lab2\task2a\main2a.c"
+"C:\AshtonGraves474\Lab2\task2a\cstartup_M_task2a.c"
 -std=c11
 -ferror-limit=0
 -I

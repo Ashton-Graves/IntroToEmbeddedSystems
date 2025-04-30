@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>3758023706</fileChecksum>
+    <fileChecksum>1114372849</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$PROJ_DIR$\Debug\Exe\task2a.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
             <file>$PROJ_DIR$\main2a.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
             <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_M_task2a.o</file>
+            <file>$PROJ_DIR$\cstartup_M_task2a.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_M_task2a.pbi</file>
+            <file>$PROJ_DIR$\..\task1b\TickFct_TrafficLight.c</file>
+            <file>$PROJ_DIR$\..\task1b\switch.c</file>
+            <file>$PROJ_DIR$\..\task1a\timer.h</file>
+            <file>$PROJ_DIR$\..\task1a\main1a.c</file>
+            <file>$PROJ_DIR$\..\task1a\lab2t1.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\task2a.pbd</file>
+            <file>$PROJ_DIR$\..\task1a\timer.c</file>
+            <file>$PROJ_DIR$\..\task1b\main1b.c</file>
         </outputs>
         <file>
-            <name>$PROJ_DIR$\main.c</name>
+            <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 2</file>
-                </tool>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 6</file>
+                    <name>ILINK</name>
+                    <file> 0</file>
                 </tool>
             </outputs>
         </file>
@@ -31,7 +38,20 @@
             <outputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 0</file>
+                    <file> 2</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5</file>
                 </tool>
                 <tool>
                     <name>ICCARM</name>
@@ -40,11 +60,15 @@
             </outputs>
         </file>
         <file>
-            <name>[ROOT_NODE]</name>
+            <name>$PROJ_DIR$\cstartup_M_task2a.c</name>
             <outputs>
                 <tool>
-                    <name>ILINK</name>
-                    <file> 3</file>
+                    <name>BICOMP</name>
+                    <file> 9</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 7</file>
                 </tool>
             </outputs>
         </file>
