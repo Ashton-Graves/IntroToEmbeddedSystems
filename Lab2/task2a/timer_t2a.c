@@ -1,9 +1,10 @@
 #include <stdint.h>
-#include "lab2t1.h"
+#include "lab2t2a.h"
 
 void timer_init(void) {
   volatile unsigned short delay = 0;
   RCGCTIMER |= 0x01; // activate timer 0
+  EN0 |= 0x80000; // enable interrupt 19, the timer0A interrupt
   
   delay++;
   delay++;
@@ -15,7 +16,9 @@ void timer_init(void) {
   GPTMTAMR_0 |= 0x2;
   GPTMTAMR_0 &= ~(0x10);
   GPTMTAILR_0 = 16000000;
-  
+
+  GPTMIMR_0 |= 0x1; // interrupt mask - enables interrupt for Timer 0
+
   //enables timer
   GPTMCTL_0 |= 0x1;
 }
@@ -28,19 +31,7 @@ void timer_off(void) {
   GPTMCTL_0 &= ~(0x1);
 }
 
-// activates timer for n seconds, clearing flags and
-// restarting everytime reaching 0.
-void timer_n_secs(int n) {
-  timer_off();
-  GPTMTAILR_0 = n * 16000000;
-  GPTMICR_0 = 0x1;
-  timer_on();
-  
-  while((GPTMRIS_0 & 0x1) == 0);
-  
-  GPTMICR_0 = 0x1;
-  
-}
+// initializes timer
 void timer_sec_repeat(int n) {
   timer_off();
   GPTMTAILR_0 = n * 16000000;
@@ -48,6 +39,7 @@ void timer_sec_repeat(int n) {
   timer_on();
 }
 
+// polling to see if timer expired. 1 if timer expired, 0 otherwise
 int timer_expired(void) {
   if(GPTMRIS_0 & 0x1) {
     GPTMICR_0 = 0x1;
