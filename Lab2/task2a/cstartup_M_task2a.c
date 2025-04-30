@@ -23,6 +23,7 @@ extern void SVC_Handler( void );
 extern void DebugMon_Handler( void );
 extern void PendSV_Handler( void );
 extern void SysTick_Handler( void );
+
 extern void Timer0A_Handler( void );
 
 typedef void( *intfunc )( void );
@@ -99,6 +100,7 @@ __weak void DebugMon_Handler( void ) { while (1) {} }
 __weak void PendSV_Handler( void ) { while (1) {} }
 #pragma call_graph_root = "interrupt"
 __weak void SysTick_Handler( void ) { while (1) {} }
+
 #pragma call_graph_root = "interrupt"
 __weak void Timer0A_Handler ( void ) { while (1) {} }
 

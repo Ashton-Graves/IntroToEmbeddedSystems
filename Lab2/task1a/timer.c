@@ -8,16 +8,17 @@ void timer0_init(void) {
   delay++;
   delay++;
   
-  //disables timer
-  GPTMCTL_0 &= ~(0x1);
-  // configures bit, timer mode, and count down/up
-  GPTMCFG_0 |= 0x0;
-  GPTMTAMR_0 |= 0x2;
-  GPTMTAMR_0 &= ~(0x10);
-  GPTMTAILR_0 = 16000000;
+  GPTMCTL_0 &= ~(0x1); // disable timer
   
-  //enables timer
-  GPTMCTL_0 |= 0x1;
+  // configures bit, timer mode, and count down/up
+  GPTMCFG_0 |= 0x0; // 32 bit mode
+  GPTMTAMR_0 |= 0x2; // set mode = periodic
+  GPTMTAMR_0 &= ~(0x10); // set to count down 
+  GPTMTAILR_0 = 16000000; // set threshold
+  
+  GPTMIMR_0 |= 
+  
+  GPTMCTL_0 |= 0x1; // enable timer
 }
 
 void timer1_init(void) {
@@ -60,12 +61,12 @@ void timer_off(int timerN) {
 void timer_n_secs(int n) {
   timer_off(0);
   GPTMTAILR_0 = n * 16000000;
-  GPTMICR_0 = 0x1;
+  GPTMICR_0 = 0x1; // clears the flag 
   timer_on(0);
   
-  while((GPTMRIS_0 & 0x1) == 0);
+  while((GPTMRIS_0 & 0x1) == 0); // checks for when the timer runs out. GPTMRIS is 0 until the timer runs out, then 1.
   
-  GPTMICR_0 = 0x1;
+  GPTMICR_0 = 0x1; // clears the flag
   
 }
 void timer_sec_repeat(int n, int timerN) {

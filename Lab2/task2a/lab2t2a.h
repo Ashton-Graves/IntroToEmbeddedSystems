@@ -24,10 +24,12 @@
 #define GPIODATA_E (*((volatile uint32_t *)0x4005C3FC))
 
 // Timer 0
-#define GPTMCTL_0 (*((volatile uint32_t *)0x4003000C))
-#define GPTMCFG_0 (*((volatile uint32_t *)0x40030000))
-#define GPTMTAMR_0 (*((volatile uint32_t *)0x40030004))
-#define GPTMTAILR_0 (*((volatile uint32_t *)0x40030028))
+#define GPTMCTL_0 (*((volatile uint32_t *)0x4003000C)) // enable/disable timer
+#define GPTMCFG_0 (*((volatile uint32_t *)0x40030000)) // 32 bit mode
+#define GPTMTAMR_0 (*((volatile uint32_t *)0x40030004)) // set mode (periodic, countdown)
+#define GPTMTAILR_0 (*((volatile uint32_t *)0x40030028)) // set threshold
+
+#define GPTMIMR_0 (*((volatile uint32_t *)0x40030018)) // GPTM interrupt mask
 
 // Flag polling
 #define GPTMRIS_0 (*((volatile uint32_t *)0x4003001C))

@@ -14,7 +14,7 @@
             <file>$PROJ_DIR$\Debug\Obj\main.o</file>
         </outputs>
         <file>
-            <name>$PROJ_DIR$\main2b.c</name>
+            <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>BICOMP</name>
@@ -40,7 +40,7 @@
             </outputs>
         </file>
         <file>
-            <name>[ROOT_NODE]</name>
+            <name>$PROJ_DIR$\main2b.c</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>

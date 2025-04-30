@@ -149,8 +149,8 @@
                     <file> 25</file>
                 </tool>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 28</file>
+                    <name>BICOMP</name>
+                    <file> 36</file>
                 </tool>
             </outputs>
             <inputs>
@@ -165,7 +165,7 @@
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\TickFct_TrafficLight.c</name>
+            <name>$PROJ_DIR$\Debug\Exe\task1b.out</name>
             <outputs>
                 <tool>
                     <name>__cstat</name>
@@ -257,6 +257,9 @@
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>ILINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
         </forcedrebuild>
     </configuration>
 </project>
