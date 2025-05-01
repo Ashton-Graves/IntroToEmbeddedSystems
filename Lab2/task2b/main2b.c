@@ -44,7 +44,7 @@ __weak void Timer0A_Handler(void) {
   GPTMICR_0 = 0x1; // clears the flag
   
   if (GPIODATA_N == 0x2) {
-    GPIODATA_N = 0x0; // Set PN1 to 1
+    GPIODATA_N = 0x0; // Set PN1 to 0
   }
   
   else if (GPIODATA_N == 0x0) {
@@ -56,7 +56,7 @@ __weak void Timer0A_Handler(void) {
 __weak void SW_Handler(void) {
 
   // check port + mask when SW1 (PJ0) is pressed
-  if((GPIODATA_J & 0x03) == 0x2) { // active low LEDs
+  if((GPIODATA_J & 0x03) == 0x2) { // active low SWs
     GPIOICR_J = 0x1; // clears the flag
     GPTMCTL_0 &= ~(0x1); // turns off the timer (stopping the blinking)
     GPIODATA_N |= 0x1; // turns on LED2
@@ -69,3 +69,6 @@ __weak void SW_Handler(void) {
     GPIODATA_N &= ~(0x1); // turns off LED2
   }
 }
+
+// instructions to setup interrupts
+//     * include new cstartup_M file in the project - locate interrupt position in 

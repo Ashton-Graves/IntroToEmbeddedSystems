@@ -78,7 +78,7 @@ const intvec_elem __vector_table[] =
   0,
   0,
   0,
-  Timer0A_Handler
+  Timer0A_Handler // interrupt 19, corresponds to timer0
 
 };
 
