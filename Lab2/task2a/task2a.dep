@@ -1,117 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>2884725997</fileChecksum>
+    <fileChecksum>3753236529</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\..\task1a\main1a.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
-            <file>$PROJ_DIR$\Debug\Exe\task2a.out</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\cstartup_M_task2a.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\cstartup_M_task2a.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\task2a.pbd</file>
-            <file>$PROJ_DIR$\..\task1a\timer.h</file>
-            <file>$PROJ_DIR$\main2a.c</file>
-            <file>$PROJ_DIR$\..\task1a\timer.c</file>
-            <file>$PROJ_DIR$\..\task1b\main1b.c</file>
-            <file>$PROJ_DIR$\cstartup_M_task2a.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_t2a.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_t2a.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
             <file>$PROJ_DIR$\lab2t2a.h</file>
             <file>$PROJ_DIR$\timer_t2a.h</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\List\task2a.map</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
             <file>$PROJ_DIR$\timer_t2a.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer_t2a.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer_t2a.pbi</file>
+            <file>$PROJ_DIR$\main2a.c</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\task2a.out</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\task2a.pbd</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
+            <file>$PROJ_DIR$\cstartup_M.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_M.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_M.pbi</file>
         </outputs>
         <file>
-            <name>[ROOT_NODE]</name>
+            <name>$PROJ_DIR$\timer_t2a.c</name>
             <outputs>
                 <tool>
-                    <name>ILINK</name>
+                    <name>BICOMP</name>
+                    <file> 1</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
                     <file> 2</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 8</file>
-                </tool>
+            <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 3</file>
+                    <file> 17 15 0 13 18 20 4</file>
                 </tool>
-            </outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 20 15 13 0 18 17 4</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\main2a.c</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 1</file>
+                    <name>BICOMP</name>
+                    <file> 3</file>
                 </tool>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 4</file>
+                    <name>ICCARM</name>
+                    <file> 21</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 16 15 20 18 19 17</file>
+                    <file> 17 15 0 13 18 20 4 5</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 20 15 13 0 18 17 4 5</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\cstartup_M_task2a.c</name>
+            <name>$PROJ_DIR$\Debug\Exe\task2a.out</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 6</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
+                    <name>ILINK</name>
                     <file> 7</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\timer_t2a.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 24</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 25</file>
-                </tool>
-            </outputs>
             <inputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 16 15 20 18 19 17</file>
+                    <name>ILINK</name>
+                    <file> 19 23 21 2 6 12 8 9</file>
                 </tool>
             </inputs>
         </file>
-        <forcedrebuild>
-            <name>[MULTI_TOOL]</name>
-            <tool>ILINK</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>[REBUILD_ALL]</name>
-        </forcedrebuild>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 14 7</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\cstartup_M.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 23</file>
+                </tool>
+            </outputs>
+        </file>
     </configuration>
     <configuration>
         <name>Release</name>
@@ -119,6 +121,9 @@
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>ILINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
         </forcedrebuild>
     </configuration>
 </project>

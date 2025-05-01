@@ -16,8 +16,6 @@ void timer0_init(void) {
   GPTMTAMR_0 &= ~(0x10); // set to count down 
   GPTMTAILR_0 = 16000000; // set threshold
   
-  GPTMIMR_0 |= 
-  
   GPTMCTL_0 |= 0x1; // enable timer
 }
 

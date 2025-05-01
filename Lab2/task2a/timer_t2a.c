@@ -4,7 +4,6 @@
 void timer_init(void) {
   volatile unsigned short delay = 0;
   RCGCTIMER |= 0x01; // activate timer 0
-  EN0 |= 0x80000; // enable interrupt 19, the timer0A interrupt
   
   delay++;
   delay++;
@@ -16,8 +15,10 @@ void timer_init(void) {
   GPTMTAMR_0 |= 0x2;
   GPTMTAMR_0 &= ~(0x10);
   GPTMTAILR_0 = 16000000;
+  GPTMICR_0 = 0x1; // clear pending interrupt timer 0A timeout flag
 
   GPTMIMR_0 |= 0x1; // interrupt mask - enables interrupt for Timer 0
+  EN0 |= 0x80000; // enable interrupt 19, the timer0A interrupt
 
   //enables timer
   GPTMCTL_0 |= 0x1;

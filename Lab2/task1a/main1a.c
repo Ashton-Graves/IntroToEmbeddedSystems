@@ -12,7 +12,7 @@ int main(void)
 {
    volatile unsigned short delay = 0;
    RCGCGPIO |= 0x1000 | 0x20; // Enable PortN& PortF GPIO
-   timer_init();
+   timer0_init();
    delay++; // Delay 2 more cycles before access Timer registers
    delay++; // Refer to Page. 756 of Datasheet for info
    

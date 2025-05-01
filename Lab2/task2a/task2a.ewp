@@ -2030,7 +2030,7 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\cstartup_M_task2a.c</name>
+        <name>$PROJ_DIR$\cstartup_M.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\lab2t2a.h</name>
