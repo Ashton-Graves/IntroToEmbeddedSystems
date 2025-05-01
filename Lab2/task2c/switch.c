@@ -8,8 +8,8 @@
 */
 
 # include <stdint.h>
-# include "lab2t1.h"
-# include "timer.h"
+# include "lab2t2c.h"
+# include "timer_t2c.h"
 
 void extern_switch_init(void)
 {

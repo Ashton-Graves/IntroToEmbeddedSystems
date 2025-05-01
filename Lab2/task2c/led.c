@@ -8,7 +8,7 @@
 */
 
 # include <stdint.h>
-# include "lab2t1.h"
+# include "lab2t2c.h"
 
 void LED_init(void) {
   volatile unsigned short delay = 0;
