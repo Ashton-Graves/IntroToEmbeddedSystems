@@ -14,7 +14,7 @@ enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State;
 
 void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 {
-  
+  /*
   static enum TL_States lastState = TL_SMStart;
   static unsigned int stateTimer = 0;
   
@@ -23,7 +23,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
   }
   
   lastState = TL_State;
-  
+  */
   switch(TL_State) {   // Transitions
      case TL_SMStart:  // Initial transition
         TL_State = TL_Off;
@@ -42,19 +42,19 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
         if (PWR) {
           TL_State = TL_Off;
         }
-        else if (!PWR && !PED && stateTimer >= 100) {
+        else if (!PWR && !PED ) { //&& stateTimer >= 100) {
           TL_State = TL_Go;
         }
         break;
     
     case TL_Go:
-        if (PWR && stateTimer <= 100) {
+        if (PWR) {
            TL_State = TL_Off;
         }
         else if (PED) {
            TL_State = TL_Warn;
         }
-        else if (!PWR && !PED && stateTimer >= 100) {
+        else if (!PWR && !PED) { //&& stateTimer >= 100) {
             TL_State = TL_Stop;
         }
         break;
@@ -63,7 +63,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
         if (PWR) {
            TL_State = TL_Off;
         }
-        else if(stateTimer >= 100) {
+        else { //if(stateTimer >= 100) {
            TL_State = TL_Stop;
         }
         break;
@@ -93,5 +93,5 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
      default:
         break;
    }
-   stateTimer++;
+   // stateTimer++;
 }

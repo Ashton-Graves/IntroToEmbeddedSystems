@@ -22,6 +22,17 @@ void extern_switch_init(void)
   GPIOAFSEL_E &= ~0x3; // Select PE0 & PE1 regular port function
   GPIODIR_E &= ~0x3; // Set PE0 & PE1 to input direction
   GPIODEN_E |= 0x3; // Enable PE0 & PE1 digital function
+  GPIOIEV_E &= ~(0x3); // Interrupts on falling ...
+  GPIOIS_E &= ~(0x3); //                        ... edges
+  GPIOIM_E |= 0x3; // enables interrupts for PE0 and PE1
+  GPIOICR_E |= 0x3; // clears interrupt flags for PE0 and PE1
+  
+  EN0 |= 0x10; // Enable port E interrupt;
+  
+  /*
+   GPIOPUR_E = 0x3; // Set PE0 and PE1 pull-up resistor
+   
+  */
 }
 
 

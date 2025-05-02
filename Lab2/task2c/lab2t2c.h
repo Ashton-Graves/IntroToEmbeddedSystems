@@ -22,6 +22,11 @@
 #define GPIODEN_E (*((volatile uint32_t *)0x4005C51C))
 #define GPIOAFSEL_E (*((volatile uint32_t *)0x4005C420))
 #define GPIODATA_E (*((volatile uint32_t *)0x4005C3FC))
+// PORT E input
+#define GPIOIEV_E (*((volatile uint32_t *)0x4005C40C))  // Interrupt on falling edges or low levels for 0, rising edges or high edges for 1 ...
+#define GPIOIS_E (*((volatile uint32_t *)0x4005C404))  //  Selects between interrupt on edge (0) or level (1)
+#define GPIOIM_E (*((volatile uint32_t *)0x4005C410)) // Enable interrupts for port E. Enabling a bit 0-7 corresponds to enabling that port.
+#define GPIOICR_E (*((volatile uint32_t *)0x4005C41C)) // Clearing port E interrupt. Enabling a bit corresponds to clearing the interrupt for that port
 
 // GPIO Port J
 #define GPIODIR_J (*((volatile uint32_t *)0x40060400))
@@ -48,20 +53,22 @@
 #define GPTMCFG_1 (*((volatile uint32_t *)0x40031000))
 #define GPTMTAMR_1 (*((volatile uint32_t *)0x40031004))
 #define GPTMTAILR_1 (*((volatile uint32_t *)0x40031028))
+#define GPTMIMR_1 (*((volatile uint32_t *)0x40031018)) // GPTM 1 interrupt mask
     // Flag polling
 #define GPTMRIS_1 (*((volatile uint32_t *)0x4003101C))
-#define GPTMICR_1 (*((volatile uint32_t *)0x40031024))
+#define GPTMICR_1 (*((volatile uint32_t *)0x40031024))  // GPTM Timer1 interrupt clear
 
-/*
+
 // Timer 2A
-#define GPTMCTL_1 (*((volatile uint32_t *)0x4003100C))
-#define GPTMCFG_1 (*((volatile uint32_t *)0x40031000))
-#define GPTMTAMR_1 (*((volatile uint32_t *)0x40031004))
-#define GPTMTAILR_1 (*((volatile uint32_t *)0x40031028))
+#define GPTMCTL_2 (*((volatile uint32_t *)0x4003200C))
+#define GPTMCFG_2 (*((volatile uint32_t *)0x40032000))
+#define GPTMTAMR_2 (*((volatile uint32_t *)0x40032004))
+#define GPTMTAILR_2 (*((volatile uint32_t *)0x40032028))
+#define GPTMIMR_2 (*((volatile uint32_t *)0x40032018)) // GPTM 2 interrupt mask
     // Flag polling
-#define GPTMRIS_1 (*((volatile uint32_t *)0x4003101C))
-#define GPTMICR_1 (*((volatile uint32_t *)0x40031024))
-*/
+#define GPTMRIS_2 (*((volatile uint32_t *)0x4003201C))
+#define GPTMICR_2 (*((volatile uint32_t *)0x40032024))  // GPTM Timer2 interrupt clear
+
 
 // Interrupts
 #define EN0 (*((volatile uint32_t *)0xE000E100)) // Enable interrupt (0-31)

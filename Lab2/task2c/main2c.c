@@ -11,7 +11,11 @@ int main()
   delay++;
   LED_init();
   extern_switch_init();
+  timerN_init(0);
+  timerN_init(1);
+  timerN_init(2);
   GPIODATA_E = 0x0; // turn all lights initially off
+  
   
   while (1) {
     
@@ -26,13 +30,23 @@ __weak void Timer0A_Handler(void) {
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer1A_Pow_Handler(void) {
-  
-  TickFct_TrafficLight(1, 0); //runs power input to the tick funtion (PE0)
+  if((GPIODATA_E & 0x03) == 0x1) {
+    TickFct_TrafficLight(1, 0); //runs power input to the tick funtion (PE0)
+  }
 }
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer2A_Ped_Handler(void) {
-  
-  TickFct_TrafficLight(0, 1); //runs power input to the tick funtion (PE1)
+  if((GPIODATA_E & 0x03) == 0x1) {
+    TickFct_TrafficLight(0, 1); //runs power input to the tick funtion (PE1)
+  }
 }
 
+#pragma call_graph_root = "interrupt"
+__weak void SW_Handler(void) {
+  if((GPIODATA_E & 0x03) == 0x1) { // Detect pow button, starts 2 sec timer
+    timer_sec_repeat(2, 1);
+  } else if ((GPIODATA_E & 0x03) == 0x2) {  // Detect ped button, starts 2 sec timer
+    timer_sec_repeat(2, 2);
+  }
+}
