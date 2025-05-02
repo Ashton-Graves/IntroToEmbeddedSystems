@@ -1,45 +1,66 @@
 #include <stdint.h>
 #include "lab2t2c.h"
 
-
-
-
-
-void timer0_init(void) {
-  volatile unsigned short delay = 0;
-  RCGCTIMER |= 0x01; // activate timer 0
+void timerN_init(int n) { // int n specifies which timer to init
+  if (n == 0) {
+    volatile unsigned short delay = 0;
+    RCGCTIMER |= 0x01; // activate timer 0
+    
+    delay++;
+    delay++;
+    
+    GPTMCTL_0 &= ~(0x1); // disable timer
+    
+    // configures bit, timer mode, and count down/up
+    GPTMCFG_0 |= 0x0; // 32 bit mode
+    GPTMTAMR_0 |= 0x2; // set mode = periodic
+    GPTMTAMR_0 &= ~(0x10); // set to count down 
+    GPTMTAILR_0 = 16000000; // set threshold
+    
+    GPTMCTL_0 |= 0x1; // enable timer
+  }
   
-  delay++;
-  delay++;
+  else if (n == 1) {
+    volatile unsigned short delay = 0;
+    RCGCTIMER |= 0x02; // activate timer 1
+    
+    delay++;
+    delay++;
+    
+    //disables timer
+    GPTMCTL_1 &= ~(0x1);
+    // configures bit, timer mode, and count down/up
+    GPTMCFG_1 |= 0x0;
+    GPTMTAMR_1 |= 0x2;
+    GPTMTAMR_1 &= ~(0x10);
+    GPTMTAILR_1 = 16000000;
+    
+    //enables timer
+    GPTMCTL_1 |= 0x1;
+  }
   
-  GPTMCTL_0 &= ~(0x1); // disable timer
-  
-  // configures bit, timer mode, and count down/up
-  GPTMCFG_0 |= 0x0; // 32 bit mode
-  GPTMTAMR_0 |= 0x2; // set mode = periodic
-  GPTMTAMR_0 &= ~(0x10); // set to count down 
-  GPTMTAILR_0 = 16000000; // set threshold
-  
-  GPTMCTL_0 |= 0x1; // enable timer
+  else if (n == 2) {
+    volatile unsigned short delay = 0;
+    RCGCTIMER |= 0x04; // activate timer 2
+    
+    delay++;
+    delay++;
+    
+    //disables timer
+    GPTMCTL_2 &= ~(0x1);
+    // configures bit, timer mode, and count down/up
+    GPTMCFG_2 |= 0x0;
+    GPTMTAMR_2 |= 0x2;
+    GPTMTAMR_2 &= ~(0x10);
+    GPTMTAILR_2 = 16000000;
+    
+    //enables timer
+    GPTMCTL_2 |= 0x1;
+  }
 }
 
 void timer1_init(void) {
-  volatile unsigned short delay = 0;
-  RCGCTIMER |= 0x02; // activate timer 1
-  
-  delay++;
-  delay++;
-  
-  //disables timer
-  GPTMCTL_1 &= ~(0x1);
-  // configures bit, timer mode, and count down/up
-  GPTMCFG_1 |= 0x0;
-  GPTMTAMR_1 |= 0x2;
-  GPTMTAMR_1 &= ~(0x10);
-  GPTMTAILR_1 = 16000000;
-  
-  //enables timer
-  GPTMCTL_1 |= 0x1;
+
 }
 
 
