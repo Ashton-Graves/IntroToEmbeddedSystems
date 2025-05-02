@@ -2,7 +2,7 @@
 #define TIMER_H_
 
 // initializes the proper registers and configures timer settings
-void timer_init(void);
+void timerN_init(int n);
 
 // turns on the timer to run at 1 Hz frequency
 void timer_on(void);

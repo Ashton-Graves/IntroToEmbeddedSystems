@@ -27,7 +27,9 @@ extern void PendSV_Handler( void );
 extern void SysTick_Handler( void );
 
 extern void Timer0A_Handler( void );
-extern void SW_Handler( void );
+extern void Timer1A_Handler( void );
+extern void Timer2A_Handler( void );
+extern void PortE__Handler( void );
 
 typedef void( *intfunc )( void );
 typedef union { intfunc __fun; void * __ptr; } intvec_elem;
@@ -66,7 +68,7 @@ const intvec_elem __vector_table[] =
   0,
   0,
   0,
-  0,
+  PortE_Handler,
   0,
   0,
   0,
@@ -83,37 +85,9 @@ const intvec_elem __vector_table[] =
   0,
   Timer0A_Handler,
   0,
+  Timer1A_Handler,
   0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  SW_Handler // corresponds to port J
+  Timer2A_Handler
 
 };
 
