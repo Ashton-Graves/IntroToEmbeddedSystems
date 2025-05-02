@@ -30,16 +30,12 @@ __weak void Timer0A_Handler(void) {
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer1A_Pow_Handler(void) {
-  if((GPIODATA_E & 0x03) == 0x1) {
-    TickFct_TrafficLight(1, 0); //runs power input to the tick funtion (PE0)
-  }
+  TickFct_TrafficLight(switch_input(0), 0); // runs pow timer, if still held, switch_input is read into switch func.
 }
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer2A_Ped_Handler(void) {
-  if((GPIODATA_E & 0x03) == 0x1) {
-    TickFct_TrafficLight(0, 1); //runs power input to the tick funtion (PE1)
-  }
+  TickFct_TrafficLight(0, switch_input(1)); // runs ped timer, if still held, switch_input is read into switch func.
 }
 
 #pragma call_graph_root = "interrupt"
