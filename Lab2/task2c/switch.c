@@ -22,8 +22,8 @@ void extern_switch_init(void)
   GPIOAFSEL_E &= ~0x3; // Select PE0 & PE1 regular port function
   GPIODIR_E &= ~0x3; // Set PE0 & PE1 to input direction
   GPIODEN_E |= 0x3; // Enable PE0 & PE1 digital function
-  GPIOIEV_E &= ~(0x3); // Interrupts on falling ...
-  GPIOIS_E &= ~(0x3); //                        ... edges
+  GPIOIBE_E |= 0x3; // both edges trigger an interrupt
+  GPIOIS_E &= ~(0x3); // Interrupts on edges
   GPIOIM_E |= 0x3; // enables interrupts for PE0 and PE1
   GPIOICR_E |= 0x3; // clears interrupt flags for PE0 and PE1
   
@@ -37,6 +37,7 @@ void extern_switch_init(void)
 
 
 unsigned long switch_input(int fnc) {
+  /*
   static unsigned char pwr_prev = 0;
   static unsigned char ped_prev = 0;
 
@@ -64,5 +65,18 @@ unsigned long switch_input(int fnc) {
       return 1;
     }
     return 0;
+  }
+  */
+  
+  if(fnc == 0) {
+    if(GPIODATA_E & 0x01) {
+      return 1;
+    } 
+  }
+  
+  if(fnc == 1) {
+    if(GPIODATA_E & 0x02) {
+      return 1; 
+    }
   }
 }

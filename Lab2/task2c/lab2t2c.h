@@ -27,6 +27,7 @@
 #define GPIOIS_E (*((volatile uint32_t *)0x4005C404))  //  Selects between interrupt on edge (0) or level (1)
 #define GPIOIM_E (*((volatile uint32_t *)0x4005C410)) // Enable interrupts for port E. Enabling a bit 0-7 corresponds to enabling that port.
 #define GPIOICR_E (*((volatile uint32_t *)0x4005C41C)) // Clearing port E interrupt. Enabling a bit corresponds to clearing the interrupt for that port
+#define GPIOIBE_E (*((volatile uint32_t *)0x4005C408)) // detects interrupts on both edges
 
 // GPIO Port J
 #define GPIODIR_J (*((volatile uint32_t *)0x40060400))

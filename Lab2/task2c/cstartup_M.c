@@ -29,7 +29,7 @@ extern void SysTick_Handler( void );
 extern void Timer0A_Handler( void );
 extern void Timer1A_Handler( void );
 extern void Timer2A_Handler( void );
-extern void PortE__Handler( void );
+extern void PortE_Handler( void );
 
 typedef void( *intfunc )( void );
 typedef union { intfunc __fun; void * __ptr; } intvec_elem;
@@ -63,7 +63,7 @@ const intvec_elem __vector_table[] =
   DebugMon_Handler,
   0,
   PendSV_Handler,
-  SysTick_Handler,
+  SysTick_Handler, // last reserved interrupt
   0,
   0,
   0,

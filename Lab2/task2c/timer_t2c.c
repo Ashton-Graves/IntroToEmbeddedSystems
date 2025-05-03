@@ -17,7 +17,7 @@ void timerN_init(int n) { // int n specifies which timer to init
     GPTMTAMR_0 &= ~(0x10); // set to count down 
     GPTMTAILR_0 = 16000000; // set threshold
     
-    GPTMCTL_0 |= 0x1; // enable timer
+    //GPTMCTL_0 |= 0x1; // enable timer
     
     GPTMIMR_0 |= 0x1; // interrupt mask - enables interrupt for Timer 0
     EN0 |= 0x80000; // enable interrupt 19, the timer0A interrupt
@@ -34,12 +34,12 @@ void timerN_init(int n) { // int n specifies which timer to init
     GPTMCTL_1 &= ~(0x1);
     // configures bit, timer mode, and count down/up
     GPTMCFG_1 |= 0x0;
-    GPTMTAMR_1 |= 0x2;
+    GPTMTAMR_1 |= 0x1;
     GPTMTAMR_1 &= ~(0x10);
-    GPTMTAILR_1 = 16000000;
+    GPTMTAILR_1 = 2 * 16000000;
     
     //enables timer
-    GPTMCTL_1 |= 0x1;
+    //GPTMCTL_1 |= 0x1;
     
     GPTMIMR_1 |= 0x1; // interrupt mask - enables interrupt for Timer 1
     EN0 |= 0x200000; // enable interrupt 21, timer1A interrupt
@@ -56,12 +56,12 @@ void timerN_init(int n) { // int n specifies which timer to init
     GPTMCTL_2 &= ~(0x1);
     // configures bit, timer mode, and count down/up
     GPTMCFG_2 |= 0x0;
-    GPTMTAMR_2 |= 0x2;
+    GPTMTAMR_2 |= 0x1;
     GPTMTAMR_2 &= ~(0x10);
-    GPTMTAILR_2 = 16000000;
+    GPTMTAILR_2 = 2 * 16000000;
     
     //enables timer
-    GPTMCTL_2 |= 0x1;
+    //GPTMCTL_2 |= 0x1;
     
     GPTMIMR_2 |= 0x1; // interrupt mask - enables interrupt for Timer 2
     EN0 |= 0x800000; // enable interrupt 23, timer2A interrupt

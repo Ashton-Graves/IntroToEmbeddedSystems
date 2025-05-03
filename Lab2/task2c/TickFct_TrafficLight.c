@@ -10,7 +10,7 @@
 # include "lab2t2c.h"
 # include "led.h"
 
-enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State;
+enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State = TL_Off;
 
 void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 {
@@ -25,9 +25,6 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
   lastState = TL_State;
   */
   switch(TL_State) {   // Transitions
-     case TL_SMStart:  // Initial transition
-        TL_State = TL_Off;
-        break;
      // Case transitions
      case TL_Off: 
         if (!PWR) {
@@ -76,6 +73,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
   switch(TL_State) {   // State actions
      case TL_Stop:
         LED_on(1);
+        timer_sec_repeat(5, 0);
         break;
 
      case TL_Go:
@@ -84,10 +82,12 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 
      case TL_Warn:
         LED_on(2);
+        timer_sec_repeat(5, 0);
         break;
         
      case TL_Off: 
         LED_off();
+        timer_off(0);
         break;
         
      default:
