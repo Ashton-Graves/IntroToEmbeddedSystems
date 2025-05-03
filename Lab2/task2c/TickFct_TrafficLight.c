@@ -1,8 +1,8 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 4/16/25
-* This file defines an FSM for the traffic light described in the Lab 1 specifications. The system
+* 05/01/25
+* This file defines an FSM for the traffic light described in the Lab 2 specifications. The system
 * has an on/off button called PWR, and a "pedestrian wants to cross" button called PED. 
 */
 
@@ -10,20 +10,11 @@
 # include "lab2t2c.h"
 # include "led.h"
 
-enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State = TL_Off;
+enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State = TL_Off; // set start
 
 void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 {
-  /*
-  static enum TL_States lastState = TL_SMStart;
-  static unsigned int stateTimer = 0;
   
-  if(TL_State != lastState) {
-    stateTimer = 0;
-  }
-  
-  lastState = TL_State;
-  */
   switch(TL_State) {   // Transitions
      // Case transitions
      case TL_Off: 
@@ -39,7 +30,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
         if (PWR) {
           TL_State = TL_Off;
         }
-        else if (!PWR && !PED ) { //&& stateTimer >= 100) {
+        else if (!PWR && !PED ) {
           TL_State = TL_Go;
         }
         break;
@@ -51,7 +42,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
         else if (PED) {
            TL_State = TL_Warn;
         }
-        else if (!PWR && !PED) { //&& stateTimer >= 100) {
+        else if (!PWR && !PED) {
             TL_State = TL_Stop;
         }
         break;
@@ -60,7 +51,7 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
         if (PWR) {
            TL_State = TL_Off;
         }
-        else { //if(stateTimer >= 100) {
+        else {
            TL_State = TL_Stop;
         }
         break;
@@ -72,8 +63,8 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 
   switch(TL_State) {   // State actions
      case TL_Stop:
-        LED_on(1);
-        timer_sec_repeat(5, 0);
+        LED_on(1); 
+        timer_sec_repeat(5, 0);  // Starts 5 sec timer
         break;
 
      case TL_Go:
@@ -82,16 +73,15 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 
      case TL_Warn:
         LED_on(2);
-        timer_sec_repeat(5, 0);
+        timer_sec_repeat(5, 0);  // Resets 5 sec timer
         break;
         
      case TL_Off: 
         LED_off();
-        timer_off(0);
+        timer_off(0);  // Turns off timer
         break;
         
      default:
         break;
    }
-   // stateTimer++;
 }

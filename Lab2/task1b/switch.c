@@ -1,7 +1,7 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 04/14/25
+* 04/30/25
 
 * The purpose of this file is to define functions to properly initialize certain registers on the TIVA board to enable system integration
   with external pushbuttons, and to get the signal from one of the two pushbutton inputs for lab 1.

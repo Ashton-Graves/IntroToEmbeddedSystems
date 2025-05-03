@@ -5,81 +5,74 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\timer_t2b.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
-            <file>$PROJ_DIR$\Debug\List\task2b.map</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$PROJ_DIR$\timer_t2b.c</file>
-            <file>$PROJ_DIR$\main.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2b.__cstat.et</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2b.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2b.o</file>
-            <file>$PROJ_DIR$\main2b.c</file>
-            <file>$PROJ_DIR$\cstartup_M.c</file>
-            <file>$PROJ_DIR$\lab2t2b.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer_t2b.o</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
+            <file>$PROJ_DIR$\Debug\Obj\task2b.pbd</file>
             <file>$PROJ_DIR$\Debug\Obj\cstartup_M.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\timer_t2b.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
             <file>$PROJ_DIR$\Debug\Exe\task2b.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_t2b.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
             <file>$PROJ_DIR$\Debug\Obj\cstartup_M.o</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\cstartup_M.c</file>
+            <file>$PROJ_DIR$\timer_t2b.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2b.o</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$PROJ_DIR$\Debug\List\task2b.map</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2b.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\lab2t2b.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2b.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_t2b.o</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\main2b.c</file>
+            <file>$PROJ_DIR$\timer_t2b.c</file>
         </outputs>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\task2b.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 15</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 24 7 11 23 18 16 14 12</file>
+                </tool>
+            </inputs>
+        </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 12</file>
+                    <file> 11</file>
                 </tool>
                 <tool>
                     <name>ILINK</name>
-                    <file> 25 6</file>
+                    <file> 2 15</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 11</file>
+                    <file> 22</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\timer_t2b.c</name>
+            <name>$PROJ_DIR$\cstartup_M.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 16</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 23</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 4 24 3 27 5 22 15</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 22 24 27 3 5 4 15</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 21</file>
+                    <file> 7</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -88,61 +81,69 @@
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\main2b.c</name>
+            <name>$PROJ_DIR$\main.c</name>
             <outputs>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 10</file>
-                </tool>
-                <tool>
                     <name>ICCARM</name>
-                    <file> 12</file>
-                </tool>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 25</file>
+                    <file> 6</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
+                    <file> 21</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main2b.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
                     <file> 11</file>
+                </tool>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 2</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 17</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 4 24 3 27 5 22 15 0</file>
+                    <file> 19 5 25 8 13 4 20 10</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 22 24 27 3 5 4 15 0</file>
+                    <file> 4 5 8 25 13 19 20 10</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\cstartup_M.c</name>
+            <name>$PROJ_DIR$\timer_t2b.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 26</file>
+                    <file> 23</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 20</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Debug\Exe\task2b.out</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 6</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>ILINK</name>
-                    <file> 19 26 12 16 18 7 2 17</file>
+                    <name>ICCARM</name>
+                    <file> 19 5 25 8 13 4 20</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 4 5 8 25 13 19 20</file>
                 </tool>
             </inputs>
         </file>

@@ -1,7 +1,7 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 04/23/25
+* 04/30/25
 
 * The purpose of this files is to define functions to properly initialize certain registers on the TIVA board to enable system integration
   with external LEDs, to turn on one of the three LEDs used in lab 1, and to turn off all the LEDs.

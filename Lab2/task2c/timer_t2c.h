@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/01/25
+
+* The purpose of this file is to provide function declarations to allow use of on_board timers.
+*/
+
 #ifndef TIMER_H_
 #define TIMER_H_
 
@@ -9,9 +17,6 @@ void timer_on(int timerN);
 
 // turns off the timer
 void timer_off(int timerN);
-
-// Activates the timer for a specified n seconds
-// void timer_n_secs(int n);
 
 // Activates the timer for a specified n seconds
 void timer_sec_repeat(int n, int timerN);

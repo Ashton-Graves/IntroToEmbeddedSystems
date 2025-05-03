@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/01/25
+
+* The purpose of this file is to provide function declarations to allow use of onboard timers
+*/
+
 #ifndef TIMER_H_
 #define TIMER_H_
 

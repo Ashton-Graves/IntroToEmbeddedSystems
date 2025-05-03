@@ -1,3 +1,12 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/01/25
+
+* The purpose of this file is to provide function declarations to allow use of onboard timers
+* for lab2, providing the ability to initiate, start, and stop timers 0, 1 and 2.
+*/
+
 #include <stdint.h>
 #include "lab2t2c.h"
 
@@ -38,9 +47,6 @@ void timerN_init(int n) { // int n specifies which timer to init
     GPTMTAMR_1 &= ~(0x10);
     GPTMTAILR_1 = 2 * 16000000;
     
-    //enables timer
-    //GPTMCTL_1 |= 0x1;
-    
     GPTMIMR_1 |= 0x1; // interrupt mask - enables interrupt for Timer 1
     EN0 |= 0x200000; // enable interrupt 21, timer1A interrupt
   }
@@ -60,59 +66,13 @@ void timerN_init(int n) { // int n specifies which timer to init
     GPTMTAMR_2 &= ~(0x10);
     GPTMTAILR_2 = 2 * 16000000;
     
-    //enables timer
-    //GPTMCTL_2 |= 0x1;
-    
     GPTMIMR_2 |= 0x1; // interrupt mask - enables interrupt for Timer 2
     EN0 |= 0x800000; // enable interrupt 23, timer2A interrupt
   }
   
-  /*
-  else if (n == 2) {
-    volatile unsigned short delay = 0;
-    RCGCTIMER |= 0x04; // activate timer 2
-    
-    delay++;
-    delay++;
-    
-    //disables timer
-    GPTMCTL_2 &= ~(0x1);
-    // configures bit, timer mode, and count down/up
-    GPTMCFG_2 |= 0x0;
-    GPTMTAMR_2 |= 0x2;
-    GPTMTAMR_2 &= ~(0x10);
-    GPTMTAILR_2 = 16000000;
-    
-    //enables timer
-    GPTMCTL_2 |= 0x1;
-  }
-  */
 }
-/*
-void timer_init(void) {
-  volatile unsigned short delay = 0;
-  RCGCTIMER |= 0x01; // activate timer 0
-  
-  delay++;
-  delay++;
-  
-  //disables timer
-  GPTMCTL_0 &= ~(0x1);
-  // configures bit, timer mode, and count down/up
-  GPTMCFG_0 |= 0x0;
-  GPTMTAMR_0 |= 0x2;
-  GPTMTAMR_0 &= ~(0x10);
-  GPTMTAILR_0 = 16000000;
-  GPTMICR_0 = 0x1; // clear pending interrupt timer 0A timeout flag
 
-  GPTMIMR_0 |= 0x1; // interrupt mask - enables interrupt for Timer 0
-  EN0 |= 0x80000; // enable interrupt 19, the timer0A interrupt
-
-  //enables timer
-  GPTMCTL_0 |= 0x1;
-}
-*/
-
+// Turns on Timer N
 void timer_on(int timerN) {
   if(timerN == 0) {
     GPTMCTL_0 |= 0x1;
@@ -123,6 +83,7 @@ void timer_on(int timerN) {
   }
 }
 
+// Pauses / Turns of timer N
 void timer_off(int timerN) {
   if (timerN == 0) {
     GPTMCTL_0 &= ~(0x1);
@@ -133,13 +94,13 @@ void timer_off(int timerN) {
   }
 }
 
-// initializes timer
+// initializes timer start
 void timer_sec_repeat(int n, int timerN) {
-  if(timerN == 0) {
-    timer_off(0);
-    GPTMTAILR_0 = n * 16000000;
-    GPTMICR_0 = 0x1;
-    timer_on(0);
+  if(timerN == 0) {     
+    timer_off(0);  // Turns off timer
+    GPTMTAILR_0 = n * 16000000; // sets durration
+    GPTMICR_0 = 0x1; // clears flag
+    timer_on(0); // Start timer
   } else if (timerN == 1){
     timer_off(1);
     GPTMTAILR_1 = n * 16000000;
@@ -156,8 +117,8 @@ void timer_sec_repeat(int n, int timerN) {
 // polling to see if timer expired. 1 if timer expired, 0 otherwise
 int timer_expired(int timerN) {
   if(timerN == 0) {  
-    if(GPTMRIS_0 & 0x1) {
-      GPTMICR_0 = 0x1;
+    if(GPTMRIS_0 & 0x1) { //checks if timer has finish
+      GPTMICR_0 = 0x1;  // clears and returns 1 if finished, 0 if otherwise
       return 1;
     }
     return 0;

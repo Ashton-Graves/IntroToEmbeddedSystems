@@ -1,3 +1,12 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/01/25
+
+* The purpose of this file is to define the NVIC table which will help in communication
+* with interrupt handler ISRs.
+*/
+
 // Lab2 task 2c
 
 /**************************************************

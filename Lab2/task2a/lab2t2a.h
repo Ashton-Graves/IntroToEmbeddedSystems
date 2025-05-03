@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/01/25
+
+* The purpose of this file is to define registers that will be used in Lab2
+*/
+
 #ifndef __HEADER2_H__
 #define __HEADER2_H__
 

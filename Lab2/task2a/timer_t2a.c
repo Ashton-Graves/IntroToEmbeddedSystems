@@ -1,3 +1,12 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/01/25
+
+* The purpose of this file is to provide function declarations to allow use of onboard timers
+* for lab2, providing the ability to initiate, start, and stop timer 0
+*/
+
 #include <stdint.h>
 #include "lab2t2a.h"
 

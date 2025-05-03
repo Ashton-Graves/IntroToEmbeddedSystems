@@ -1,3 +1,11 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/01/25
+
+* The purpose of this file is to define registers tailored to the functions we want for lab2
+*/
+
 #ifndef __HEADER2_H__
 #define __HEADER2_H__
 
@@ -39,7 +47,7 @@
 #define GPIOIM_J (*((volatile uint32_t *)0x40060410)) // Enable interrupts for port J. Enabling a bit 0-7 corresponds to enabling that port.
 #define GPIOICR_J (*((volatile uint32_t *)0x4006041C)) // Clearing port J interrupt. Enabling a bit corresponds to clearing the interrupt for that port
 
-// Timer 0A
+// Timer 0A Registers
 #define GPTMCTL_0 (*((volatile uint32_t *)0x4003000C)) // Enable/disable timer
 #define GPTMCFG_0 (*((volatile uint32_t *)0x40030000)) // 32 bit mode
 #define GPTMTAMR_0 (*((volatile uint32_t *)0x40030004)) // Set mode (periodic, countdown)
@@ -49,7 +57,7 @@
 #define GPTMRIS_0 (*((volatile uint32_t *)0x4003001C))
 #define GPTMICR_0 (*((volatile uint32_t *)0x40030024)) // GPTM Timer0 interrupt clear
 
-// Timer 1A
+// Timer 1A Registers
 #define GPTMCTL_1 (*((volatile uint32_t *)0x4003100C))
 #define GPTMCFG_1 (*((volatile uint32_t *)0x40031000))
 #define GPTMTAMR_1 (*((volatile uint32_t *)0x40031004))
@@ -60,7 +68,7 @@
 #define GPTMICR_1 (*((volatile uint32_t *)0x40031024))  // GPTM Timer1 interrupt clear
 
 
-// Timer 2A
+// Timer 2A Registers
 #define GPTMCTL_2 (*((volatile uint32_t *)0x4003200C))
 #define GPTMCFG_2 (*((volatile uint32_t *)0x40032000))
 #define GPTMTAMR_2 (*((volatile uint32_t *)0x40032004))

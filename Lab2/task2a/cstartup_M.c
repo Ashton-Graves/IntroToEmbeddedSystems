@@ -1,3 +1,12 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 04/30/25
+
+* The purpose of this file is to define the NVIC table which will help in communication
+* with interrupt handler ISRs.
+*/
+
 /**************************************************
  *
  * This file contains an interrupt vector for Cortex-M written in C.

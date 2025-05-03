@@ -39,6 +39,7 @@ int main(void)
   return 0;
 }
 
+// Defines interrupt handler for Timer 0
 #pragma call_graph_root = "interrupt"
 __weak void Timer0A_Handler(void) {
   GPTMICR_0 = 0x1; // clears the flag
@@ -52,6 +53,7 @@ __weak void Timer0A_Handler(void) {
   }
 }
 
+// Defines interrupt handler for Switches
 #pragma call_graph_root = "interrupt"
 __weak void SW_Handler(void) {
 

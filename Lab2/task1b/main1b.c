@@ -1,7 +1,7 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 04/23/25
+* 04/30/25
 
 * This file creates a system that models a traffic light. The system has two pushbuttons, a power button and a pedestrian button. It also
 * has three LEDs; a red (stop), yellow (warn), and green LED. The power button turns the traffic light on and off (the light is initially
