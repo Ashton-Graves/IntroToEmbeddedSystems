@@ -4,6 +4,7 @@
 
 #include "PLL_Header.h"
 #include "Lab3_Inits.h"
+#include "lab3t1a.h"
 
 // STEP 0a: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
@@ -60,42 +61,71 @@ void LED_Init(void) {
   // GPIO pins.
 
   // YOUR CODE HERE
+  volatile unsigned short delay = 0;
+  RCGCGPIO |= 0x1000 | 0x20; // Enable PortN & PortF GPIO
+  GPIODIR_F = 0x11; // Set PF0 and PF4 to output
+  GPIODEN_F = 0x11; // Set PF0 and PF4 to digital port
+  GPIODATA_F = 0x0; 
+   
+  GPIODIR_N = 0x3; // Set PN0 and PN1 to output
+  GPIODEN_N = 0x3; // Set PN0 and PN1 to digital port
+  GPIODATA_N = 0x0; // Set PN1 to 0
 }
 
 void ADCReadPot_Init(void) {
   // STEP 2: Initialize ADC0 SS3.
   // 2.1: Enable the ADC0 clock
+  RCGCADC |= 0x1;
 
   // 2.2: Delay for RCGCADC (Refer to page 1073)
-
+  delay++; // Delay 3 more cycles before access ADC registers
+  delay++; // Refer to Page. 1073 of Datasheet for info
+  delay++;
+   
   // 2.3: Power up the PLL (if not already)
   PLLFREQ0 |= 0x00800000; // we did this for you
+  
   // 2.4: Wait for the PLL to lock
   while (PLLSTAT != 0x1); // we did this for you
+  
   // 2.5: Configure ADCCC to use the clock source defined by ALTCLKCFG
-
+  ADCCC_0 |= 0x1; // Set clock source bit to the ALTCLKCFG clock rouce
+  ALTCLKCFG = 0x0; // Set the alternative clock source to PIOSC
+    
   // 2.6: Enable clock to the appropriate GPIO Modules (Hint: Table 15-1)
-
+  RCGCGPIO |= 0x10; // Enable port E
+  
   // 2.7: Delay for RCGCGPIO
-
+  delay++; // Delay 2 more cycles before access Timer registers
+  delay++; // Refer to Page. 756 of Datasheet for info
+  
   // 2.8: Set the GPIOAFSEL bits for the ADC input pins
-
+  GPIOAFSEL_E |= 0x8; // enable PE3 alternate function
+  
   // 2.9: Clear the GPIODEN bits for the ADC input pins
-
+  GPIODEN_E &= ~(0x8); 
+  
   // 2.10: Disable the analog isolation circuit for ADC input pins (GPIOAMSEL)
-
+  GPIOAMSEL_E |= 0x8;
+  
   // 2.11: Disable sample sequencer 3 (SS3)
-
+  ADCACTSS_0 &= ~(0x8);
+  
   // 2.12: Select timer as the trigger for SS3
-
+  ADCEMUX_0 |= 0x5000; 
+  
   // 2.13: Select the analog input channel for SS3 (Hint: Table 15-1)
-
+  
+  
   // 2.14: Configure ADCSSCTL3 register
-
+  
+  
   // 2.15: Set the SS3 interrupt mask
-
+  
+  
   // 2.16: Set the corresponding bit for ADC0 SS3 in NVIC
-
+  
+  
   // 2.17: Enable ADC0 SS3
 
 }
