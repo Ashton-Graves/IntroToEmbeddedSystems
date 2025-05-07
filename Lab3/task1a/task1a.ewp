@@ -2030,6 +2030,18 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\main1a.c</name>
+        <name>$PROJ_DIR$\cstartup_M.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Lab3_Inits.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Lab3_Inits.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Lab3_Task1a.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\PLL_Header.h</name>
     </file>
 </project>
