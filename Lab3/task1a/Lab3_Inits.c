@@ -149,7 +149,8 @@ void TimerADCTriger_Init(void) {
   GPTMCFG_0 |= 0x0; // 32 bit mode
   GPTMTAMR_0 |= 0x2; // set mode = periodic
   GPTMTAMR_0 &= ~(0x10); // set to count down 
-  GPTMTAILR_0 = 1; // set threshold
+  GPTMTAILR_0 = 16000000; // set threshold
+  GPTMICR_0 = 0x1; // clear pending interrupt timer 0A timeout flag
 
   GPTMCTL_0 |= 0x20; // set TAOTE for timer to trigger ADC
 

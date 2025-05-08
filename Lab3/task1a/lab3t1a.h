@@ -114,6 +114,8 @@
 #define ADCIM_0 (*((volatile uint32_t *)0x40038008)) // ADC0 interrupt mask
 #define ADCISC_0 (*((volatile uint32_t *)0x4003800C)) // ADC0 interrupt clear
 #define ADCSSFIFO3_0 (*((volatile uint32_t *)0x400380A8)) // ADC0 SS3 result (FIFO)
+#define ADCRIS_0 (*((volatile uint32_t *)0x40038004)) // ADC0 Interrupt status
+#define ADCPSSI_0 (*((volatile uint32_t *)0x40038028)) // ADC0 Sampler Init
 
 
 #endif //__HEADER2_H__

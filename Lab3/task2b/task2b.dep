@@ -9,19 +9,10 @@
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main2b.o</file>
             <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$PROJ_DIR$\Debug\Exe\task2b.out</file>
-            <file>$PROJ_DIR$\main2b.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main2b.pbi</file>
+            <file>$PROJ_DIR$\main2b.c</file>
+            <file>$PROJ_DIR$\Debug\Exe\task2b.out</file>
         </outputs>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 4</file>
-                </tool>
-            </outputs>
-        </file>
         <file>
             <name>$PROJ_DIR$\main.c</name>
             <outputs>
@@ -44,6 +35,15 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
+                    <file> 4</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
                     <file> 6</file>
                 </tool>
             </outputs>
