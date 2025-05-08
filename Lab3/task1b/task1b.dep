@@ -5,37 +5,24 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\main1b.c</file>
             <file>$PROJ_DIR$\Debug\Exe\task1b.out</file>
             <file>$PROJ_DIR$\Debug\Obj\main1b.o</file>
             <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\main.o</file>
             <file>$PROJ_DIR$\Debug\Obj\main1b.pbi</file>
+            <file>$PROJ_DIR$\main.c</file>
         </outputs>
-        <file>
-            <name>$PROJ_DIR$\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 5</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 4</file>
-                </tool>
-            </outputs>
-        </file>
         <file>
             <name>$PROJ_DIR$\main1b.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 3</file>
+                    <file> 2</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 6</file>
+                    <file> 5</file>
                 </tool>
             </outputs>
         </file>
@@ -44,7 +31,20 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 2</file>
+                    <file> 1</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 4</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 3</file>
                 </tool>
             </outputs>
         </file>

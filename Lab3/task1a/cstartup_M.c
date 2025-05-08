@@ -200,7 +200,7 @@ __weak void PendSV_Handler( void ) { while (1) {} }
 __weak void SysTick_Handler( void ) { while (1) {} }
 
 #pragma call_graph_root = "interrupt"
-__weak void ADC0SS3_Handler ( void ) { while (1) {} }
+__weak void ADC0SS3_Handler( void ) { while (1) {} }
 
 
 void __cmain( void );

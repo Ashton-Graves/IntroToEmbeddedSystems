@@ -28,13 +28,13 @@ int main(void) {
     resistance = ADC_value / 4095.0 * 10.0;
     // 5.2: Change the pattern of LEDs based on the resistance
     if (resistance < 2.5) {
-      GPIODATA_N = 0x2; // Set PN1 to 1
+      GPIODATA_N |= 0x2; // Set PN1 to 1
     } else if (resistance < 5.0) {
-      GPIODATA_N = 0x3; // Set PN1 and PN0 to 1
+      GPIODATA_N |= 0x3; // Set PN1 and PN0 to 1
     } else if (resistance < 7.5) {
-      GPIODATA_F = 0x10; // Set PF4 to 1
+      GPIODATA_F |= 0x10; // Set PF4 to 1
     } else {
-      GPIODATA_N = 0x11; // Set PF4 and PF0 to 1
+      GPIODATA_F |= 0x11; // Set PF4 and PF0 to 1
     }
   }
   return 0;

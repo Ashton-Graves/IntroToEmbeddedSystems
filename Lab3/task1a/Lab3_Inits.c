@@ -89,7 +89,7 @@ void ADCReadPot_Init(void) {
   while (PLLSTAT != 0x1); // we did this for you
   
   // 2.5: Configure ADCCC to use the clock source defined by ALTCLKCFG
-  ADCCC_0 |= 0x1; // Set clock source bit to the ALTCLKCFG clock rouce
+  ADCCC_0 |= 0x1; // Set clock source bit to the ALTCLKCFG clock route
   ALTCLKCFG = 0x0; // Set the alternative clock source to PIOSC
     
   // 2.6: Enable clock to the appropriate GPIO Modules (Hint: Table 15-1)
