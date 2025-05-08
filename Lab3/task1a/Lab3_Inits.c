@@ -61,7 +61,6 @@ void LED_Init(void) {
   // GPIO pins.
 
   // YOUR CODE HERE
-  volatile unsigned short delay = 0;
   RCGCGPIO |= 0x1000 | 0x20; // Enable PortN & PortF GPIO
   GPIODIR_F = 0x11; // Set PF0 and PF4 to output
   GPIODEN_F = 0x11; // Set PF0 and PF4 to digital port
@@ -69,7 +68,7 @@ void LED_Init(void) {
    
   GPIODIR_N = 0x3; // Set PN0 and PN1 to output
   GPIODEN_N = 0x3; // Set PN0 and PN1 to digital port
-  GPIODATA_N = 0x0; // Set PN1 to 0
+  GPIODATA_N = 0x0; // Set Port N to 0s
 }
 
 void ADCReadPot_Init(void) {
@@ -78,6 +77,7 @@ void ADCReadPot_Init(void) {
   RCGCADC |= 0x1;
 
   // 2.2: Delay for RCGCADC (Refer to page 1073)
+  volatile unsigned short delay = 0;
   delay++; // Delay 3 more cycles before access ADC registers
   delay++; // Refer to Page. 1073 of Datasheet for info
   delay++;
@@ -107,7 +107,7 @@ void ADCReadPot_Init(void) {
   
   // 2.10: Disable the analog isolation circuit for ADC input pins (GPIOAMSEL)
   GPIOAMSEL_E |= 0x8;
-  
+
   // 2.11: Disable sample sequencer 3 (SS3)
   ADCACTSS_0 &= ~(0x8);
   
@@ -115,18 +115,20 @@ void ADCReadPot_Init(void) {
   ADCEMUX_0 |= 0x5000; 
   
   // 2.13: Select the analog input channel for SS3 (Hint: Table 15-1)
-  
+  ADCSSEMUX3_0 |= 0x0; // The sample input is selected from AIN[15:0]
+  ADCSSMUX3_0 |= 0x0; // The sample input is selected from AIN0
   
   // 2.14: Configure ADCSSCTL3 register
-  
+  ADCSSCTL3_0 |= 0x4;
   
   // 2.15: Set the SS3 interrupt mask
-  
+  ADCIM_0 |= 0x8; // The raw interrupt signal from Sample Sequencer 3 (ADCRIS register INR3bit) is sent to the interrupt controller.
   
   // 2.16: Set the corresponding bit for ADC0 SS3 in NVIC
-  
+  EN0 |= 0x20000; // enable interrupt 17, the ADC0 SS3 interrupt
   
   // 2.17: Enable ADC0 SS3
+  ADCACTSS_0 |= 0x8; 
 
 }
 
@@ -135,6 +137,31 @@ void TimerADCTriger_Init(void) {
   // Hint: Refer to section 13.3.7 of the datasheet
 
   // YOUR CODE HERE
+  volatile unsigned short delay = 0;
+  RCGCTIMER |= 0x01; // activate timer 0
+  
+  delay++;
+  delay++;
+  
+  GPTMCTL_0 &= ~(0x1); // disable timer
+  
+  // configures bit, timer mode, and count down/up
+  GPTMCFG_0 |= 0x0; // 32 bit mode
+  GPTMTAMR_0 |= 0x2; // set mode = periodic
+  GPTMTAMR_0 &= ~(0x10); // set to count down 
+  GPTMTAILR_0 = 1; // set threshold
+
+  GPTMCTL_0 |= 0x20; // set TAOTE for timer to trigger ADC
+
+
+  GPTMADCEV_0 |= 0x1; // GPTM A Time-Out Event ADC Trigger Enable
+
+  
+  GPTMCTL_0 |= 0x1; // enable timer
+  
+  GPTMIMR_0 |= 0x1; // interrupt mask - enables interrupt for Timer 0
+  EN0 |= 0x80000; // enable interrupt 19, the timer0A interrupt
+
 }
 
 // NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler

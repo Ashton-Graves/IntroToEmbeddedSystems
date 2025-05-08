@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>3367487849</fileChecksum>
+    <fileChecksum>1904168779</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main1a.o</file>
+            <file>$PROJ_DIR$\..\task2b\main2b.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\task1a.pbd</file>
             <file>$PROJ_DIR$\Debug\Exe\task1a.out</file>
@@ -31,13 +32,16 @@
             <file>$PROJ_DIR$\Lab3_Inits.h</file>
             <file>$PROJ_DIR$\PLL_Header.h</file>
             <file>$PROJ_DIR$\Lab3_Task1a.c</file>
+            <file>$PROJ_DIR$\..\task2a\main2a.c</file>
+            <file>$PROJ_DIR$\lab3t1a.h</file>
+            <file>$PROJ_DIR$\lab3t1ac.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 4</file>
+                    <file> 5</file>
                 </tool>
             </outputs>
         </file>
@@ -46,11 +50,11 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 5</file>
+                    <file> 6</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 2</file>
+                    <file> 3</file>
                 </tool>
             </outputs>
         </file>
@@ -63,7 +67,7 @@
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 6</file>
+                    <file> 7</file>
                 </tool>
             </outputs>
         </file>
@@ -72,7 +76,39 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
+                    <file> 13</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 19</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16 20 28 14 24 21 25 15 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\cstartup_M.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
                     <file> 12</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 10</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Lab3_Task1a.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 11</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -82,39 +118,7 @@
             <inputs>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 19 16 20 15 13 14 24 23</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\cstartup_M.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 11</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 9</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\Lab3_Task1a.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 10</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 17</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 16 20 19 13 14 15 23</file>
+                    <file> 17 21 20 14 15 16 24</file>
                 </tool>
             </inputs>
         </file>

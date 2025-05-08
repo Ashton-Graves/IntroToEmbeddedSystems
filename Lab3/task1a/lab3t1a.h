@@ -34,7 +34,7 @@
 #define GPIOAFSEL_E (*((volatile uint32_t *)0x4005C420))
 #define GPIODATA_E (*((volatile uint32_t *)0x4005C3FC))
 #define GPIOAFSEL_E (*((volatile uint32_t *)0x4005C420)) // enable port E alternative functions by bit
-#define GPIOAMSEL_E (*volatile uint_32_t *)0x4005C528))
+#define GPIOAMSEL_E (*((volatile uint32_t *)0x4005C528))
 
 
 // PORT E input/interrupts
@@ -62,6 +62,7 @@
 #define GPTMTAMR_0 (*((volatile uint32_t *)0x40030004)) // Set mode (periodic, countdown)
 #define GPTMTAILR_0 (*((volatile uint32_t *)0x40030028)) // Set threshold
 #define GPTMIMR_0 (*((volatile uint32_t *)0x40030018)) // GPTM interrupt mask
+#define GPTMADCEV_0 (*((volatile uint32_t *)0x40030070)) // GPTM ADC event enable
 
 
 // Flag polling
@@ -88,6 +89,7 @@
 #define GPTMTAMR_2 (*((volatile uint32_t *)0x40032004))
 #define GPTMTAILR_2 (*((volatile uint32_t *)0x40032028))
 #define GPTMIMR_2 (*((volatile uint32_t *)0x40032018)) // GPTM 2 interrupt mask
+
     
 
 // Flag polling
@@ -102,8 +104,16 @@
 
 // ADC
 #define RCGCADC (*((volatile uint32_t *)0x400FE638)) // ADC clock gating
-#define ADCCC (*((volatile uint32_t *)0x40038FC8)) // ADC clock configuration
+#define ADCCC_0 (*((volatile uint32_t *)0x40038FC8)) // ADC clock configuration
 #define ALTCLKCFG (*((volatile uint32_t *)0x400FE138)) // set alternative clock source
+#define ADCACTSS_0 (*((volatile uint32_t *)0x40038000)) // turn on/off ADC0 SS3
+#define ADCEMUX_0 (*((volatile uint32_t *)0x40038014)) // selects the event (trigger) that initiates sampling for each sample sequencer
+#define ADCSSEMUX3_0 (*((volatile uint32_t *)0x400380B8)) // chooses which group of analog inputs
+#define ADCSSMUX3_0 (*((volatile uint32_t *)0x400380A0)) // chooses which analog input
+#define ADCSSCTL3_0 (*((volatile uint32_t *)0x400380A4)) // configure ss3
+#define ADCIM_0 (*((volatile uint32_t *)0x40038008)) // ADC0 interrupt mask
+#define ADCISC_0 (*((volatile uint32_t *)0x4003800C)) // ADC0 interrupt clear
+#define ADCSSFIFO3_0 (*((volatile uint32_t *)0x400380A8)) // ADC0 SS3 result (FIFO)
 
 
 #endif //__HEADER2_H__

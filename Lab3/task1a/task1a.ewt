@@ -2326,6 +2326,9 @@
         <name>$PROJ_DIR$\Lab3_Task1a.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\lab3t1a.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\PLL_Header.h</name>
     </file>
 </project>

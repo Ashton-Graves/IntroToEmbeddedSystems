@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 #include "Lab3_Inits.h"
-
+#include "lab3t1a.h"
 // STEP 0b: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
 
@@ -25,16 +25,16 @@ int main(void) {
   while(1) {
     // STEP 5: Change the pattern of LEDs based on the resistance.
     // 5.1: Convert ADC_value to resistance in kilo-ohm
-
+    resistance = ADC_value / 4095.0 * 10.0;
     // 5.2: Change the pattern of LEDs based on the resistance
     if (resistance < 2.5) {
-
+      GPIODATA_N = 0x2; // Set PN1 to 1
     } else if (resistance < 5.0) {
-
+      GPIODATA_N = 0x3; // Set PN1 and PN0 to 1
     } else if (resistance < 7.5) {
-
+      GPIODATA_F = 0x10; // Set PF4 to 1
     } else {
-
+      GPIODATA_N = 0x11; // Set PF4 and PF0 to 1
     }
   }
   return 0;
@@ -43,7 +43,8 @@ int main(void) {
 void ADC0SS3_Handler(void) {
   // STEP 4: Implement the ADC ISR.
   // 4.1: Clear the ADC0 interrupt flag
+  ADCISC_0 |= 0x8; 
 
   // 4.2: Save the ADC value to global variable ADC_value
-
+  ADC_value = (ADCSSFIFO3_0 & 0xFFF); // get 12 ADC result bits
 }
