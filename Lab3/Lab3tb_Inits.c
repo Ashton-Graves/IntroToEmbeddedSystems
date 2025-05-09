@@ -72,6 +72,7 @@ void LED_Init(void) {
 }
 
 void Switch_Init(void) {
+  RCGCGPIO |= 0x100;
   GPIODIR_J = ~(0x3); // Set PJ0 and PJ1 to input w/o affecting others
   GPIODEN_J = 0x3; // Set PJ0 and PJ1 to digital port
   GPIOPUR_J = 0x3; // Set PJ0 and PJ1 pull-up resistor
@@ -131,6 +132,8 @@ void ADCReadPot_Init(void) {
   
   // 2.14: Configure ADCSSCTL3 register
   ADCSSCTL3_0 |= 0x4;
+  
+  ADCSSTSH3_0 |= 0x4;
   
   // 2.15: Set the SS3 interrupt mask
   ADCIM_0 |= 0x8; // The raw interrupt signal from Sample Sequencer 3 (ADCRIS register INR3bit) is sent to the interrupt controller.

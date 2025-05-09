@@ -64,12 +64,12 @@ __weak void SW_Handler(void) {
   // check port + mask when SW1 (PJ0) is pressed
   if((GPIODATA_J & 0x03) == 0x1) { // active low SWs
     GPIOICR_J = 0x1; // clears the flag
-    PLL_Init(PRESET3);
+    PLL_Init(PRESET3); // switches to 12 MHz
   }
   // check port + mask when SW2 (PJ1) is pressed
   else if((GPIODATA_J & 0x03) == 0x2) { 
     GPIOICR_J = 0x2; // clears the flag
-    PLL_Init(PRESET1);
+    PLL_Init(PRESET1); // switches to 120 MHz
   }
 }
 // NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler
