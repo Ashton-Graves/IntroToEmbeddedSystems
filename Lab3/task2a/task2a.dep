@@ -12,6 +12,7 @@
             <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
             <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
             <file>$PROJ_DIR$\main2a.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\task2a.pbd</file>
         </outputs>
         <file>
             <name>$PROJ_DIR$\main.c</name>

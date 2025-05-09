@@ -40,6 +40,11 @@
             <file>$PROJ_DIR$\Debug\Obj\cstartup_M.pbi</file>
             <file>$PROJ_DIR$\main1a.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\lab3t1b.h</file>
+            <file>$PROJ_DIR$\..\task1b\main1b.c</file>
+            <file>$PROJ_DIR$\cstartup_Mtb.c</file>
+            <file>$PROJ_DIR$\Lab3tb_Inits.h</file>
+            <file>$PROJ_DIR$\Lab3tb_Inits.c</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
