@@ -31,7 +31,7 @@ int main(void) {
       // GPIODATA_F = 0x0;
     } else if (resistance < 5.0) {
       GPIODATA_N |= 0x3; // Set PN1 and PN0 to 1
-      GPIODATA_F &= ~(0x11);
+      GPIODATA_F  &= ~(0x11);
       // GPIODATA_F = 0x0;
     } else if (resistance < 7.5) {
       GPIODATA_F |= 0x10; // Set PF4 to 1
