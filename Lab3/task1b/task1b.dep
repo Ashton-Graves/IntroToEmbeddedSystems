@@ -11,6 +11,8 @@
             <file>$PROJ_DIR$\Debug\Obj\cstartup_Mtb.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\Lab3tb_Inits.o</file>
             <file>$PROJ_DIR$\Debug\Obj\Lab3tb_Inits.pbi</file>
+            <file>$PROJ_DIR$\lab3t1b.h</file>
+            <file>$PROJ_DIR$\Lab3tb_Inits.h</file>
             <file>$PROJ_DIR$\main1b.c</file>
             <file>$PROJ_DIR$\Debug\Obj\main.o</file>
             <file>$PROJ_DIR$\Debug\Obj\main1b.pbi</file>
@@ -37,13 +39,11 @@
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$PROJ_DIR$\..\lab3t1a.h</file>
             <file>$PROJ_DIR$\..\lab3t1b.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
             <file>$PROJ_DIR$\..\Lab3tb_Inits.h</file>
             <file>$PROJ_DIR$\..\PLL_Header.h</file>
             <file>$PROJ_DIR$\..\Lab3tb_Inits.c</file>
-            <file>$PROJ_DIR$\..\Lab3_Inits.h</file>
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
             <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
         </outputs>
@@ -52,30 +52,40 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 9</file>
+                    <file> 11</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 8</file>
+                    <file> 10</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 19</file>
+                    <file> 21</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 39 40 33 35 31 32 7 6</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 40 35 6 7 33 39 31 32</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\task1b.out</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 16</file>
+                    <file> 18</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 21 2 4 9 15 17 14 13</file>
+                    <file> 23 2 4 11 17 19 16 15</file>
                 </tool>
             </inputs>
         </file>
@@ -84,11 +94,11 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 7</file>
+                    <file> 9</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 11</file>
+                    <file> 13</file>
                 </tool>
             </outputs>
         </file>
@@ -97,7 +107,7 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 10 16</file>
+                    <file> 12 18</file>
                 </tool>
             </outputs>
         </file>
@@ -114,7 +124,7 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 18</file>
+                    <file> 20</file>
                 </tool>
             </outputs>
         </file>
@@ -131,17 +141,17 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 20</file>
+                    <file> 22</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 36 39 40 31 34 29 30 38 32</file>
+                    <file> 37 39 40 33 35 31 32 36 34</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 32 39 38 31 34 36 40 29 30</file>
+                    <file> 34 39 36 33 35 37 40 31 32</file>
                 </tool>
             </inputs>
         </file>
