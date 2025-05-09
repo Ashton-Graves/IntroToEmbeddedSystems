@@ -149,7 +149,7 @@ void TimerADCTriger_Init(void) {
   GPTMCFG_0 |= 0x0; // 32 bit mode
   GPTMTAMR_0 |= 0x2; // set mode = periodic
   GPTMTAMR_0 &= ~(0x10); // set to count down 
-  GPTMTAILR_0 = 16000000; // set threshold
+  GPTMTAILR_0 = 60000000; // set threshold
   GPTMICR_0 = 0x1; // clear pending interrupt timer 0A timeout flag
 
   GPTMCTL_0 |= 0x20; // set TAOTE for timer to trigger ADC
@@ -159,10 +159,6 @@ void TimerADCTriger_Init(void) {
 
   
   GPTMCTL_0 |= 0x1; // enable timer
-  
-  GPTMIMR_0 |= 0x1; // interrupt mask - enables interrupt for Timer 0
-  EN0 |= 0x80000; // enable interrupt 19, the timer0A interrupt
-
 }
 
 // NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler
