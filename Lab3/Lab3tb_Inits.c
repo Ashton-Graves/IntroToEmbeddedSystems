@@ -73,13 +73,24 @@ void LED_Init(void) {
 
 void Switch_Init(void) {
   RCGCGPIO |= 0x100;
+  
+  volatile int delay = 0;
+  delay++;
+  delay++;
+  
   GPIODIR_J = ~(0x3); // Set PJ0 and PJ1 to input w/o affecting others
   GPIODEN_J = 0x3; // Set PJ0 and PJ1 to digital port
   GPIOPUR_J = 0x3; // Set PJ0 and PJ1 pull-up resistor
   GPIOIEV_J &= ~(0x3); // Interrupts on falling ...
   GPIOIS_J &= ~(0x3); //                        ... edges
-  GPIOIM_J |= 0x3; // enables interrupts for PJ0 and PJ1
   GPIOICR_J |= 0x3; // clears interrupt flags for PJ0 and PJ1
+
+  GPIOIM_J |= 0x3; // enables interrupts for PJ0 and PJ1
+  delay++;
+  delay++;
+  EN1 |= 0x80000;
+  delay++;
+  delay++;
   
 }
 
