@@ -3,8 +3,8 @@
  */
 
 #include "PLL_Header.h"
-#include "Lab3_Inits.h"
-#include "lab3t1a.h"
+#include "Lab3tb_Inits.h"
+#include "lab3t1b.h"
 
 // STEP 0a: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
@@ -71,7 +71,16 @@ void LED_Init(void) {
   GPIODATA_N = 0x0; // Set Port N to 0s
 }
 
-void 
+void Switch_Init(void) {
+  GPIODIR_J = ~(0x3); // Set PJ0 and PJ1 to input w/o affecting others
+  GPIODEN_J = 0x3; // Set PJ0 and PJ1 to digital port
+  GPIOPUR_J = 0x3; // Set PJ0 and PJ1 pull-up resistor
+  GPIOIEV_J &= ~(0x3); // Interrupts on falling ...
+  GPIOIS_J &= ~(0x3); //                        ... edges
+  GPIOIM_J |= 0x3; // enables interrupts for PJ0 and PJ1
+  GPIOICR_J |= 0x3; // clears interrupt flags for PJ0 and PJ1
+  
+}
 
 void ADCReadPot_Init(void) {
   // STEP 2: Initialize ADC0 SS3.
@@ -155,12 +164,6 @@ void TimerADCTriger_Init(void) {
   GPTMICR_0 = 0x1; // clear pending interrupt timer 0A timeout flag
 
   GPTMCTL_0 |= 0x20; // set TAOTE for timer to trigger ADC
-
-
   GPTMADCEV_0 |= 0x1; // GPTM A Time-Out Event ADC Trigger Enable
-
-  
   GPTMCTL_0 |= 0x1; // enable timer
 }
-
-// NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler

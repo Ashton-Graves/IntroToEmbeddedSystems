@@ -29,6 +29,7 @@ extern void PendSV_Handler( void );
 extern void SysTick_Handler( void );
 
 extern void ADC0SS3_Handler( void );
+extern void SW_Handler( void );
 
 
 
@@ -115,7 +116,7 @@ const intvec_elem __vector_table[] =
   0,
   0,
   0,
-  0,
+  SW_Handler,                   // Corresponds to PortJ
   0,
   0,
   0,
