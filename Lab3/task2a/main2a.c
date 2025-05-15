@@ -16,11 +16,12 @@ uint32_t index = 0;
 int main(void) {
   // Select system clock frequency preset
   enum frequency freq1 = PRESET3;
+  UART_Init(); // Initialize UART
   PLL_Init(freq1);        // Set system clock frequency to 60 MHz
   Switch_Init();    // Initialize the 2 onboard Switches (GPIO)
   ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
-  UART_Init(); // Initialize UART
+  
   while(1) {}
   return 0;
 }

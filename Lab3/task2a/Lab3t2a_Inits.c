@@ -189,7 +189,7 @@ void TimerADCTriger_Init(void) {
 void UART_Init(void) {
   volatile unsigned short delay = 0;
   RCGCUART |= 0x01; // activate UART0
-  RCGCGPIO |= 0x1; //porta;
+  RCGCGPIO |= 0x1; // porta;
   
   delay++;
   delay++;
