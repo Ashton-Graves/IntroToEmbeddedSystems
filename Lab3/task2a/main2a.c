@@ -11,10 +11,11 @@
 
 float temperature;
 char str[32];
-uint32_t index = 0;
+uint32_t index;
 
 int main(void) {
   // Select system clock frequency preset
+  index = 0;
   enum frequency freq1 = PRESET3;
   UART_Init(); // Initialize UART
   PLL_Init(freq1);        // Set system clock frequency to 60 MHz
