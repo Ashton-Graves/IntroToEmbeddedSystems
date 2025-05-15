@@ -5,84 +5,47 @@
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\task2a.out</file>
+            <file>$PROJ_DIR$\Lab3t2a_Inits.c</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
             <file>$PROJ_DIR$\lab3t2a.h</file>
+            <file>$PROJ_DIR$\main2a.c</file>
+            <file>$PROJ_DIR$\Lab3t2a_Inits.h</file>
+            <file>$PROJ_DIR$\cstartup_Mt2a.c</file>
             <file>$PROJ_DIR$\PLL_Header.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.o</file>
             <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\Lab3t2a_Inits.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\Lab3t2a_Inits.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.pbi</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\cstartup_Mt2a.c</file>
-            <file>$PROJ_DIR$\Lab3t2a_Inits.h</file>
-            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$PROJ_DIR$\Debug\Exe\task2a.out</file>
-            <file>$PROJ_DIR$\main2a.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\task2a.pbd</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
-            <file>$PROJ_DIR$\Lab3t2a_Inits.c</file>
             <file>$PROJ_DIR$\Debug\List\task2a.map</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.o</file>
             <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-            <file>$PROJ_DIR$\..\task1b\main1b.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\Lab3t2a_Inits.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\task2a.pbd</file>
         </outputs>
-        <file>
-            <name>$PROJ_DIR$\cstartup_Mt2a.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 2</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 24</file>
-                </tool>
-            </outputs>
-        </file>
         <file>
             <name>$PROJ_DIR$\Debug\Exe\task2a.out</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 22</file>
+                    <file> 18</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 13 2 5 23 19 9 3 20</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\main2a.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 23</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 25</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 14 15 8 7 6 10 26 27 12 0</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 6 8 12 10 26 0 15 7 27 14</file>
+                    <file> 23 19 10 25 26 13 9 3</file>
                 </tool>
             </inputs>
         </file>
@@ -90,31 +53,51 @@
             <name>$PROJ_DIR$\Lab3t2a_Inits.c</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 5</file>
-                </tool>
-                <tool>
                     <name>BICOMP</name>
-                    <file> 4</file>
+                    <file> 21</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
+                    <name>BICOMP</name>
+                    <file> 4 0 6 24 17 8 14 16 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main2a.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16 24 6 12 20 4 14 17 11 0</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\cstartup_Mt2a.c</name>
+            <outputs>
+                <tool>
                     <name>ICCARM</name>
-                    <file> 1 14 15 8 7 6 10 12 0</file>
+                    <file> 19</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 0 14 12 8 7 1 15 6 10</file>
+                    <file> 15</file>
                 </tool>
-            </inputs>
+            </outputs>
         </file>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 16 22</file>
+                    <file> 18 1</file>
                 </tool>
             </outputs>
         </file>

@@ -16,7 +16,7 @@
 
 
 // GPIO Port A
-#define GPIOAFSEL_A (*((volatile uint32_t *)0x40058528)) // alternate function select
+#define GPIOAFSEL_A (*((volatile uint32_t *)0x40058420)) // alternate function select
 #define GPIODEN_A (*((volatile uint32_t *)0x4005851C)) // digital enable
 #define GPIOPCTL_A (*((volatile uint32_t *)0x4005852C)) // port control - which alternate function?
 
