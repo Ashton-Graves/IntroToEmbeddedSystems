@@ -118,5 +118,16 @@
 #define ADCPSSI_0 (*((volatile uint32_t *)0x40038028)) // ADC0 Sampler Init
 
 
+// UART0
+#define RCGCUART (*((volatile uint32_t *)0x400FE618)) // Clock gating for UART
+#define UARTCC_0 (*((volatile uint32_t *)0x4000CFC8)) // Configures clock used for UART0
+#define UARTIBRD_0 (*((volatile uint32_t *)0x4000C024)) // Integer baud rate divisor 
+#define UARTFBRD_0 (*((volatile uint32_t *)0x4000C028)) // Fractional baud rate divisor
+#define UARTLCRH_0 (*((volatile uint32_t *)0x4000C02C)) // Configures data length, parity, stop bit, etc.
+#define UARTCTL_0 (*((volatile uint32_t *)0x4000C030)) // Enables UART, transmit, receive, etc.
+#define UARTIM_0 (*((volatile uint32_t *)0x4000C038)) // Interrupt mask (what triggers interrupt?)
+#define UARTICR_0 (*((volatile uint32_t *)0x4000C044)) // Clears interrupt
+#define UARTDR_0 (*((volatile uint32_t *)0x4000C000)) // UART0 data (read only)
+
 #endif //__HEADER2_H__
 

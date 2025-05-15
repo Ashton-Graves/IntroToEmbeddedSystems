@@ -29,7 +29,7 @@ extern void PendSV_Handler( void );
 extern void SysTick_Handler( void );
 
 extern void ADC0SS3_Handler( void );
-
+extern void UART0_Handler( void );
 
 
 typedef void( *intfunc )( void );
@@ -69,7 +69,7 @@ const intvec_elem __vector_table[] =
   0,
   0,
   0,
-  0,
+  UART0_Handler,
   0,
   0,
   0,
@@ -199,8 +199,6 @@ __weak void PendSV_Handler( void ) { while (1) {} }
 #pragma call_graph_root = "interrupt"
 __weak void SysTick_Handler( void ) { while (1) {} }
 
-#pragma call_graph_root = "interrupt"
-__weak void ADC0SS3_Handler( void ) { while (1) {} }
 
 
 void __cmain( void );

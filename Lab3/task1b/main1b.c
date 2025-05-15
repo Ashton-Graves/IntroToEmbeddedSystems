@@ -45,7 +45,8 @@ int main(void) {
   return 0;
 }
 
-void ADC0SS3_Handler(void) {
+#pragma call_graph_root = "interrupt"
+__weak void ADC0SS3_Handler(void) {
   // STEP 4: Implement the ADC ISR.
   // 4.1: Clear the ADC0 interrupt flag
   ADCISC_0 |= 0x8; 

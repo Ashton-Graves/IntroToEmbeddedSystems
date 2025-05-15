@@ -3,12 +3,15 @@
 */
 
 #include <stdint.h>
-#include "Lab3tb_Inits.h"
-#include "lab3t1b.h"
+#include "Lab3t2a_Inits.h"
+#include "lab3t2a.h"
 // STEP 0b: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
 
-uint32_t ADC_value;
+
+float temperature;
+char str[32];
+uint32_t index = 0;
 
 int main(void) {
   // Select system clock frequency preset
@@ -17,35 +20,13 @@ int main(void) {
   Switch_Init();    // Initialize the 2 onboard Switches (GPIO)
   ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
-  float temperature;
-  while(1) {
-    // STEP 5: Change the pattern of LEDs based on the resistance.
-    // 5.1b: Convert ADC_value to temp in Celsius
-    temperature = (147.5 - (247.5 * ADC_value) / 4096.0);
-    // 5.2: Change the pattern of LEDs based on the resistance
-    /*
-    if (resistance < 2.5) {
-      GPIODATA_N |= 0x2; // Set PN1 to 1
-      GPIODATA_N &= ~0x1;
-      GPIODATA_F &= ~(0x11);
-      // GPIODATA_F = 0x0;
-    } else if (resistance < 5.0) {
-      GPIODATA_N |= 0x3; // Set PN1 and PN0 to 1
-      GPIODATA_F  &= ~(0x11);
-      // GPIODATA_F = 0x0;
-    } else if (resistance < 7.5) {
-      GPIODATA_F |= 0x10; // Set PF4 to 1
-      GPIODATA_F &= ~(0x1);
-    } else {
-      GPIODATA_F |= 0x11; // Set PF4 and PF0 to 1
-    }
-    */
-    printf("The temperature is %.1f Celsius\n", temperature); // prints the temp
-  }
+  UART_Init(); // Initialize UART
+  while(1) {}
   return 0;
 }
 
-void ADC0SS3_Handler(void) {
+#pragma call_graph_root = "interrupt"
+__weak void ADC0SS3_Handler(void) {
   // STEP 4: Implement the ADC ISR.
   // 4.1: Clear the ADC0 interrupt flag
   ADCISC_0 |= 0x8; 
@@ -54,8 +35,14 @@ void ADC0SS3_Handler(void) {
   ADCPSSI_0 |= 0x8; // Starts the conversion process
   
   while((ADCRIS_0 & 0x8) != 0x0) {} // waits for the conversion to finish
-  ADC_value = ADCSSFIFO3_0; // get 12 ADC result bits
+  uint32_t ADC_value = ADCSSFIFO3_0; // get 12 ADC result bits
   
+  // Convert ADC_value to temp in Celsius
+  temperature = (147.5 - (247.5 * ADC_value) / 4096.0);
+  snprintf(str, sizeof(str), "Temp in C: %.2f\r\n", temperature);
+
+  UARTDR_0 = (0xFF & str[index]);
+  index++;
 }
 
 #pragma call_graph_root = "interrupt"
@@ -76,5 +63,17 @@ __weak void SW_Handler(void) {
     GPIOICR_J = 0xFF; // clears the flag
   }
 }
-// NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler
 
+
+#pragma call_graph_root = "interrupt"
+__weak void UART0_Handler(void) {
+  UARTICR_0 = 0x20;// clear interrupt caused by TXIC (transmit interrupt clear) bit
+  
+  if (str[index] != '\0') {
+    UARTDR_0 = str[index];
+    index++;
+  } else {
+    index = 0;
+  }
+
+}

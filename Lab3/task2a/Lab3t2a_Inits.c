@@ -3,8 +3,8 @@
  */
 
 #include "PLL_Header.h"
-#include "Lab3_Inits.h"
-#include "lab3t1a.h"
+#include "Lab3t2a_Inits.h"
+#include "lab3t2a.h"
 
 // STEP 0a: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
@@ -71,6 +71,29 @@ void LED_Init(void) {
   GPIODATA_N = 0x0; // Set Port N to 0s
 }
 
+void Switch_Init(void) {
+  RCGCGPIO |= 0x100;
+  
+  volatile int delay = 0;
+  delay++;
+  delay++;
+  
+  GPIODIR_J = ~(0x3); // Set PJ0 and PJ1 to input w/o affecting others
+  GPIODEN_J = 0x3; // Set PJ0 and PJ1 to digital port
+  GPIOPUR_J = 0x3; // Set PJ0 and PJ1 pull-up resistor
+  GPIOIEV_J &= ~(0x3); // Interrupts on falling ...
+  GPIOIS_J &= ~(0x3); //                        ... edges
+  GPIOICR_J |= 0x3; // clears interrupt flags for PJ0 and PJ1
+
+  GPIOIM_J |= 0x3; // enables interrupts for PJ0 and PJ1
+  delay++;
+  delay++;
+  EN1 |= 0x80000;
+  delay++;
+  delay++;
+  
+}
+
 void ADCReadPot_Init(void) {
   // STEP 2: Initialize ADC0 SS3.
   // 2.1: Enable the ADC0 clock
@@ -132,6 +155,8 @@ void ADCReadPot_Init(void) {
 
 }
 
+
+
 void TimerADCTriger_Init(void) {
   // STEP 3: Initialize Timer0A to trigger ADC0 at 1 HZ.
   // Hint: Refer to section 13.3.7 of the datasheet
@@ -161,4 +186,29 @@ void TimerADCTriger_Init(void) {
   GPTMCTL_0 |= 0x1; // enable timer
 }
 
-// NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler
+void UART_Init(void) {
+  volatile unsigned short delay = 0;
+  RCGCUART |= 0x01; // activate UART0
+  RCGCGPIO |= 0x1; //porta;
+  
+  delay++;
+  delay++;
+  
+  GPIOAFSEL_A |= 0x3; // PA0 and PA1 alternate function
+  GPIOPCTL_A |= 0x11; //
+  GPIODEN_A |= 0x3; // set PA0 and PA1 to digital pins
+  
+  UARTCC_0 = 0x5; // select alternate clock (PIOSC) 
+
+  UARTIBRD_0 = 104; // integer baud rate divisor
+  UARTFBRD_0 = 11; // fractional baud rate divisor
+
+  UARTLCRH_0 = 0x60; // 8 bit word length, no parity, one stop bit
+  UARTCTL_0 = 0x101; // enable transmit section of UART, and enable UART
+  
+  UARTIM_0 |= 0x20; // set TXIM bit to cause interrupt to be sent to NVIC when transmit is finished
+
+  UARTICR_0 = 0x20; // use this in interrupt handler for interrupt clear
+  EN0 |= 0x20; // enable interrupt 5 (UART0)
+
+}

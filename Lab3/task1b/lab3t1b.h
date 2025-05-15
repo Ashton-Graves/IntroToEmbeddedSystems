@@ -117,6 +117,8 @@
 #define ADCRIS_0 (*((volatile uint32_t *)0x40038004)) // ADC0 Interrupt status
 #define ADCPSSI_0 (*((volatile uint32_t *)0x40038028)) // ADC0 Sampler Init
 
+#define ADCSSTSH3_0 (*((volatile uint32_t *)0x400380BC)) // SS3 HOLDTIME select
+
 
 #endif //__HEADER2_H__
 
