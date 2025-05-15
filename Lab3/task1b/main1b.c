@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include "Lab3tb_Inits.h"
 #include "lab3t1b.h"
+#include <stdio.h>
 // STEP 0b: Include your header file here
 // YOUR CUSTOM HEADER FILE HERE
 

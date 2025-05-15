@@ -143,6 +143,7 @@ void ADCReadPot_Init(void) {
   
   // 2.14: Configure ADCSSCTL3 register
   ADCSSCTL3_0 |= 0x4;
+  ADCISC_0 = 0x8;
   
   // 2.15: Set the SS3 interrupt mask
   ADCIM_0 |= 0x8; // The raw interrupt signal from Sample Sequencer 3 (ADCRIS register INR3bit) is sent to the interrupt controller.
@@ -188,23 +189,26 @@ void TimerADCTriger_Init(void) {
 
 void UART_Init(void) {
   volatile unsigned short delay = 0;
-  RCGCUART |= 0x01; // activate UART0
-  RCGCGPIO |= 0x1; // porta;
+  RCGCUART |= 0x1; // activate UART0
+  RCGCGPIO |= 0x1; // portA;
   
   delay++;
   delay++;
   
   GPIOAFSEL_A |= 0x3; // PA0 and PA1 alternate function
+  GPIOPCTL_A &= ~0xFF;
   GPIOPCTL_A |= 0x11; //
   GPIODEN_A |= 0x3; // set PA0 and PA1 to digital pins
   
+  
+  UARTCTL_0 &= ~0x1;
   UARTCC_0 = 0x5; // select alternate clock (PIOSC) 
 
   UARTIBRD_0 = 104; // integer baud rate divisor
   UARTFBRD_0 = 11; // fractional baud rate divisor
 
   UARTLCRH_0 = 0x60; // 8 bit word length, no parity, one stop bit
-  UARTCTL_0 = 0x101; // enable transmit section of UART, and enable UART
+  UARTCTL_0 |= 0x301; // enable transmit section of UART, and enable UART
   
   UARTIM_0 |= 0x20; // set TXIM bit to cause interrupt to be sent to NVIC when transmit is finished
 

@@ -3,6 +3,7 @@
 */
 
 #include <stdint.h>
+#include <stdio.h>
 #include "Lab3t2a_Inits.h"
 #include "lab3t2a.h"
 // STEP 0b: Include your header file here
@@ -11,19 +12,32 @@
 
 float temperature;
 char str[32];
-uint32_t index;
+uint32_t index = 0;
+uint32_t ADC_value = 0;
+int ADC_NewSamp = 0;
 
 int main(void) {
   // Select system clock frequency preset
-  index = 0;
+  
   enum frequency freq1 = PRESET3;
-  UART_Init(); // Initialize UART
+  
   PLL_Init(freq1);        // Set system clock frequency to 60 MHz
-  Switch_Init();    // Initialize the 2 onboard Switches (GPIO)
+  UART_Init(); // Initialize UART
+  // Switch_Init();    // Initialize the 2 onboard Switches (GPIO)
   ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
+  LED_Init();
   
-  while(1) {}
+  while(1) {
+    if(ADC_NewSamp) {
+      // Convert ADC_value to temp in Celsius
+      temperature = (147.5 - (247.5 * ADC_value) / 4096.0);
+      ADC_NewSamp = 0;
+      snprintf(str, sizeof(str), "Temp in C: %.2f\r\n", temperature);
+      index = 0;
+      UARTDR_0 = str[index];
+    }
+  }
   return 0;
 }
 
@@ -37,14 +51,9 @@ __weak void ADC0SS3_Handler(void) {
   ADCPSSI_0 |= 0x8; // Starts the conversion process
   
   while((ADCRIS_0 & 0x8) != 0x0) {} // waits for the conversion to finish
-  uint32_t ADC_value = ADCSSFIFO3_0; // get 12 ADC result bits
+  ADC_value = ADCSSFIFO3_0; // get 12 ADC result bits
+  ADC_NewSamp = 1;
   
-  // Convert ADC_value to temp in Celsius
-  temperature = (147.5 - (247.5 * ADC_value) / 4096.0);
-  snprintf(str, sizeof(str), "Temp in C: %.2f\r\n", temperature);
-
-  UARTDR_0 = (0xFF & str[index]);
-  index++;
 }
 
 #pragma call_graph_root = "interrupt"
@@ -70,7 +79,7 @@ __weak void SW_Handler(void) {
 #pragma call_graph_root = "interrupt"
 __weak void UART0_Handler(void) {
   UARTICR_0 = 0x20;// clear interrupt caused by TXIC (transmit interrupt clear) bit
-  
+  GPIODATA_F ^= 0x01;
   if (str[index] != '\0') {
     UARTDR_0 = str[index];
     index++;
