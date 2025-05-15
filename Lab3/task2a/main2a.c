@@ -80,9 +80,11 @@ __weak void SW_Handler(void) {
 __weak void UART0_Handler(void) {
   UARTICR_0 = 0x20;// clear interrupt caused by TXIC (transmit interrupt clear) bit
   GPIODATA_F ^= 0x01;
+  
   if (str[index] != '\0') {
-    UARTDR_0 = str[index];
     index++;
+    UARTDR_0 = str[index];
+    
   } else {
     index = 0;
   }

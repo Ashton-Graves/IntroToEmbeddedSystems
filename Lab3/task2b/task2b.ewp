@@ -2030,6 +2030,21 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\cstartup_Mt2b.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\lab3t2b.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Lab3t2b_Inits.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Lab3t2b_Inits.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main2b.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\PLL_Header.h</name>
     </file>
 </project>
