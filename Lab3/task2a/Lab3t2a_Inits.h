@@ -1,6 +1,10 @@
-/**
- * EE/CSE 474: Lab3 drivers header file
- */
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/13/25
+
+* The purpose of this file is to define initialization for functionalities used in Lab 3
+*/
 
 // NOTE: All necessary functions for Task 1a have been declared in
 // this header file, and thus you should not modify it for task 1a.
@@ -30,6 +34,6 @@ void ADCReadPot_Init(void);
 // Initializes Timer 0A to trigger ADC0 at 1 HZ.
 void TimerADCTriger_Init(void);
 
-// LEAVE COMMENT HERE
+// Initializes the UART Module for lab3
 void UART_Init(void);
 #endif  // _Lab3_Inits_H_

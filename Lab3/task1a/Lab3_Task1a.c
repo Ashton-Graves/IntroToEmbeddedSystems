@@ -1,6 +1,11 @@
-/**
- * EE/CSE 474: Lab3 Task1a main function
- */
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/13/25
+
+* This file builds the system specified for Lab3 Task 1a. LED indicator
+  for current potentiometer resistance
+*/
 
 // NOTE: This is the main function for Task 1a. You should start by
 // implementing Lab3_Driver.c (STEP 0a, 1-3) and then come back to finish

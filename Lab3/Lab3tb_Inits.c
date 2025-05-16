@@ -1,6 +1,10 @@
-/**
- * EE/CSE 474: Lab3 drivers starter code
- */
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/13/25
+
+* The purpose of this file is to initialize drivers for functions utilized in Lab3
+*/
 
 #include "PLL_Header.h"
 #include "Lab3tb_Inits.h"
@@ -72,7 +76,7 @@ void LED_Init(void) {
 }
 
 void Switch_Init(void) {
-  RCGCGPIO |= 0x100;
+  RCGCGPIO |= 0x100;  // Enables clock for Port J
   
   volatile int delay = 0;
   delay++;
@@ -88,7 +92,7 @@ void Switch_Init(void) {
   GPIOIM_J |= 0x3; // enables interrupts for PJ0 and PJ1
   delay++;
   delay++;
-  EN1 |= 0x80000;
+  EN1 |= 0x80000;  // Enables Interrupt 51 (Port J)
   delay++;
   delay++;
   

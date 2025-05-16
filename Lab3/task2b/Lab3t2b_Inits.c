@@ -1,6 +1,10 @@
-/**
- * EE/CSE 474: Lab3 drivers starter code
- */
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/13/25
+
+* The purpose of this file is to initialize drivers for functions utilized in Lab3 t2b
+*/
 
 #include "PLL_Header.h"
 #include "Lab3t2b_Inits.h"

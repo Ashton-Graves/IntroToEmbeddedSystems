@@ -1,3 +1,9 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/13/25
+*/
+
 /**************************************************
  *
  * This file contains an interrupt vector for Cortex-M written in C.
@@ -96,7 +102,7 @@ const intvec_elem __vector_table[] =
   0,
   0,
   0,
-  UART2_Handler
+  UART2_Handler                         // UART 2
 };
 
 #pragma call_graph_root = "interrupt"

@@ -1,6 +1,10 @@
-/**
- * EE/CSE 474: Lab3 drivers starter code
- */
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/13/25
+
+* The purpose of this file is to initialize drivers for functions utilized in Lab3
+*/
 
 #include "PLL_Header.h"
 #include "Lab3t2a_Inits.h"
@@ -77,7 +81,7 @@ void LED_Init(void) {
 }
 
 void Switch_Init(void) {
-  RCGCGPIO |= 0x100;
+  RCGCGPIO |= 0x100; // Enables the port J clock
   
   volatile int delay = 0;
   delay++;
@@ -93,7 +97,7 @@ void Switch_Init(void) {
   GPIOIM_J |= 0x3; // enables interrupts for PJ0 and PJ1
   delay++;
   delay++;
-  EN1 |= 0x80000;
+  EN1 |= 0x80000; // Enables Interrupt 51 (Port J)
   delay++;
   delay++;
   
@@ -126,15 +130,6 @@ void ADCReadPot_Init(void) {
   // 2.7: Delay for RCGCGPIO
   delay++; // Delay 2 more cycles before access Timer registers
   delay++; // Refer to Page. 756 of Datasheet for info
-  
-  // 2.8: Set the GPIOAFSEL bits for the ADC input pins
-  //GPIOAFSEL_E |= 0x8; // enable PE3 alternate function
-  
-  // 2.9: Clear the GPIODEN bits for the ADC input pins
-  //GPIODEN_E &= ~(0x8); 
-  
-  // 2.10: Disable the analog isolation circuit for ADC input pins (GPIOAMSEL)
- // GPIOAMSEL_E |= 0x8;
 
   // 2.11: Disable sample sequencer 3 (SS3)
   ADCACTSS_0 &= ~(0x8);
@@ -160,7 +155,6 @@ void ADCReadPot_Init(void) {
   ADCACTSS_0 |= 0x8; 
 
 }
-
 
 
 void TimerADCTriger_Init(void) {
@@ -201,8 +195,8 @@ void UART_Init(void) {
   delay++;
   
   GPIOAFSEL_A |= 0x3; // PA0 and PA1 alternate function
-  GPIOPCTL_A &= ~0xFF;
-  GPIOPCTL_A |= 0x11; //
+  GPIOPCTL_A &= ~0xFF; // Clears previous control bits
+  GPIOPCTL_A |= 0x11; // Set PA0 & 1 alt function to UART Tx and Rx
   GPIODEN_A |= 0x3; // set PA0 and PA1 to digital pins
   
   
