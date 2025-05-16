@@ -23,7 +23,7 @@ int main(void) {
   
   PLL_Init(freq1);        // Set system clock frequency to 60 MHz
   UART_Init(); // Initialize UART
-  // Switch_Init();    // Initialize the 2 onboard Switches (GPIO)
+  Switch_Init();    // Initialize the 2 onboard Switches (GPIO)
   ADCReadPot_Init();     // Initialize ADC0 to read from the potentiometer
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
   LED_Init();
@@ -31,7 +31,7 @@ int main(void) {
   while(1) {
     if(ADC_NewSamp) {
       // Convert ADC_value to temp in Celsius
-      temperature = (147.5 - (247.5 * ADC_value) / 4096.0);
+      temperature = 147.5 - ((247.5 * ADC_value) / 4096.0);
       ADC_NewSamp = 0;
       snprintf(str, sizeof(str), "Temp in C: %.2f\r\n", temperature);
       index = 0;
@@ -53,33 +53,27 @@ __weak void ADC0SS3_Handler(void) {
   while((ADCRIS_0 & 0x8) != 0x0) {} // waits for the conversion to finish
   ADC_value = ADCSSFIFO3_0; // get 12 ADC result bits
   ADC_NewSamp = 1;
-  
 }
 
 #pragma call_graph_root = "interrupt"
 __weak void SW_Handler(void) {
-
+  GPIOICR_J = 0x3; // clears the flag
   // check port + mask when SW1 (PJ0) is pressed
   if((GPIODATA_J & 0x03) == 0x2) { // active low SWs
-    GPIOICR_J = 0x3; // clears the flag
     PLL_Init(PRESET3); // switches to 12 MHz
   }
   // check port + mask when SW2 (PJ1) is pressed
   else if((GPIODATA_J & 0x03) == 0x1) { 
-    GPIOICR_J = 0x3; // clears the flag
     PLL_Init(PRESET1); // switches to 120 MHz
   }
-  else {
-    GPIOICR_J = 0x2; // clears the flag
-    GPIOICR_J = 0xFF; // clears the flag
-  }
+  
 }
 
 
 #pragma call_graph_root = "interrupt"
 __weak void UART0_Handler(void) {
   UARTICR_0 = 0x20;// clear interrupt caused by TXIC (transmit interrupt clear) bit
-  GPIODATA_F ^= 0x01;
+  //GPIODATA_F ^= 0x01;
   
   if (str[index] != '\0') {
     index++;

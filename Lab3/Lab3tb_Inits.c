@@ -95,6 +95,8 @@ void Switch_Init(void) {
 }
 
 void ADCReadPot_Init(void) {
+  //  ********* The following commented-out code is what we used for the demo **********
+  /*
   // STEP 2: Initialize ADC0 SS3.
   // 2.1: Enable the ADC0 clock
   RCGCADC |= 0x1;
@@ -154,7 +156,56 @@ void ADCReadPot_Init(void) {
   
   // 2.17: Enable ADC0 SS3
   ADCACTSS_0 |= 0x8; 
+  */
+  //  ********* Below is our fixed implementation ********** 
+  
+  // STEP 2: Initialize ADC0 SS3.
+  // 2.1: Enable the ADC0 clock
+  RCGCADC |= 0x1;
 
+  // 2.2: Delay for RCGCADC (Refer to page 1073)
+  volatile unsigned short delay = 0;
+  
+  delay++; // Delay 3 more cycles before access ADC registers
+  delay++; // Refer to Page. 1073 of Datasheet for info
+  delay++;
+   
+  // 2.3: Power up the PLL (if not already)
+  PLLFREQ0 |= 0x00800000; // we did this for you
+  
+  // 2.4: Wait for the PLL to lock
+  while (PLLSTAT != 0x1); // we did this for you
+  
+  ADCCC_0 |= 0x1; // Set clock source bit to the ALTCLKCFG clock route
+  ALTCLKCFG = 0x0; // Set the alternative clock source to PIOSC
+    
+  RCGCGPIO |= 0x10; // Enable port E
+  
+  delay++; // Delay 2 more cycles before access Timer registers
+  delay++; // Refer to Page. 756 of Datasheet for info
+
+  // 2.11: Disable sample sequencer 3 (SS3)
+  ADCACTSS_0 &= ~(0x8);
+  
+  // 2.12: Select timer as the trigger for SS3
+  ADCEMUX_0 |= 0x5000; 
+  
+  // 2.13: Select the analog input channel for SS3 (Hint: Table 15-1)
+  ADCSSEMUX3_0 |= 0x1; // The sample input is selected from AIN[15:0]
+  ADCSSMUX3_0 |= 0x0; // The sample input is selected from AIN0
+  
+  // 2.14: Configure ADCSSCTL3 register
+  ADCSSCTL3_0 |= 0xE;
+  ADCISC_0 = 0x8;
+  
+  // 2.15: Set the SS3 interrupt mask
+  ADCIM_0 |= 0x8; // The raw interrupt signal from Sample Sequencer 3 (ADCRIS register INR3bit) is sent to the interrupt controller.
+  
+  // 2.16: Set the corresponding bit for ADC0 SS3 in NVIC
+  EN0 |= 0x20000; // enable interrupt 17, the ADC0 SS3 interrupt
+  
+  // 2.17: Enable ADC0 SS3
+  ADCACTSS_0 |= 0x8; 
 }
 
 void TimerADCTriger_Init(void) {

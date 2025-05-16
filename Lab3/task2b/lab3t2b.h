@@ -135,4 +135,18 @@
 #define UARTICR_0 (*((volatile uint32_t *)0x4000C044)) // Clears interrupt
 #define UARTDR_0 (*((volatile uint32_t *)0x4000C000)) // UART0 data (read only)
 
+
+// UART2
+#define UARTCC_2 (*((volatile uint32_t *)0x4000EFC8)) // Configures clock used for UART2
+#define UARTIBRD_2 (*((volatile uint32_t *)0x4000E024)) // Integer baud rate divisor 
+#define UARTFBRD_2 (*((volatile uint32_t *)0x4000E028)) // Fractional baud rate divisor
+#define UARTLCRH_2 (*((volatile uint32_t *)0x4000E02C)) // Configures data length, parity, stop bit, etc.
+#define UARTCTL_2 (*((volatile uint32_t *)0x4000E030)) // Enables UART2, transmit, receive, etc.
+#define UARTIM_2 (*((volatile uint32_t *)0x4000E038)) // Interrupt mask (what triggers interrupt?)
+#define UARTICR_2 (*((volatile uint32_t *)0x4000E044)) // Clears interrupt
+#define UARTDR_2 (*((volatile uint32_t *)0x4000E000)) // UART2 data (read only) 
+#define UARTMIS_2 (*((volatile uint32_t *)0x4000E040)) // UART2 masked interrupt status - for use in ISR conditionals
+#define UARTFR_2 (*((volatile uint32_t *)0x4000E018)) // UART2 flag
+
+
 #endif //__HEADER2B_H__

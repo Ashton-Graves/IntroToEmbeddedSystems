@@ -30,7 +30,7 @@ extern void SysTick_Handler( void );
 
 extern void ADC0SS3_Handler( void );
 extern void UART0_Handler( void );
-
+extern void SW_Handler( void );
 
 typedef void( *intfunc )( void );
 typedef union { intfunc __fun; void * __ptr; } intvec_elem;
@@ -115,7 +115,7 @@ const intvec_elem __vector_table[] =
   0,
   0,
   0,
-  0,
+  SW_Handler,
   0,
   0,
   0,

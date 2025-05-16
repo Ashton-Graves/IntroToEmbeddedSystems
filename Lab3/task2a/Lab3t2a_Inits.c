@@ -62,6 +62,11 @@ void LED_Init(void) {
 
   // YOUR CODE HERE
   RCGCGPIO |= 0x1000 | 0x20; // Enable PortN & PortF GPIO
+  
+  volatile int delay = 0;
+  delay++;
+  delay++;
+  
   GPIODIR_F = 0x11; // Set PF0 and PF4 to output
   GPIODEN_F = 0x11; // Set PF0 and PF4 to digital port
   GPIODATA_F = 0x0; 
@@ -78,7 +83,7 @@ void Switch_Init(void) {
   delay++;
   delay++;
   
-  GPIODIR_J = ~(0x3); // Set PJ0 and PJ1 to input w/o affecting others
+  GPIODIR_J &= ~(0x3); // Set PJ0 and PJ1 to input w/o affecting others
   GPIODEN_J = 0x3; // Set PJ0 and PJ1 to digital port
   GPIOPUR_J = 0x3; // Set PJ0 and PJ1 pull-up resistor
   GPIOIEV_J &= ~(0x3); // Interrupts on falling ...
@@ -123,13 +128,13 @@ void ADCReadPot_Init(void) {
   delay++; // Refer to Page. 756 of Datasheet for info
   
   // 2.8: Set the GPIOAFSEL bits for the ADC input pins
-  GPIOAFSEL_E |= 0x8; // enable PE3 alternate function
+  //GPIOAFSEL_E |= 0x8; // enable PE3 alternate function
   
   // 2.9: Clear the GPIODEN bits for the ADC input pins
-  GPIODEN_E &= ~(0x8); 
+  //GPIODEN_E &= ~(0x8); 
   
   // 2.10: Disable the analog isolation circuit for ADC input pins (GPIOAMSEL)
-  GPIOAMSEL_E |= 0x8;
+ // GPIOAMSEL_E |= 0x8;
 
   // 2.11: Disable sample sequencer 3 (SS3)
   ADCACTSS_0 &= ~(0x8);
@@ -138,11 +143,11 @@ void ADCReadPot_Init(void) {
   ADCEMUX_0 |= 0x5000; 
   
   // 2.13: Select the analog input channel for SS3 (Hint: Table 15-1)
-  ADCSSEMUX3_0 |= 0x0; // The sample input is selected from AIN[15:0]
+  ADCSSEMUX3_0 |= 0x1; // The sample input is selected from AIN[15:0]
   ADCSSMUX3_0 |= 0x0; // The sample input is selected from AIN0
   
   // 2.14: Configure ADCSSCTL3 register
-  ADCSSCTL3_0 |= 0x4;
+  ADCSSCTL3_0 |= 0xE;
   ADCISC_0 = 0x8;
   
   // 2.15: Set the SS3 interrupt mask
@@ -175,7 +180,7 @@ void TimerADCTriger_Init(void) {
   GPTMCFG_0 |= 0x0; // 32 bit mode
   GPTMTAMR_0 |= 0x2; // set mode = periodic
   GPTMTAMR_0 &= ~(0x10); // set to count down 
-  GPTMTAILR_0 = 60000000; // set threshold
+  GPTMTAILR_0 = 16000000; // set threshold
   GPTMICR_0 = 0x1; // clear pending interrupt timer 0A timeout flag
 
   GPTMCTL_0 |= 0x20; // set TAOTE for timer to trigger ADC
