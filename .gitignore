@@ -1,5 +1,3 @@
 */Debug/
 */settings/
-*.dep
-*.ewd
-*.ewt
+*.ewp
