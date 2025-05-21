@@ -1,9 +1,3 @@
-/*
-* Ashton Graves, Quan Hoang
-* graveash, qhoang05
-* 05/13/25
-*/
-
 /**************************************************
  *
  * This file contains an interrupt vector for Cortex-M written in C.

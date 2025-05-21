@@ -1,10 +1,6 @@
-/*
-* Ashton Graves, Quan Hoang
-* graveash, qhoang05
-* 05/13/25
-
-* The purpose of this file is to define the PLL to adjust clock frequencies
-*/
+/**
+ * EE/CSE 474: Lab3 header file
+ */
 
 #ifndef _PLL_HEADER_H_
 #define _PLL_HEADER_H_

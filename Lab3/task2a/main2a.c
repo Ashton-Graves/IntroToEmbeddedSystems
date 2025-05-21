@@ -1,10 +1,5 @@
-/*
-* Ashton Graves, Quan Hoang
-* graveash, qhoang05
-* 05/13/25
-
-* This file builds the system specified for Lab3 Task 2a. Sending Internal temperature
-  reading via UART communication protocol
+/**
+ * EE/CSE 474: Lab3 Task1b main function
 */
 
 #include <stdint.h>
@@ -38,10 +33,8 @@ int main(void) {
       // Convert ADC_value to temp in Celsius
       temperature = 147.5 - ((247.5 * ADC_value) / 4096.0);
       ADC_NewSamp = 0;
-      // prints string to an array
       snprintf(str, sizeof(str), "Temp in C: %.2f\r\n", temperature);
       index = 0;
-      // Kickstarts UART transmit
       UARTDR_0 = str[index];
     }
   }
@@ -84,7 +77,7 @@ __weak void UART0_Handler(void) {
   
   if (str[index] != '\0') {
     index++;
-    UARTDR_0 = str[index];  // Continues sending frames until NULL terminator
+    UARTDR_0 = str[index];
     
   } else {
     index = 0;

@@ -1,16 +1,13 @@
-/*
-* Ashton Graves, Quan Hoang
-* graveash, qhoang05
-* 05/13/25
-
-* This file builds the system specified for Lab3 Task 1b. Prints internal temperature
-  based on current clock frequency switch, printing to Terminal IO
+/**
+ * EE/CSE 474: Lab3 Task1b main function
 */
 
 #include <stdint.h>
 #include "Lab3tb_Inits.h"
 #include "lab3t1b.h"
 #include <stdio.h>
+// STEP 0b: Include your header file here
+// YOUR CUSTOM HEADER FILE HERE
 
 uint32_t ADC_value;
 
@@ -23,11 +20,28 @@ int main(void) {
   TimerADCTriger_Init(); // Initialize Timer0A to trigger ADC0
   float temperature;
   while(1) {
-    
-    // Convert ADC_value to temp in Celsius
+    // STEP 5: Change the pattern of LEDs based on the resistance.
+    // 5.1b: Convert ADC_value to temp in Celsius
     temperature = (147.5 - (247.5 * ADC_value) / 4096.0);
-    
-    printf("The temperature is %.1f Celsius\n", temperature); // prints the temp to Terminal IO
+    // 5.2: Change the pattern of LEDs based on the resistance
+    /*
+    if (resistance < 2.5) {
+      GPIODATA_N |= 0x2; // Set PN1 to 1
+      GPIODATA_N &= ~0x1;
+      GPIODATA_F &= ~(0x11);
+      // GPIODATA_F = 0x0;
+    } else if (resistance < 5.0) {
+      GPIODATA_N |= 0x3; // Set PN1 and PN0 to 1
+      GPIODATA_F  &= ~(0x11);
+      // GPIODATA_F = 0x0;
+    } else if (resistance < 7.5) {
+      GPIODATA_F |= 0x10; // Set PF4 to 1
+      GPIODATA_F &= ~(0x1);
+    } else {
+      GPIODATA_F |= 0x11; // Set PF4 and PF0 to 1
+    }
+    */
+    printf("The temperature is %.1f Celsius\n", temperature); // prints the temp
   }
   return 0;
 }
@@ -64,4 +78,5 @@ __weak void SW_Handler(void) {
     GPIOICR_J = 0xFF; // clears the flag
   }
 }
+// NEXT STEP: Go to Lab3_Task1a.c and finish implementing ADC0SS3_Handler
 

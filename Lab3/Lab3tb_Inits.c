@@ -1,10 +1,6 @@
-/*
-* Ashton Graves, Quan Hoang
-* graveash, qhoang05
-* 05/13/25
-
-* The purpose of this file is to initialize drivers for functions utilized in Lab3
-*/
+/**
+ * EE/CSE 474: Lab3 drivers starter code
+ */
 
 #include "PLL_Header.h"
 #include "Lab3tb_Inits.h"
@@ -76,7 +72,7 @@ void LED_Init(void) {
 }
 
 void Switch_Init(void) {
-  RCGCGPIO |= 0x100;  // Enables clock for Port J
+  RCGCGPIO |= 0x100;
   
   volatile int delay = 0;
   delay++;
@@ -92,7 +88,7 @@ void Switch_Init(void) {
   GPIOIM_J |= 0x3; // enables interrupts for PJ0 and PJ1
   delay++;
   delay++;
-  EN1 |= 0x80000;  // Enables Interrupt 51 (Port J)
+  EN1 |= 0x80000;
   delay++;
   delay++;
   
@@ -229,7 +225,7 @@ void TimerADCTriger_Init(void) {
   GPTMCFG_0 |= 0x0; // 32 bit mode
   GPTMTAMR_0 |= 0x2; // set mode = periodic
   GPTMTAMR_0 &= ~(0x10); // set to count down 
-  GPTMTAILR_0 = 60000000; // set threshold
+  GPTMTAILR_0 = 16000000; // set threshold
   GPTMICR_0 = 0x1; // clear pending interrupt timer 0A timeout flag
 
   GPTMCTL_0 |= 0x20; // set TAOTE for timer to trigger ADC

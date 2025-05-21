@@ -1,6 +1,2 @@
-*/Debug/
-*/settings/
-*.dep
-*.ewp
-*.ewt
-*.ewd
+Debug/
+settings/

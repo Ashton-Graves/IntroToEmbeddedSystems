@@ -1,10 +1,6 @@
-/*
-* Ashton Graves, Quan Hoang
-* graveash, qhoang05
-* 05/13/25
-
-* The purpose of this file is to define initialization for functionalities used in Lab 3 t2b
-*/
+/**
+ * EE/CSE 474: Lab3 drivers header file
+ */
 
 // NOTE: All necessary functions for Task 1a have been declared in
 // this header file, and thus you should not modify it for task 1a.

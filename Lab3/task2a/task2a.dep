@@ -5,69 +5,69 @@
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\lab3t2a.h</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$PROJ_DIR$\cstartup_Mt2a.c</file>
-            <file>$PROJ_DIR$\PLL_Header.h</file>
-            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.pbi</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
-            <file>$PROJ_DIR$\Debug\Exe\task2a.out</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
-            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
-            <file>$PROJ_DIR$\Lab3t2a_Inits.h</file>
-            <file>$PROJ_DIR$\main2a.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\PLL_Header.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.pbi</file>
+            <file>$PROJ_DIR$\cstartup_Mt2a.c</file>
+            <file>$PROJ_DIR$\Lab3t2a_Inits.c</file>
+            <file>$PROJ_DIR$\Lab3t2a_Inits.h</file>
+            <file>$PROJ_DIR$\lab3t2a.h</file>
+            <file>$PROJ_DIR$\main2a.c</file>
             <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\Lab3t2a_Inits.o</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.o</file>
             <file>$PROJ_DIR$\Debug\Obj\Lab3t2a_Inits.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\main2a.o</file>
+            <file>$PROJ_DIR$\Debug\Exe\task2a.out</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Lab3t2a_Inits.o</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
             <file>$PROJ_DIR$\Debug\List\task2a.map</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
-            <file>$PROJ_DIR$\Lab3t2a_Inits.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\cstartup_Mt2a.o</file>
+            <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
+            <file>$PROJ_DIR$\..\task1b\main1b.c</file>
             <file>$PROJ_DIR$\Debug\Obj\task2a.pbd</file>
         </outputs>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 7 22</file>
-                </tool>
-            </outputs>
-        </file>
         <file>
             <name>$PROJ_DIR$\cstartup_Mt2a.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 26</file>
+                    <file> 12</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 5</file>
+                    <file> 2</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Debug\Exe\task2a.out</name>
+            <name>$PROJ_DIR$\Lab3t2a_Inits.c</name>
             <outputs>
                 <tool>
-                    <name>ILINK</name>
-                    <file> 22</file>
+                    <name>ICCARM</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>ILINK</name>
-                    <file> 9 26 19 6 4 15 1 10</file>
+                    <name>ICCARM</name>
+                    <file> 1 9 11 14 25 23 0 5 6</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 6 9 5 14 25 1 11 23 0</file>
                 </tool>
             </inputs>
         </file>
@@ -76,44 +76,45 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 6</file>
+                    <file> 17</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 17</file>
+                    <file> 15</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 16 8 13 23 21 14 24 18 11 0</file>
+                    <file> 9 11 14 25 23 0 19 22 5 6</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 21 13 11 14 24 0 8 23 18 16</file>
+                    <file> 23 14 5 0 19 6 11 25 22 9</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\Lab3t2a_Inits.c</name>
+            <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 19</file>
+                    <name>ILINK</name>
+                    <file> 18 24</file>
                 </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\task2a.out</name>
+            <outputs>
                 <tool>
-                    <name>BICOMP</name>
-                    <file> 20</file>
+                    <name>ILINK</name>
+                    <file> 24</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 3 16 8 13 23 21 14 11 0</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 0 16 11 13 23 3 8 21 14</file>
+                    <name>ILINK</name>
+                    <file> 26 12 20 17 10 8 16 21</file>
                 </tool>
             </inputs>
         </file>
