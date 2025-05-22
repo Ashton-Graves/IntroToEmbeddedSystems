@@ -29,7 +29,6 @@ extern void PendSV_Handler( void );
 extern void SysTick_Handler( void );
 
 extern void ADC0SS3_Handler( void );
-extern void UART0_Handler( void );
 extern void SW_Handler( void );
 
 typedef void( *intfunc )( void );

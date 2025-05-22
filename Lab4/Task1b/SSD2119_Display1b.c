@@ -287,7 +287,7 @@ static void LCD_GPIOInit(void){
     unsigned long wait = 0;
 
     // D2
-    SYSCTL_RCGCGPIO_R = 0x8;                    // activate port D
+    SYSCTL_RCGCGPIO_R |= 0x8;                    // activate port D
     wait++;                                     // wait for port activation
     wait++;                                     // wait for port activation
     GPIO_PORTD_DIR_R |= 0x4;                    // make PD2 an output

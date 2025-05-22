@@ -70,7 +70,6 @@
 #define GPTMIMR_0 (*((volatile uint32_t *)0x40030018)) // GPTM interrupt mask
 #define GPTMADCEV_0 (*((volatile uint32_t *)0x40030070)) // GPTM ADC event enable
 #define GPTMCC_0 (*((volatile uint32_t *)0x40030FC8)) // GPTM clock source (0: system clock, 1: ALTCLKCFG clock)
-#define GPTMCC_0 (*((volatile uint32_t *)0x40030FC8)) // GPTM clock source (0: system clock, 1: ALTCLKCFG clock)
 
 
 // Flag polling

@@ -5,7 +5,7 @@
 int main()
 {
   LCD_Init();
-  LCD_ColorFill(0x07E0);
+  LCD_ColorFill(0xF800);
   while (1) { }
   return 0;
   

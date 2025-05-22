@@ -10,6 +10,7 @@
 // YOUR CUSTOM HEADER FILE HERE
 
 int PLL_Init(enum frequency freq) {
+    int currFreq;
     // Do NOT modify this function.
     MOSCCTL &= ~(0x4);                      // Power up MOSC
     MOSCCTL &= ~(0x8);                      // Enable MOSC
@@ -32,20 +33,24 @@ int PLL_Init(enum frequency freq) {
             MEMTIM0 |= (0x5 << 16) | (0x5 << 0);    // Set EWS and FWS
             RSCLKCFG |= 0x3;                        // Set PSYSDIV to use 120 MHZ clock
             RSCLKCFG &= ~0x3FC;                     // Update PSYSDIV field
-            break;
+            currFreq = 120;
+            break; 
         case 60:
             MEMTIM0 |= (0x3 << 22) | (0x3 << 6);    // Set FBCHT and EBCHT
             MEMTIM0 |= (0x2 << 16) | (0x2 << 0);    // Set EWS and FWS
             RSCLKCFG |= 0x7;                        // Set PSYSDIV to use 60 MHZ clock
             RSCLKCFG &= ~0x3F8;                     // Update PSYSDIV field
+            currFreq = 60;
             break;
         case 12:
             MEMTIM0 |= (0x1 << 21) | (0x1 << 5);    // Set FBCE and EBCE
             RSCLKCFG |= 0x27;                       // Set PSYSDIV to use 12 MHZ clock
             RSCLKCFG &= ~0x3D8;                     // Update PSYSDIV field
+            currFreq = 12;
             break;
         default:
             return -1;
+            
     }
 
     RSCLKCFG |= (0x1 << 30);                // Enable new PLL settings
@@ -53,7 +58,7 @@ int PLL_Init(enum frequency freq) {
     while ((PLLSTAT & 0x1) == 0) {};        // Wait for PLL to lock and stabilize
 
     RSCLKCFG |= (0x1u << 31) | (0x1 << 28);  // Use PLL and update Memory Timing Register
-    return 1;
+    return currFreq;
 }
 
 void LED_Init(void) {
@@ -84,8 +89,8 @@ void Switch_Init(void) {
   delay++;
   
   GPIODIR_J &= ~(0x3); // Set PJ0 and PJ1 to input w/o affecting others
-  GPIODEN_J = 0x3; // Set PJ0 and PJ1 to digital port
-  GPIOPUR_J = 0x3; // Set PJ0 and PJ1 pull-up resistor
+  GPIODEN_J |= 0x3; // Set PJ0 and PJ1 to digital port
+  GPIOPUR_J |= 0x3; // Set PJ0 and PJ1 pull-up resistor
   GPIOIEV_J &= ~(0x3); // Interrupts on falling ...
   GPIOIS_J &= ~(0x3); //                        ... edges
   GPIOICR_J |= 0x3; // clears interrupt flags for PJ0 and PJ1
@@ -176,7 +181,9 @@ void TimerADCTriger_Init(void) {
   
   GPTMCTL_0 &= ~(0x1); // disable timer
   
-  GPTMCC_0 = 0x1;
+  GPTMCC_0 |= 0x1;
+  ALTCLKCFG = 0x0; // Set the alternative clock source to PIOSC
+  
   // configures bit, timer mode, and count down/up
   GPTMCFG_0 |= 0x0; // 32 bit mode
   GPTMTAMR_0 |= 0x2; // set mode = periodic
@@ -191,34 +198,4 @@ void TimerADCTriger_Init(void) {
 
   
   GPTMCTL_0 |= 0x1; // enable timer
-}
-
-void UART_Init(void) {
-  volatile unsigned short delay = 0;
-  RCGCUART |= 0x1; // activate UART0
-  RCGCGPIO |= 0x1; // portA;
-  
-  delay++;
-  delay++;
-  
-  GPIOAFSEL_A |= 0x3; // PA0 and PA1 alternate function
-  GPIOPCTL_A &= ~0xFF;
-  GPIOPCTL_A |= 0x11; //
-  GPIODEN_A |= 0x3; // set PA0 and PA1 to digital pins
-  
-  
-  UARTCTL_0 &= ~0x1;
-  UARTCC_0 = 0x5; // select alternate clock (PIOSC) 
-
-  UARTIBRD_0 = 104; // integer baud rate divisor
-  UARTFBRD_0 = 11; // fractional baud rate divisor
-
-  UARTLCRH_0 = 0x60; // 8 bit word length, no parity, one stop bit
-  UARTCTL_0 |= 0x301; // enable transmit section of UART, and enable UART
-  
-  UARTIM_0 |= 0x20; // set TXIM bit to cause interrupt to be sent to NVIC when transmit is finished
-
-  UARTICR_0 = 0x20; // use this in interrupt handler for interrupt clear
-  EN0 |= 0x20; // enable interrupt 5 (UART0)
-
 }

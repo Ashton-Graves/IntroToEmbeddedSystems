@@ -1,0 +1,170 @@
+###############################################################################
+#
+# IAR ELF Linker V8.11.3.13950/W32 for ARM                30/Apr/2025  18:40:26
+# Copyright 2007-2017 IAR Systems AB.
+#
+#    Output file  =  U:\AshtonGraves474\Lab2\task2a\Debug\Exe\task2a.out
+#    Map file     =  U:\AshtonGraves474\Lab2\task2a\Debug\List\task2a.map
+#    Command line =  
+#        -f C:\Users\graveash\AppData\Local\Temp\EWB66.tmp
+#        (U:\AshtonGraves474\Lab2\task2a\Debug\Obj\cstartup_M.o
+#        U:\AshtonGraves474\Lab2\task2a\Debug\Obj\main2a.o
+#        U:\AshtonGraves474\Lab2\task2a\Debug\Obj\timer_t2a.o -o
+#        U:\AshtonGraves474\Lab2\task2a\Debug\Exe\task2a.out --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        U:\AshtonGraves474\Lab2\task2a\Debug\List\task2a.map --config
+#        "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\arm\config\linker\TexasInstruments\TM4C1294NC.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+define block CSTACK with size = 32K, alignment = 8 { };
+define block HEAP with size = 64K, alignment = 8 { };
+"P2":  place in [from 0x20000000 to 0x2003ffff] {
+          rw, block CSTACK, block HEAP };
+
+  Section   Kind        Address    Size  Object
+  -------   ----        -------    ----  ------
+"A0":                              0x90
+  .intvec   const    0x00000000    0x90  cstartup_M.o [1]
+                   - 0x00000090    0x90
+
+"P1":                             0x20c
+  .text     ro code  0x00000090    0xdc  main2a.o [1]
+  .text     ro code  0x0000016c    0xac  timer_t2a.o [1]
+  .text     ro code  0x00000218    0x22  fpinit_M.o [4]
+  .text     ro code  0x0000023a     0x2  cstartup_M.o [1]
+  .text     ro code  0x0000023c    0x1a  cmain.o [5]
+  .text     ro code  0x00000256     0x4  low_level_init.o [3]
+  .text     ro code  0x0000025a     0x4  exit.o [3]
+  .text     ro code  0x0000025e     0x2  cstartup_M.o [1]
+  .text     ro code  0x00000260     0xa  cexit.o [5]
+  .text     ro code  0x0000026a     0x2  cstartup_M.o [1]
+  .text     ro code  0x0000026c    0x14  exit.o [6]
+  .text     ro code  0x00000280    0x10  cstartup_M.o [1]
+  .text     ro code  0x00000290     0x2  cstartup_M.o [1]
+  .text     ro code  0x00000292     0x2  cstartup_M.o [1]
+  .text     ro code  0x00000294     0x2  cstartup_M.o [1]
+  .text     ro code  0x00000296     0x2  cstartup_M.o [1]
+  .text     ro code  0x00000298     0x2  cstartup_M.o [1]
+  .text     ro code  0x0000029a     0x2  cstartup_M.o [1]
+                   - 0x0000029c   0x20c
+
+"P2":                            0x8000
+  CSTACK             0x20000000  0x8000  <Block>
+    CSTACK  uninit   0x20000000  0x8000  <Block tail>
+                   - 0x20008000  0x8000
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+U:\AshtonGraves474\Lab2\task2a\Debug\Obj: [1]
+    cstartup_M.o           34      144
+    main2a.o              220
+    timer_t2a.o           172
+    -------------------------------------------
+    Total:                426      144
+
+command line: [2]
+    -------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [4]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [5]
+    cexit.o                10
+    cmain.o                26
+    -------------------------------------------
+    Total:                 36
+
+shb_l.a: [6]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Linker created                       32 768
+-----------------------------------------------
+    Grand Total:          524      144   32 768
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address  Size  Type      Object
+-----                      -------  ----  ----      ------
+?main                   0x0000023d        Code  Gb  cmain.o [5]
+CSTACK$$Base            0x20000000         --   Gb  - Linker created -
+CSTACK$$Limit           0x20008000         --   Gb  - Linker created -
+Region$$Table$$Base     0x00000000         --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000000         --   Gb  - Linker created -
+Timer0A_Handler         0x000000fd  0x70  Code  Wk  main2a.o [1]
+__cmain                 0x0000023d        Code  Gb  cmain.o [5]
+__exit                  0x0000026d  0x14  Code  Gb  exit.o [6]
+__iar_init_vfp          0x00000219        Code  Gb  fpinit_M.o [4]
+__iar_program_start     0x00000281  0x10  Code  Gb  cstartup_M.o [1]
+__iar_systems$$module {Abs}
+                        0x00000001        Data  Gb  command line/config [2]
+__low_level_init        0x00000257   0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000  0x90  Data  Gb  cstartup_M.o [1]
+_call_main              0x00000249        Code  Gb  cmain.o [5]
+_exit                   0x00000261        Code  Gb  cexit.o [5]
+_main                   0x00000253        Code  Gb  cmain.o [5]
+exit                    0x0000025b   0x4  Code  Gb  exit.o [3]
+main                    0x00000091  0x6c  Code  Gb  main2a.o [1]
+timer_init              0x0000016d  0x88  Code  Gb  timer_t2a.o [1]
+
+
+[1] = U:\AshtonGraves474\Lab2\task2a\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+     524 bytes of readonly  code memory
+     144 bytes of readonly  data memory
+  32 768 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
