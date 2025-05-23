@@ -1,3 +1,5 @@
-Debug/
-settings/
-*.ewp
+[Dd]ebug/
+[Ss]ettings/
+*.ewd
+*.ewt
+*.dep
