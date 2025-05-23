@@ -17,7 +17,7 @@ int currFreq;
 int main(void) {
   // Select system clock frequency preset
   
-  enum frequency freq1 = PRESET3;
+  enum frequency freq1 = PRESET2;
   
   currFreq = PLL_Init(freq1);        // Set system clock frequency to 60 MHz
   Switch_Init();    // Initialize the 2 onboard Switches (GPIO)
@@ -34,8 +34,8 @@ int main(void) {
       temperatureF = temperatureC * 9.0/5.0 + 32;
       ADC_NewSamp = 0;
       //LCD_PrintString(emptystr);
-      snprintf(str, sizeof(str), "The current temperature is %.2f C, %.2f F.\r\n", temperatureC, temperatureF);
-      snprintf(str2, sizeof(str2), "The current clock frequency is %d MHz\r", currFreq);
+      snprintf(str, sizeof(str), "The current temperature is %.2f C, %.2f F.   \r\n", temperatureC, temperatureF);
+      snprintf(str2, sizeof(str2), "The current clock frequency is %d MHz.   \r", currFreq);
       //The current temperature is {temp_C} C, {temp_F} F.
       //LCD_SetTextColor(255, 255, 255);
       //LCD_DrawFilledRect(0, 0, 280, 20, 0xF80000);

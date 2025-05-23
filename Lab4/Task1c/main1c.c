@@ -24,29 +24,10 @@ int main(void) {
   LCD_Init();
   Touch_Init();
   
+  LCD_DrawFilledCircle(80, 180, 30, Color4[9]);
+  LCD_DrawFilledCircle(240, 180, 30, Color4[12]);
+  
   while(1) {
-    if(ADC_NewSamp) {
-      LCD_Goto(0,0);
-      // Convert ADC_value to temp in Celsius
-      temperatureC = 147.5 - ((247.5 * ADC_value) / 4096.0);
-      temperatureF = temperatureC * 9.0/5.0 + 32;
-      ADC_NewSamp = 0;
-      snprintf(str, sizeof(str), "The current temperature is %.2f C, %.2f F.\n", temperatureC, temperatureF);
-      snprintf(str2, sizeof(str2), "The current clock frequency is %d MHz\n", currFreq);
-      
-      // Note: this is for testing touchScreen positions
-      // snprintf(testStr, sizeof(testStr), "The current pos is x%lu, y%lu.        ", Touch_ReadX(), Touch_ReadY());
-      
-      LCD_DrawFilledCircle(80, 180, 30, Color4[9]);
-      LCD_DrawFilledCircle(240, 180, 30, Color4[12]);
-      // The current temperature is {temp_C} C, {temp_F} F.
-      // LCD_SetTextColor(255, 255, 255);
-      // LCD_DrawFilledRect(0, 0, 280, 20, 0xF80000);
-      LCD_PrintString(str);
-      LCD_PrintString(str2);
-      // LCD_PrintString(testStr);
-    }
-    
     // Checks button 1 (blue) for 12Mhz
     if(((Touch_ReadX() >= 950) && (Touch_ReadX() < 1450)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))) {
       currFreq = PLL_Init(PRESET3);
@@ -55,6 +36,29 @@ int main(void) {
     if(((Touch_ReadX() >= 1700) && (Touch_ReadX() < 1900)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
        currFreq = PLL_Init(PRESET1);
     }
+    
+    if(ADC_NewSamp) {
+      LCD_Goto(0,0);
+      // Convert ADC_value to temp in Celsius
+      temperatureC = 147.5 - ((247.5 * ADC_value) / 4096.0);
+      temperatureF = temperatureC * 9.0/5.0 + 32;
+      ADC_NewSamp = 0;
+      snprintf(str, sizeof(str), "The current temperature is %.2f C, %.2f F.      \n", temperatureC, temperatureF);
+      snprintf(str2, sizeof(str2), "The current clock frequency is %d MHz.      \n", currFreq);
+      
+      // Note: this is for testing touchScreen positions
+      snprintf(testStr, sizeof(testStr), "The current pos is x%lu, y%lu.        ", Touch_ReadX(), Touch_ReadY());
+      
+
+      // The current temperature is {temp_C} C, {temp_F} F.
+      // LCD_SetTextColor(255, 255, 255);
+      // LCD_DrawFilledRect(0, 0, 280, 20, 0xF80000);
+      LCD_PrintString(str);
+      LCD_PrintString(str2);
+      // LCD_PrintString(testStr);
+    }
+    
+
 
     
   }
