@@ -1,104 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>1185865690</fileChecksum>
+    <fileChecksum>3408883857</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
-            <file>$PROJ_DIR$\Debug\List\task1a.map</file>
-            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-            <file>$PROJ_DIR$\SSD2119_Touch1a.c</file>
-            <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
             <file>$PROJ_DIR$\main1a.c</file>
-            <file>$PROJ_DIR$\SSD2119_Display1a.c</file>
-            <file>$PROJ_DIR$\Debug\Obj\main1a.o</file>
+            <file>$PROJ_DIR$\Debug\List\task1a.map</file>
             <file>$PROJ_DIR$\SSD2119_Touch1a.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1a.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
             <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-            <file>$PROJ_DIR$\Debug\Obj\task1a.pbd</file>
-            <file>$PROJ_DIR$\Debug\Obj\SSD2119_Touch1a.o</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
-            <file>$PROJ_DIR$\SSD2119_Display1a.h</file>
-            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
             <file>$PROJ_DIR$\Debug\Obj\SSD2119_Touch1a.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+            <file>$PROJ_DIR$\SSD2119_Touch1a.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\SSD2119_Display1a.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$PROJ_DIR$\SSD2119_Display1a.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\SSD2119_Touch1a.o</file>
             <file>$PROJ_DIR$\Debug\Exe\task1a.out</file>
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\tm4c1294ncpdt1a.h</file>
             <file>$PROJ_DIR$\main.c</file>
             <file>$PROJ_DIR$\Debug\Obj\SSD2119_Touch1a.pbi</file>
             <file>$PROJ_DIR$\Debug\Obj\SSD2119_Display1a.o</file>
-            <file>$PROJ_DIR$\tm4c1294ncpdt1a.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\task1a.pbd</file>
             <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
             <file>$PROJ_DIR$\Debug\Obj\SSD2119_Display1a.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1a.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main1a.pbi</file>
             <file>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\Debug\Obj\main1a.__cstat.et</file>
             <file>$PROJ_DIR$\Debug\Obj\SSD2119_Display1a.__cstat.et</file>
             <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
-            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
-            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
-            <file>$PROJ_DIR$\Debug\Obj\main1a.pbi</file>
+            <file>$PROJ_DIR$\PLL_Header.h</file>
+            <file>$PROJ_DIR$\..\Task1b\PLL_Header.h</file>
+            <file>$PROJ_DIR$\..\Task1c\SSD2119_Display1c.h</file>
+            <file>$PROJ_DIR$\..\Task1b\main1b.c</file>
+            <file>$PROJ_DIR$\..\Task1c\SSD2119_Display1c.c</file>
+            <file>$PROJ_DIR$\Lab4t1c_Inits.c</file>
+            <file>$PROJ_DIR$\Lab4t1c_Inits.h</file>
+            <file>$PROJ_DIR$\lab4t1c.h</file>
+            <file>$PROJ_DIR$\..\Task1b\Lab4t1b_Inits.c</file>
+            <file>$PROJ_DIR$\..\Task1c\SSD2119_Touch1c.c</file>
+            <file>$PROJ_DIR$\..\Task1c\main1c.c</file>
+            <file>$PROJ_DIR$\..\Task1b\lab4t1b.h</file>
+            <file>$PROJ_DIR$\..\Task1b\Lab4t1b_Inits.h</file>
+            <file>$PROJ_DIR$\..\Task1c\SSD2119_Touch1c.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 17 0</file>
+                    <file> 16 1</file>
                 </tool>
             </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\SSD2119_Touch1a.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 11</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 16</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 20</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 18 15 30 12 1 26 22 8</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 12 1 8 30 26 22 15 18</file>
-                </tool>
-            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\main1a.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 7</file>
+                    <file> 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 28</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
                     <file> 27</file>
                 </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 12 2 18</file>
+                </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 32</file>
+                    <file> 18 2 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\SSD2119_Touch1a.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 15</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 8</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 14 8 22</file>
+                    <file> 17 11 26 7 13 30 18 2</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 22 8 14</file>
+                    <file> 7 13 2 26 30 18 11 17</file>
                 </tool>
             </inputs>
         </file>
@@ -110,22 +124,22 @@
                     <file> 21</file>
                 </tool>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 28</file>
-                </tool>
-                <tool>
                     <name>BICOMP</name>
                     <file> 24</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 31</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 14 22 18 15 30 12 1 26</file>
+                    <file> 12 18 17 11 26 7 13 30</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 18 22 4 30 15 14 12 1 26</file>
+                    <file> 17 18 5 26 11 12 7 13 30</file>
                 </tool>
             </inputs>
         </file>
@@ -134,13 +148,13 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 0</file>
+                    <file> 1</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 25 7 21 11 23 29 31 13</file>
+                    <file> 29 3 21 15 23 32 25 9</file>
                 </tool>
             </inputs>
         </file>
@@ -149,11 +163,11 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 9</file>
+                    <file> 6</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 2</file>
+                    <file> 4</file>
                 </tool>
             </outputs>
         </file>

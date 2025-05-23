@@ -1,19 +1,23 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.11.3.13950/W32 for ARM                21/May/2025  12:45:08
+# IAR ELF Linker V8.11.3.13950/W32 for ARM                22/May/2025  16:46:56
 # Copyright 2007-2017 IAR Systems AB.
 #
-#    Output file  =  U:\AshtonGraves474\Lab4\Task1a\Debug\Exe\task1a.out
-#    Map file     =  U:\AshtonGraves474\Lab4\Task1a\Debug\List\task1a.map
+#    Output file  =  
+#        C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\Exe\task1a.out
+#    Map file     =  
+#        C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\List\task1a.map
 #    Command line =  
-#        -f C:\Users\graveash\AppData\Local\Temp\EW2E31.tmp
-#        (U:\AshtonGraves474\Lab4\Task1a\Debug\Obj\main1a.o
-#        U:\AshtonGraves474\Lab4\Task1a\Debug\Obj\SSD2119_Display1a.o
-#        U:\AshtonGraves474\Lab4\Task1a\Debug\Obj\SSD2119_Touch1a.o -o
-#        U:\AshtonGraves474\Lab4\Task1a\Debug\Exe\task1a.out --redirect
-#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
-#        U:\AshtonGraves474\Lab4\Task1a\Debug\List\task1a.map --config
-#        "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        -f C:\Users\qhoang05\AppData\Local\Temp\EWE85A.tmp
+#        (C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\Obj\main1a.o
+#        C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\Obj\SSD2119_Display1a.o
+#        C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\Obj\SSD2119_Touch1a.o
+#        -o
+#        C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\Exe\task1a.out
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map
+#        C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\List\task1a.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
 #        8.0\arm\config\linker\TexasInstruments\TM4C1294NC.icf" --semihosting
 #        --entry __iar_program_start --vfe --text_out locale)
 #
@@ -103,7 +107,7 @@ Zero (__iar_zero_init3)
 
     Module               ro code  ro data  rw data
     ------               -------  -------  -------
-U:\AshtonGraves474\Lab4\Task1a\Debug\Obj: [1]
+C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\Obj: [1]
     SSD2119_Display1a.o    1 940                 8
     main1a.o                  16
     ----------------------------------------------
@@ -189,7 +193,7 @@ main                    0x00000893   0x10  Code  Gb  main1a.o [1]
 textColor               0x20000004    0x2  Data  Gb  SSD2119_Display1a.o [1]
 
 
-[1] = U:\AshtonGraves474\Lab4\Task1a\Debug\Obj
+[1] = C:\Users\qhoang05\Desktop\AshtonGraves474\Lab4\Task1a\Debug\Obj
 [2] = command line
 [3] = dl7M_tln.a
 [4] = m7M_tls.a

@@ -2314,7 +2314,22 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\cstartup_Mt1c.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\Task1a\lab4t1c.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\Lab4t1c_Inits.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\Task1a\Lab4t1c_Inits.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main1c.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\Task1a\PLL_Header.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\SSD2119_Display1c.c</name>

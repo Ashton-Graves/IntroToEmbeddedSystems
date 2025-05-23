@@ -31,8 +31,8 @@
  *          YN / Y- / PM6
  ********************************************************************/
 #include <stdint.h>
-#include "tm4c1294ncpdt1a.h"
-#include "SSD2119_Touch1a.h"
+#include "tm4c1294ncpdt1c.h"
+#include "SSD2119_Touch1c.h"
 
 #if !defined TOUCH_USE_ADC0 && !defined TOUCH_USE_ADC1
     #error ADC module is not defined for the touchpad.
