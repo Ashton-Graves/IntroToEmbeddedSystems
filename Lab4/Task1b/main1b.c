@@ -28,9 +28,6 @@ int main(void) {
   
   while(1) {
     if(ADC_NewSamp) {
-      LCD_SetTextColor(0, 0, 0);
-      LCD_PrintString(str);
-      LCD_PrintString(str2);
       LCD_Goto(0,0);
       // Convert ADC_value to temp in Celsius
       temperatureC = 147.5 - ((247.5 * ADC_value) / 4096.0);
@@ -40,11 +37,10 @@ int main(void) {
       snprintf(str, sizeof(str), "The current temperature is %.2f C, %.2f F.\r\n", temperatureC, temperatureF);
       snprintf(str2, sizeof(str2), "The current clock frequency is %d MHz\r", currFreq);
       //The current temperature is {temp_C} C, {temp_F} F.
-      LCD_SetTextColor(255, 255, 255);
+      //LCD_SetTextColor(255, 255, 255);
       //LCD_DrawFilledRect(0, 0, 280, 20, 0xF80000);
       LCD_PrintString(str);
       LCD_PrintString(str2);
-      LCD_Goto(0,0);
     }
   }
   return 0;
@@ -55,13 +51,10 @@ __weak void ADC0SS3_Handler(void) {
   // STEP 4: Implement the ADC ISR.
   // 4.1: Clear the ADC0 interrupt flag
   ADCISC_0 |= 0x8; 
-  
-  // 4.2: Save the ADC value to global variable ADC_value
-  ADCPSSI_0 |= 0x8; // Starts the conversion process
-  
-  while((ADCRIS_0 & 0x8) != 0x0) {} // waits for the conversion to finish
+
   ADC_value = ADCSSFIFO3_0; // get 12 ADC result bits
   ADC_NewSamp = 1;
+  
 }
 
 #pragma call_graph_root = "interrupt"
