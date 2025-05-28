@@ -25,8 +25,8 @@
  *        the bit 7-4 of a GPIO port, which is why the control bus
  *        shown above starts from bit 4, not 0.
  ********************************************************************/
-#include "SSD2119_Display1a.h"
-#include "tm4c1294ncpdt1a.h"
+#include "SSD2119_Display2a.h"
+#include "tm4c1294ncpdt2a.h"
 #include <stdint.h>
 #include <stdarg.h>
 
