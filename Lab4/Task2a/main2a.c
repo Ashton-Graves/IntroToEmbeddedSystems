@@ -23,10 +23,10 @@ int main()
   Touch_Init();
   LCD_ColorFill(Color4[7]);
   
-  LCD_DrawFilledRect(50, 10, 220, 80, Color4[0]);
-  LCD_DrawFilledCircle(90, 50, 30, Color4[12]);
-  LCD_DrawFilledCircle(160, 50, 30, Color4[14]);
-  LCD_DrawFilledCircle(230, 50, 30, Color4[10]);
+  LCD_DrawFilledRect(50, 10, 220, 80, Color4[0]); // black traffic light frame
+  LCD_DrawFilledCircle(90, 50, 30, Color4[4]); // red light
+  LCD_DrawFilledCircle(160, 50, 30, 0xBA8E23); // yellow light
+  LCD_DrawFilledCircle(230, 50, 30, Color4[2]); // green light
   
   LCD_DrawFilledCircle(80, 180, 30, Color4[8]);
   LCD_DrawFilledCircle(240, 180, 30, Color4[8]);
@@ -35,6 +35,21 @@ int main()
   LCD_Goto(35, 24);
   LCD_PrintString("PEDESTRIAN");
   while (1) {
+    // Checks button 1 (blue) for 12Mhz
+    if(((Touch_ReadX() >= 950) && (Touch_ReadX() < 1450)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))) {
+      GPIODATA_N |= 0x01; // LED2 on
+      timer_on(1);
+      timer_off(2);
+    }  
+    // Checks button 2 (red) for 120 Mhz
+    if(((Touch_ReadX() >= 1700) && (Touch_ReadX() < 1900)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
+      GPIODATA_N |= 0x2; // LED1 on
+      timer_on(2);
+      timer_off(1);
+    } else {
+      timer_off(2);
+      timer_off(1);
+    }
     
   }
   return 0;
@@ -58,6 +73,7 @@ __weak void Timer2A_Handler(void) { // pedestrian switch
   TickFct_TrafficLight(0, switch_input(1)); // runs ped timer, if still held, switch_input is read into switch func.
 }
 
+/*
 #pragma call_graph_root = "interrupt"
 __weak void PortE_Handler(void) {
   
@@ -89,3 +105,4 @@ __weak void PortE_Handler(void) {
     GPTMTAILR_2 = GPTMTAILR_2; // refreshes timer 2 count
   }
 }
+  */

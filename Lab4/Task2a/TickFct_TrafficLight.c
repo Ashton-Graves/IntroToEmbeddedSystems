@@ -9,6 +9,7 @@
 # include <stdint.h>
 # include "lab4t2a.h"
 # include "led.h"
+# include "lcd.h"
 
 enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State = TL_Off; // set start
 
@@ -63,21 +64,25 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
 
   switch(TL_State) {   // State actions
      case TL_Stop:
-        LED_on(1); 
+        //LED_on(1); 
+        LCD_red();
         timer_sec_repeat(5, 0);  // Starts 5 sec timer
         break;
 
      case TL_Go:
-        LED_on(3);
+        //LED_on(3);
+        LCD_green();
         break;
 
      case TL_Warn:
-        LED_on(2);
+        //LED_on(2);
+        LCD_yellow();
         timer_sec_repeat(5, 0);  // Resets 5 sec timer
         break;
         
      case TL_Off: 
-        LED_off();
+        //LED_off();
+        LCD_off();
         timer_off(0);  // Turns off timer
         break;
         
