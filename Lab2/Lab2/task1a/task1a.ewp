@@ -755,7 +755,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C1294NC.icf</state>
+                    <state></state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -815,7 +815,7 @@
                 </option>
                 <option>
                     <name>IlinkProgramEntryLabel</name>
-                    <state>__iar_program_start</state>
+                    <state></state>
                 </option>
                 <option>
                     <name>DoFill</name>
@@ -2030,57 +2030,15 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\cstartup_M.c</name>
+        <name>$PROJ_DIR$\lab2t1.h</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\lab4t2a.h</name>
+        <name>$PROJ_DIR$\main1a.c</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\lcd.c</name>
+        <name>$PROJ_DIR$\timer.c</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\lcd.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\led.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\led.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\main2a.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Display2a.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Display2a.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Touch2a.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Touch2a.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\switch.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\switch.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\TickFct_TrafficLight.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\TickFct_TrafficLight.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\timer_t2a.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\timer_t2a.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\tm4c1294ncpdt2a.h</name>
+        <name>$PROJ_DIR$\timer.h</name>
     </file>
 </project>

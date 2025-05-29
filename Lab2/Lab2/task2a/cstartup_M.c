@@ -1,13 +1,11 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 05/01/25
+* 04/30/25
 
 * The purpose of this file is to define the NVIC table which will help in communication
 * with interrupt handler ISRs.
 */
-
-// Lab2 task 2c
 
 /**************************************************
  *
@@ -36,8 +34,6 @@ extern void PendSV_Handler( void );
 extern void SysTick_Handler( void );
 
 extern void Timer0A_Handler( void );
-extern void Timer1A_Handler( void );
-extern void Timer2A_Handler( void );
 
 typedef void( *intfunc )( void );
 typedef union { intfunc __fun; void * __ptr; } intvec_elem;
@@ -71,7 +67,7 @@ const intvec_elem __vector_table[] =
   DebugMon_Handler,
   0,
   PendSV_Handler,
-  SysTick_Handler, // last reserved interrupt
+  SysTick_Handler,
   0,
   0,
   0,
@@ -91,11 +87,7 @@ const intvec_elem __vector_table[] =
   0,
   0,
   0,
-  Timer0A_Handler,
-  0,
-  Timer1A_Handler,
-  0,
-  Timer2A_Handler
+  Timer0A_Handler // interrupt 19, corresponds to timer0
 
 };
 

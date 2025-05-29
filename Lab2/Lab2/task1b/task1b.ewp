@@ -2030,16 +2030,7 @@
         </settings>
     </configuration>
     <file>
-        <name>$PROJ_DIR$\cstartup_M.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\lab4t2a.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\lcd.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\lcd.h</name>
+        <name>$PROJ_DIR$\..\task1a\lab2t1.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\led.c</name>
@@ -2048,19 +2039,7 @@
         <name>$PROJ_DIR$\led.h</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\main2a.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Display2a.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Display2a.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Touch2a.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\SSD2119_Touch2a.h</name>
+        <name>$PROJ_DIR$\main1b.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\switch.c</name>
@@ -2075,12 +2054,9 @@
         <name>$PROJ_DIR$\TickFct_TrafficLight.h</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\timer_t2a.c</name>
+        <name>$PROJ_DIR$\..\task1a\timer.c</name>
     </file>
     <file>
-        <name>$PROJ_DIR$\timer_t2a.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\tm4c1294ncpdt2a.h</name>
+        <name>$PROJ_DIR$\..\task1a\timer.h</name>
     </file>
 </project>
