@@ -21,10 +21,10 @@ void timerN_init(int n) { // int n specifies which timer to init
     GPTMCTL_0 &= ~(0x1); // disable timer
     
     // configures bit, timer mode, and count down/up
-    GPTMCFG_0 |= 0x0; // 32 bit mode
+    GPTMCFG_0 = 0x0; // 32 bit mode
     GPTMTAMR_0 |= 0x2; // set mode = periodic
     GPTMTAMR_0 &= ~(0x10); // set to count down 
-    GPTMTAILR_0 = 16000000; // set threshold
+    GPTMTAILR_0 = 5 * 16000000; // set threshold
     
     //GPTMCTL_0 |= 0x1; // enable timer
     
@@ -87,10 +87,13 @@ void timer_on(int timerN) {
 void timer_off(int timerN) {
   if (timerN == 0) {
     GPTMCTL_0 &= ~(0x1);
+    GPTMTAILR_0 = 5 * 16000000; // set threshold
   } else if (timerN == 1) {
     GPTMCTL_1 &= ~(0x1);
+    GPTMTAILR_1 = 2 * 16000000;
   } else if (timerN == 2) {
     GPTMCTL_2 &= ~(0x1);
+    GPTMTAILR_2 = 2 * 16000000;
   }
 }
 
@@ -98,18 +101,19 @@ void timer_off(int timerN) {
 void timer_sec_repeat(int n, int timerN) {
   if(timerN == 0) {     
     timer_off(0);  // Turns off timer
-    GPTMTAILR_0 = n * 16000000; // sets durration
     GPTMICR_0 = 0x1; // clears flag
+    GPTMCFG_0 = 0x0; // 32 bit mode
+    GPTMTAILR_0 = n * 16000000; // sets durration
     timer_on(0); // Start timer
   } else if (timerN == 1){
     timer_off(1);
-    GPTMTAILR_1 = n * 16000000;
     GPTMICR_1 = 0x1;
+    GPTMTAILR_1 = n * 16000000;
     timer_on(1);
   } else if (timerN == 2){
     timer_off(2);
-    GPTMTAILR_2 = n * 16000000;
     GPTMICR_2 = 0x1;
+    GPTMTAILR_2 = n * 16000000;
     timer_on(2);
   }
 }

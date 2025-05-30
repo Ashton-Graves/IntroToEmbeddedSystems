@@ -9,7 +9,6 @@
 #include <stdint.h>
 #include "lab4t2a.h"
 #include "led.h"
-#include "switch.h"
 #include "TickFct_TrafficLight.h"
 #include "timer_t2a.h"
 #include "SSD2119_Display2a.h"
@@ -25,7 +24,7 @@ int main()
   
   LCD_DrawFilledRect(50, 10, 220, 80, Color4[0]); // black traffic light frame
   LCD_DrawFilledCircle(90, 50, 30, Color4[4]); // red light
-  LCD_DrawFilledCircle(160, 50, 30, 0xBA8E23); // yellow light
+  LCD_DrawFilledCircle(160, 50, 30, 0xAD60); // yellow light
   LCD_DrawFilledCircle(230, 50, 30, Color4[2]); // green light
   
   LCD_DrawFilledCircle(80, 180, 30, Color4[8]);
@@ -40,15 +39,16 @@ int main()
       GPIODATA_N |= 0x01; // LED2 on
       timer_on(1);
       timer_off(2);
-    }  
+    }  else {
+      timer_off(1);
+    }
     // Checks button 2 (red) for 120 Mhz
-    if(((Touch_ReadX() >= 1700) && (Touch_ReadX() < 1900)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
+    if(((Touch_ReadX() >= 1600 && Touch_ReadX() < 2000)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
       GPIODATA_N |= 0x2; // LED1 on
       timer_on(2);
       timer_off(1);
     } else {
-      //timer_off(2);
-      //timer_off(1);
+      timer_off(2);
     }
     
   }
@@ -57,20 +57,23 @@ int main()
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer0A_Handler(void) {
+  //printf("afsafsafsa");
   GPTMICR_0 = 0x1; // clears the flag
   TickFct_TrafficLight(0, 0); // calls tick function to the next state with no input.
 }
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer1A_Handler(void) { // power switch
+  //printf("afsafsafsa");
   GPTMICR_1 = 0x1; // clears the flag
-  TickFct_TrafficLight(switch_input(0), 0); // runs pow timer, if still held, switch_input is read into switch func.
+  TickFct_TrafficLight(1, 0); // runs pow timer, if still held, switch_input is read into switch func.
 }
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer2A_Handler(void) { // pedestrian switch
+  printf("afsafsafsa");
   GPTMICR_2 = 0x1; // clears the flag
-  TickFct_TrafficLight(0, switch_input(1)); // runs ped timer, if still held, switch_input is read into switch func.
+  TickFct_TrafficLight(0,1); // runs ped timer, if still held, switch_input is read into switch func.
 }
 
 /*
