@@ -1,9 +1,9 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 05/01/25
+* 05/30/25
 
-* The purpose of this file is to define registers tailored to the functions we want for lab2
+* The purpose of this file is to define registers tailored to the functions we want for lab4
 */
 
 #ifndef __HEADER2_H__

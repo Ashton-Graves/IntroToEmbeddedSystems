@@ -7,8 +7,6 @@
 */
 
 # include <stdint.h>
-# include "lab4t2a.h"
-# include "led.h"
 # include "lcd.h"
 
 enum TL_States { TL_SMStart, TL_Off, TL_Stop, TL_Go, TL_Warn } TL_State = TL_Off; // set start
