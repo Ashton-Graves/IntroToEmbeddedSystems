@@ -72,11 +72,12 @@ void TickFct_TrafficLight(unsigned long PWR, unsigned long PED)
      case TL_Go:
         //LED_on(3);
         LCD_green();
-        timer_sec_repeat(5, 0);  // Resets 5 sec timer
+        timer_sec_repeat(5, 0); //Resets 5 sec timer
         break;
 
      case TL_Warn:
         //LED_on(2);
+        //timer_sec_repeat(5, 0);  
         LCD_yellow();
         timer_sec_repeat(5, 0);  // Resets 5 sec timer
         break;

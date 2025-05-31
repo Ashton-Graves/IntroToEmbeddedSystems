@@ -101,18 +101,18 @@ void timer_off(int timerN) {
 void timer_sec_repeat(int n, int timerN) {
   if(timerN == 0) {     
     timer_off(0);  // Turns off timer
-    GPTMICR_0 = 0x1; // clears flag
     GPTMCFG_0 = 0x0; // 32 bit mode
     GPTMTAILR_0 = n * 16000000; // sets durration
+    GPTMICR_0 |= 0x1; // clears flag
     timer_on(0); // Start timer
   } else if (timerN == 1){
     timer_off(1);
-    GPTMICR_1 = 0x1;
+    GPTMICR_1 |= 0x1;
     GPTMTAILR_1 = n * 16000000;
     timer_on(1);
   } else if (timerN == 2){
     timer_off(2);
-    GPTMICR_2 = 0x1;
+    GPTMICR_2 |= 0x1;
     GPTMTAILR_2 = n * 16000000;
     timer_on(2);
   }

@@ -21,6 +21,6 @@ void LCD_green() {
 
 void LCD_yellow() {
     LCD_DrawFilledCircle(90, 50, 30, Color4[4]); // red light off
-    LCD_DrawFilledCircle(160, 50, 30, Color4[14]); // yellow light on
     LCD_DrawFilledCircle(230, 50, 30, Color4[2]); // green light off
+    LCD_DrawFilledCircle(160, 50, 30, Color4[14]); // yellow light on
 }

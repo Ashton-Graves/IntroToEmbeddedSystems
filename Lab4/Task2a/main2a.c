@@ -36,15 +36,13 @@ int main()
   while (1) {
     // Checks button 1 (blue) for 12Mhz
     if(((Touch_ReadX() >= 950) && (Touch_ReadX() < 1450)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))) {
-      GPIODATA_N |= 0x01; // LED2 on
       timer_on(1);
       timer_off(2);
     }  else {
       timer_off(1);
     }
     // Checks button 2 (red) for 120 Mhz
-    if(((Touch_ReadX() >= 1600 && Touch_ReadX() < 2000)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
-      GPIODATA_N |= 0x2; // LED1 on
+    if(((Touch_ReadX() >= 1600) && (Touch_ReadX() < 2000)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
       timer_on(2);
       timer_off(1);
     } else {
@@ -58,21 +56,20 @@ int main()
 #pragma call_graph_root = "interrupt"
 __weak void Timer0A_Handler(void) {
   //printf("afsafsafsa");
-  GPTMICR_0 = 0x1; // clears the flag
+  GPTMICR_0 |= 0x1; // clears the flag
   TickFct_TrafficLight(0, 0); // calls tick function to the next state with no input.
 }
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer1A_Handler(void) { // power switch
   //printf("afsafsafsa");
-  GPTMICR_1 = 0x1; // clears the flag
+  GPTMICR_1 |= 0x1; // clears the flag
   TickFct_TrafficLight(1, 0); // runs pow timer, if still held, switch_input is read into switch func.
 }
 
 #pragma call_graph_root = "interrupt"
 __weak void Timer2A_Handler(void) { // pedestrian switch
-  printf("afsafsafsa");
-  GPTMICR_2 = 0x1; // clears the flag
+  GPTMICR_2 |= 0x1; // clears the flag
   TickFct_TrafficLight(0,1); // runs ped timer, if still held, switch_input is read into switch func.
 }
 

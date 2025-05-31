@@ -57,6 +57,8 @@
 #define GPTMRIS_0 (*((volatile uint32_t *)0x4003001C))
 #define GPTMICR_0 (*((volatile uint32_t *)0x40030024)) // GPTM Timer0 interrupt clear
 
+#define GPTMSYNC (*((volatile uint32_t *)0x40030010))  // GPTM Timer sync
+
 // Timer 1A Registers
 #define GPTMCTL_1 (*((volatile uint32_t *)0x4003100C))
 #define GPTMCFG_1 (*((volatile uint32_t *)0x40031000))
