@@ -1,5 +1,9 @@
-/**
- * EE/CSE 474: Lab3 Task1b main function
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/30/25
+
+* The purpose of this file is to display the current temperature and clock frequency as tet on an LCD display.
 */
 
 #include <stdint.h>
@@ -33,12 +37,8 @@ int main(void) {
       temperatureC = 147.5 - ((247.5 * ADC_value) / 4096.0);
       temperatureF = temperatureC * 9.0/5.0 + 32;
       ADC_NewSamp = 0;
-      //LCD_PrintString(emptystr);
       snprintf(str, sizeof(str), "The current temperature is %.2f C, %.2f F.   \r\n", temperatureC, temperatureF);
       snprintf(str2, sizeof(str2), "The current clock frequency is %d MHz.   \r", currFreq);
-      //The current temperature is {temp_C} C, {temp_F} F.
-      //LCD_SetTextColor(255, 255, 255);
-      //LCD_DrawFilledRect(0, 0, 280, 20, 0xF80000);
       LCD_PrintString(str);
       LCD_PrintString(str2);
     }
