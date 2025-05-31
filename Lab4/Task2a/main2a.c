@@ -13,10 +13,12 @@
 #include "timer_t2a.h"
 #include "SSD2119_Display2a.h"
 #include "SSD2119_Touch2a.h"
+#include "../PLL_Init.h"
 int main()
 {
   LCD_Init();
   Touch_Init();
+  PLL_Init(PRESET2);
   timerN_init(0); // timer 0, 1, and 2
   timerN_init(1);
   timerN_init(2);

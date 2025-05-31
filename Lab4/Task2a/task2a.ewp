@@ -2051,6 +2051,15 @@
         <name>$PROJ_DIR$\main2a.c</name>
     </file>
     <file>
+        <name>$PROJ_DIR$\..\PLL_Header.h</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\PLL_Init.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\..\PLL_Init.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\SSD2119_Display2a.c</name>
     </file>
     <file>

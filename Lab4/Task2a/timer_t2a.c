@@ -19,7 +19,7 @@ void timerN_init(int n) { // int n specifies which timer to init
     delay++;
     
     GPTMCTL_0 &= ~(0x1); // disable timer
-    
+    GPTMCC_0 |= 0x1;
     // configures bit, timer mode, and count down/up
     GPTMCFG_0 = 0x0; // 32 bit mode
     GPTMTAMR_0 |= 0x2; // set mode = periodic
@@ -41,6 +41,7 @@ void timerN_init(int n) { // int n specifies which timer to init
     
     //disables timer
     GPTMCTL_1 &= ~(0x1);
+    GPTMCC_1 |= 0x1;
     // configures bit, timer mode, and count down/up
     GPTMCFG_1 |= 0x0;
     GPTMTAMR_1 |= 0x1;
@@ -60,6 +61,7 @@ void timerN_init(int n) { // int n specifies which timer to init
     
     //disables timer
     GPTMCTL_2 &= ~(0x1);
+    GPTMCC_2 |= 0x1;
     // configures bit, timer mode, and count down/up
     GPTMCFG_2 |= 0x0;
     GPTMTAMR_2 |= 0x1;

@@ -56,6 +56,7 @@
     // Flag polling
 #define GPTMRIS_0 (*((volatile uint32_t *)0x4003001C))
 #define GPTMICR_0 (*((volatile uint32_t *)0x40030024)) // GPTM Timer0 interrupt clear
+#define GPTMCC_0 (*((volatile uint32_t *)0x40030FC8)) // gptm clock control
 
 #define GPTMSYNC (*((volatile uint32_t *)0x40030010))  // GPTM Timer sync
 
@@ -68,6 +69,7 @@
     // Flag polling
 #define GPTMRIS_1 (*((volatile uint32_t *)0x4003101C))
 #define GPTMICR_1 (*((volatile uint32_t *)0x40031024))  // GPTM Timer1 interrupt clear
+#define GPTMCC_1 (*((volatile uint32_t *)0x40031FC8)) // gptm clock control
 
 
 // Timer 2A Registers
@@ -79,6 +81,7 @@
     // Flag polling
 #define GPTMRIS_2 (*((volatile uint32_t *)0x4003201C))
 #define GPTMICR_2 (*((volatile uint32_t *)0x40032024))  // GPTM Timer2 interrupt clear
+#define GPTMCC_2 (*((volatile uint32_t *)0x40032FC8)) // gptm clock control
 
 
 // Interrupts
