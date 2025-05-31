@@ -1,10 +1,10 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 05/01/25
+* 05/30/25
 
 * The purpose of this file is to provide function declarations to allow use of onboard timers
-* for lab2, providing the ability to initiate, start, and stop timers 0, 1 and 2.
+* for lab4, providing the ability to initiate, start, and stop timers 0, 1 and 2.
 */
 
 #include <stdint.h>

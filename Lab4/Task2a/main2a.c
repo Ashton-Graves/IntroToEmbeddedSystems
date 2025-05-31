@@ -1,9 +1,9 @@
 /*
 * Ashton Graves, Quan Hoang
 * graveash, qhoang05
-* 05/01/25
+* 05/30/25
 
-* The purpose of this file is to handle operations for lab 2 with the other files.
+* The purpose of this file is to implement a traffic light system on an LCD as specified for Lab 4.
 */
 
 #include <stdint.h>

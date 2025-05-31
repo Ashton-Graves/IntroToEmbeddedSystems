@@ -1,3 +1,12 @@
+/*
+* Ashton Graves, Quan Hoang
+* graveash, qhoang05
+* 05/30/25
+
+* The purpose of this file is to provide function definitions for functions that change the traffic light colors on the
+* LCD used in Lab 4 task 2a.
+*/
+
 #include "SSD2119_Display2a.h"
 #include "lab4t2a.h"
 
