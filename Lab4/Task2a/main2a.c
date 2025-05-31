@@ -36,15 +36,15 @@ int main()
   LCD_Goto(35, 24);
   LCD_PrintString("PEDESTRIAN");
   while (1) {
-    // Checks button 1 (blue) for 12Mhz
+    // Checks button 1 for Power
     if(((Touch_ReadX() >= 950) && (Touch_ReadX() < 1450)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))) {
       timer_on(1);
       timer_off(2);
     }  else {
       timer_off(1);
     }
-    // Checks button 2 (red) for 120 Mhz
-    if(((Touch_ReadX() >= 1600) && (Touch_ReadX() < 2000)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
+    // Checks button 2 for Pedestrian
+    if(((Touch_ReadX() >= 1800) && (Touch_ReadX() < 2200)) && ((Touch_ReadY() >= 750) && (Touch_ReadY() < 950))){
       timer_on(2);
       timer_off(1);
     } else {
