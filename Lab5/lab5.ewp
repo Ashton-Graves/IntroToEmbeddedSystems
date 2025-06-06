@@ -2030,6 +2030,12 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\I2C_Init.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\I2C_Init.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\lab5.h</name>
     </file>
     <file>

@@ -11,12 +11,18 @@
 #include "SSD2119_Display.h"
 #include "SSD2119_Touch.h"
 #include "PLL_Init.h"
+#include "I2C_Init.h"
+
+char testStr[100];
+char testchar[100];
+int data_value;
 int main()
 {
   LCD_Init();
   Touch_Init();
   PLL_Init(PRESET2);
   LCD_ColorFill(Color4[7]);
+  I2C_Init();
   
   LCD_DrawFilledRect(27, 70, 45, 170, Color4[15]); // white key
   LCD_DrawFilledRect(82, 70, 45, 170, Color4[15]); // white key
@@ -28,7 +34,52 @@ int main()
 
 */
   while (1) {
-
+   
+    if(((Touch_ReadX() >= 900) && (Touch_ReadX() < 1250)) && 
+       ((Touch_ReadY() >= 500) && (Touch_ReadY() < 1100))) { // if key 1 pressed, send value 1
+        //I2C_Send(0x01); // for sending actual value (which sound pitch we want)
+        // I2C_Send(0x01);  for sending bit (if we go with sound based on bit placement idea)
+          data_value = 0x01;
+         
+    } 
+    else if (((Touch_ReadX() >= 1300) && (Touch_ReadX() < 1550)) && 
+               ((Touch_ReadY() >= 500) && (Touch_ReadY() < 1100))) {  // if key 2 pressed, send value 2
+        //I2C_Send(0x02); // for sending actual value (which sound pitch we want)
+        // I2C_Send(0x02);  for sending bit (if we go with sound based on bit placement idea)
+       data_value = 0x02;
+    } 
+    else if (((Touch_ReadX() >= 1650) && (Touch_ReadX() < 1800)) && 
+               ((Touch_ReadY() >= 500) && (Touch_ReadY() < 1100))) {  // if key 3 pressed, send value 3
+        //I2C_Send(0x03); // for sending actual value (which sound pitch we want)
+        // I2C_Send(0x04);  for sending bit (if we go with sound based on bit placement idea)
+         data_value = 0x03;
+    } 
+    else if (((Touch_ReadX() >= 1850) && (Touch_ReadX() < 1950)) && 
+               ((Touch_ReadY() >= 500) && (Touch_ReadY() < 1100))) {  // if key 4 pressed, send value 4
+        //I2C_Send(0x04); // for sending actual value (which sound pitch we want)
+        // I2C_Send(0x08);  for sending bit (if we go with sound based on bit placement idea)
+       data_value = 0x04;
+    } 
+    else if (((Touch_ReadX() >= 2000) && (Touch_ReadX() < 2100)) && 
+               ((Touch_ReadY() >= 500) && (Touch_ReadY() < 1100))) {  // if key 5 pressed, send value 5
+        //I2C_Send(0x05); // for sending actual value (which sound pitch we want)
+        // I2C_Send(0x10);  for sending bit (if we go with sound based on bit placement idea)
+        data_value = 0x05;
+      
+    } 
+    else { // else (~release key press) = turn off sound
+        //I2C_Send(0);  // not sure what value would turn off the sound
+      data_value = 0x00;
+      
+    }
+    I2C_Send(data_value);
+    
+    // Test function for key placement & value
+    LCD_Goto(0,0);
+    snprintf(testStr, sizeof(testStr), "The current pos is x%lu, y%lu.        \n", Touch_ReadX(), Touch_ReadY());
+    snprintf(testchar, sizeof(testchar), "The current val is %lu.        ", data_value);
+    LCD_PrintString(testStr);
+    LCD_PrintString(testchar);
   }
   return 0;
 }

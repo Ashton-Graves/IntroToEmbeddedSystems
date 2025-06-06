@@ -55,7 +55,7 @@ int main(void) {
       // LCD_DrawFilledRect(0, 0, 280, 20, 0xF80000);
       LCD_PrintString(str);
       LCD_PrintString(str2);
-      // LCD_PrintString(testStr);
+       LCD_PrintString(testStr);
     }
     
 
